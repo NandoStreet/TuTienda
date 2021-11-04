@@ -10,6 +10,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 //prueba David maquina 1
+//prueba maquiba 2
 /**
  *
  * @author David Pablo
