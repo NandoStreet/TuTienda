@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 //prueba maquina 3
 //prueba maquina en 4
 /**
- *
+ * mastor come ping4
  * @author David Pablo
  */
 public class logueo extends javax.swing.JFrame {
