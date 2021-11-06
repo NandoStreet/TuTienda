@@ -32,12 +32,12 @@ public class logueo extends javax.swing.JFrame {
         this.setContentPane(FondoPanel);
         initComponents();
         //Probar coneccion de base de datos
-        try {
-            bd.conectar();
-            st = bd.con.createStatement();
-        } catch (SQLException e){
-            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE,null,"Principal");
-        }
+//        try {
+//            bd.conectar();
+//            st = bd.con.createStatement();
+//        } catch (SQLException e){
+//            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE,null,"Principal");
+//        }
     }
 
     /**
@@ -85,7 +85,7 @@ public class logueo extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(96, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(password)
@@ -121,7 +121,7 @@ public class logueo extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1318, Short.MAX_VALUE)
+            .addGap(0, 1134, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
