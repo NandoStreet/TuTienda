@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 
 public class Basedatos {
     static final String ROOT= "root";
-    static final String URL = "jdbc:mysql://localhost:3306/bd?useSSL=false";
+    static final String URL = "jdbc:mysql://localhost:3306/de_compras_store?useSSL=false";
     
     Connection con;
     Statement st;

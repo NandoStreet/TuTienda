@@ -7,6 +7,11 @@ package tienda;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.security.Principal;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 //prueba David maquina 1
@@ -21,9 +26,18 @@ import javax.swing.JPanel;
 public class logueo extends javax.swing.JFrame {
 
     FondoPanel FondoPanel=new FondoPanel();
+    transient Basedatos bd = new Basedatos ();
+    transient Statement st;
     public logueo() {
         this.setContentPane(FondoPanel);
         initComponents();
+        //Probar coneccion de base de datos
+        try {
+            bd.conectar();
+            st = bd.con.createStatement();
+        } catch (SQLException e){
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE,null,"Principal");
+        }
     }
 
     /**
