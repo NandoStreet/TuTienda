@@ -22,7 +22,7 @@ public class Basedatos {
 
     public Connection conectar(){
         try{
-            con = DriverManager.getConnection(URL,ROOT,"1234");
+            con = DriverManager.getConnection(URL,ROOT,"qwerty");
         }
         catch(SQLException e){
             JOptionPane.showMessageDialog(null, "No se pudo conectar a la base de datos");
