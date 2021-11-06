@@ -13,16 +13,18 @@ public class Login {
     private int id;
     private String correo;
     private String contrasena;
+    private int roles_idrol;
     
     public Login(){
     }
 
-    public Login(int id, String correo, String contrasena) {
+    public Login(int id, String correo, String contrasena, int roles_idrol) {
         this.id = id;
         this.correo = correo;
         this.contrasena = contrasena;
+        this.roles_idrol = roles_idrol;
     }
-    
+
     public int getId() {
         return id;
     }
@@ -45,6 +47,14 @@ public class Login {
 
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
+    }
+
+    public int getRoles_idrol() {
+        return roles_idrol;
+    }
+
+    public void setRoles_idrol(int roles_idrol) {
+        this.roles_idrol = roles_idrol;
     }
     
     

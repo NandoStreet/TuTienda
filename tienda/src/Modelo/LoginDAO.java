@@ -15,24 +15,25 @@ import java.sql.SQLException;
  * @author MOISES
  */
 public class LoginDAO {
-    Connection connection;
-    PreparedStatement statement;
-    ResultSet resulset;
+    Connection con;
+    PreparedStatement ps;
+    ResultSet rs;
     Conexion conexion = new Conexion();
 
     public Login log(String correo, String contrasena){
         Login login = new Login();
-        String sql = "SELECT * FROM administrador,logistica,vendedor WHERE correo = ? AND contrasena = ?";  //a que tabla se referencia
+        String sql = "SELECT * FROM usuarios WHERE correo = ? AND contrasena = ?";  //a que tabla se referencia
         try {
-            connection = conexion.getConnection();
-            statement = connection.prepareStatement(sql);
-            statement.setString(1, correo);    //el indice de la tabla y correo
-            statement.setString(2, contrasena);    //el indice de la tabla y contrasena
-            resulset = statement.executeQuery();
-            if (resulset.next()) {
-                //login.setId(resulset.getInt("id")); //id diferente para cada usuario :/
-                login.setCorreo(resulset.getString("correo"));
-                login.setContrasena(resulset.getString("contrasena"));                
+            con = conexion.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, correo);    //el indice de la tabla y correo
+            ps.setString(2, contrasena);    //el indice de la tabla y contrasena
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                login.setId(rs.getInt("id")); //id diferente para cada usuario :/
+                login.setCorreo(rs.getString("correo"));
+                login.setContrasena(rs.getString("contrasena"));
+                login.setRoles_idrol(rs.getInt("roles_idrol")); 
             }
         } catch (SQLException e) {
             System.out.println(e.toString());

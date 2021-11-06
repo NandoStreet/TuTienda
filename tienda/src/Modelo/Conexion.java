@@ -15,15 +15,15 @@ import javax.swing.JOptionPane;
  * @author MOISES
  */
 public class Conexion {
-    Connection connection;
+    Connection con;
     public Connection getConnection(){
         try {
-            String url = "jdbc:mysql://localhost:3306/tienda";
+            String url = "jdbc:mysql://localhost:3306/de_compras_store";
             String username = "root";
-            String password = "";
+            String password = "qwerty"; 
             
-            connection = DriverManager.getConnection(url, username, password);
-            return connection;
+            con = DriverManager.getConnection(url, username, password);
+            return con;
         } catch (SQLException e) {
             System.out.println(e.toString());
             JOptionPane.showMessageDialog(null, "No se pudo conectar a la base de datos");

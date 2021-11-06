@@ -22,18 +22,18 @@ import javax.swing.JPanel;
 public class administradorRegistrar extends javax.swing.JFrame {
 
     FondoPanel FondoPanel=new FondoPanel();
-    transient Conexion bd = new Conexion();
-    transient Statement st;
+    //transient Conexion bd = new Conexion();
+    //transient Statement st;
     public administradorRegistrar() {
         this.setContentPane(FondoPanel);
         initComponents();
         //Probar coneccion de base de datos
-        try {
+        /*try {
             bd.getConnection();
             st = bd.getConnection().createStatement();
         } catch (SQLException e){
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE,null,"Principal");
-        }
+        }*/
     }
 
     /**

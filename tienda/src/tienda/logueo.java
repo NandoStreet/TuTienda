@@ -5,9 +5,12 @@
  */
 package tienda;
 
+import Modelo.Login;
+import Modelo.LoginDAO;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 //prueba David maquina 1
 //prueba maquiba 2
@@ -19,13 +22,30 @@ import javax.swing.JPanel;
  * @author David Pablo
  */
 public class logueo extends javax.swing.JFrame {
-
+    Login lg = new Login();
+    LoginDAO login = new LoginDAO();
     FondoPanel FondoPanel=new FondoPanel();
+    
     public logueo() {
         this.setContentPane(FondoPanel);
         initComponents();
     }
     
+    public void validar(){
+        String correo = jTextField1.getText();
+        String contrasena = String.valueOf(jPasswordField1.getPassword());
+        
+        if (!"".equals(correo) || !"".equals(contrasena)) {
+            lg = login.log(correo, contrasena);
+            if (lg.getCorreo()!= null && lg.getContrasena() != null) {
+                administradorRegistrar adm = new administradorRegistrar();
+                adm.setVisible(true);
+                dispose();
+            }else{
+                JOptionPane.showMessageDialog(null, "Los datos son incorrectos");
+            }
+        }
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -51,9 +71,11 @@ public class logueo extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(72, 104, 218));
 
-        jPasswordField1.setText("jPasswordField1");
-
-        jTextField1.setText("jTextField1");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jButton1.setBackground(new java.awt.Color(223, 89, 32));
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
@@ -222,9 +244,12 @@ public class logueo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String correo = jTextField1.getText();
-        String contrasena = String.valueOf(jPasswordField1.getPassword());
+        validar();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
