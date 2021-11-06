@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tienda;
 
+import Modelo.Conexion;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.security.Principal;
@@ -26,15 +22,15 @@ import javax.swing.JPanel;
 public class administradorRegistrar extends javax.swing.JFrame {
 
     FondoPanel FondoPanel=new FondoPanel();
-    transient Basedatos bd = new Basedatos ();
+    transient Conexion bd = new Conexion();
     transient Statement st;
     public administradorRegistrar() {
         this.setContentPane(FondoPanel);
         initComponents();
         //Probar coneccion de base de datos
         try {
-            bd.conectar();
-            st = bd.con.createStatement();
+            bd.getConnection();
+            st = bd.getConnection().createStatement();
         } catch (SQLException e){
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE,null,"Principal");
         }

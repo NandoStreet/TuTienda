@@ -8,6 +8,7 @@ package Modelo;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -25,7 +26,7 @@ public class Conexion {
             return connection;
         } catch (SQLException e) {
             System.out.println(e.toString());
-            
+            JOptionPane.showMessageDialog(null, "No se pudo conectar a la base de datos");
         }
         return null;
     }
