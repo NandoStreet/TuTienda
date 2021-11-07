@@ -14,6 +14,7 @@ import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -255,10 +256,10 @@ public class cajeroRegistrarVenta extends javax.swing.JFrame {
         jLabel2.setText("Registrar Venta");
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(187, 187, 255));
         jLabel3.setText("S/.");
 
         jTextField2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jTextField2.setEditable(false);
 
         jButton5.setBackground(new java.awt.Color(0, 153, 255));
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -348,7 +349,26 @@ public class cajeroRegistrarVenta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
+        DefaultTableModel modelo=(DefaultTableModel) jTable1.getModel(); 
+ 
+        //Sección 2
+        Object [] fila=new Object[6]; 
+ 
+        //Sección 3
+        fila[0]=1;
+        fila[1]=12312; 
+        fila[2]="cepillo"; 
+        fila[3]="accesorios de limpieza"; 
+        fila[4]=14.5; 
+        fila[5]=4;
+        
+        fila[6]=Float.parseFloat((String) fila[4])*Integer.parseInt((String) fila[5]);
+ 
+         //Sección 4
+         modelo.addRow(fila); 
+  
+        //Sección 5
+        jTable1.setModel(modelo); 
      
     }//GEN-LAST:event_jButton7ActionPerformed
 
@@ -442,19 +462,7 @@ public class cajeroRegistrarVenta extends javax.swing.JFrame {
             super.paint(g);
         }
     }
-    public class FormatoCabecero extends DefaultTableCellRenderer{
-        private Component componente;
-
-        @Override
-        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
-
-            componente = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column); //To change body of generated methods, choose Tools | Templates.
-
-            componente.setBackground( new Color(65,65,65) );
-            componente.setForeground(Color.white);
-            return componente;
-        }
-    }
+    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton5;
