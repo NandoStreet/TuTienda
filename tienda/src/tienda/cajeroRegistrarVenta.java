@@ -9,6 +9,11 @@ import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import javax.swing.table.JTableHeader;
+import java.awt.Color;
+import java.awt.Component;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 
 /**
  *
@@ -155,11 +160,19 @@ public class cajeroRegistrarVenta extends javax.swing.JFrame {
 
         jScrollPane1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
 
+        //jTable1.setDefaultRenderer (Object.class, new FormatoTabla());
+        JTableHeader jtableHeader = jTable1.getTableHeader();
+        jtableHeader.setDefaultRenderer(new FormatoCabecero());
+        jTable1.setTableHeader(jtableHeader);
         jTable1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jTable1.setForeground(new java.awt.Color(0, 0, 0));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
                 "N°", "CODIGO", "PRODUCTO", "CATEGORIA", "PRECIO", "CANTIDAD", "TOTAL"
@@ -180,7 +193,6 @@ public class cajeroRegistrarVenta extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setColumnSelectionAllowed(true);
         jTable1.setGridColor(new java.awt.Color(51, 51, 51));
         jScrollPane1.setViewportView(jTable1);
 
@@ -287,6 +299,22 @@ public class cajeroRegistrarVenta extends javax.swing.JFrame {
             super.paint(g);
         }
     }
+    public class FormatoCabecero extends DefaultTableCellRenderer{
+    private Component componente;
+    
+    @Override
+    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+ 
+        componente = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column); //To change body of generated methods, choose Tools | Templates.
+
+        
+        //componente.setForeground(Color.white);
+        //jcomponent.setBackground( new Color(236,234,219) );
+        componente.setBackground( new Color(65,65,65) );
+        componente.setForeground(Color.white);
+        return componente;
+    }
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
