@@ -253,6 +253,42 @@ CREATE TABLE IF NOT EXISTS `de_compras_store`.`pagos` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `de_compras_store`.`roles`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `de_compras_store`.`roles` (
+  `idrol` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idrol`),
+  UNIQUE INDEX `idrol_UNIQUE` (`idrol` ASC) VISIBLE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `de_compras_store`.`usuarios`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `de_compras_store`.`usuarios` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(45) NOT NULL,
+  `apellido` VARCHAR(45) NOT NULL,
+  `dni` INT(8) NOT NULL,
+  `roles_idrol` INT NOT NULL,
+  `correo` VARCHAR(45) NOT NULL,
+  `contrasena` VARCHAR(45) NOT NULL,
+  `direccion` VARCHAR(100) NOT NULL,
+  `telefono` INT(9) NOT NULL,
+  `estado` INT(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_usuarios_roles1_idx` (`roles_idrol` ASC) VISIBLE,
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
+  CONSTRAINT `fk_usuarios_roles1`
+    FOREIGN KEY (`roles_idrol`)
+    REFERENCES `de_compras_store`.`roles` (`idrol`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
