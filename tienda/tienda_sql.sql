@@ -14,62 +14,8 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema de_compras_store
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `de_compras_store` ;
+CREATE SCHEMA IF NOT EXISTS `de_compras_store` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
 USE `de_compras_store` ;
-
--- -----------------------------------------------------
--- Table `de_compras_store`.`administrador`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `de_compras_store`.`administrador` (
-  `idadministrador` INT NOT NULL,
-  `nombre` VARCHAR(45) NOT NULL,
-  `apellido` VARCHAR(45) NOT NULL,
-  `dni` INT(8) NOT NULL,
-  `rol` VARCHAR(45) NOT NULL,
-  `correo` VARCHAR(45) NOT NULL,
-  `contrasena` VARCHAR(45) NOT NULL,
-  `direccion` VARCHAR(100) NOT NULL,
-  `telefono` INT(9) NOT NULL,
-  `estado` INT(1) NOT NULL,
-  PRIMARY KEY (`idadministrador`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `de_compras_store`.`logistica`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `de_compras_store`.`logistica` (
-  `idlogistica` INT NOT NULL,
-  `nombre` VARCHAR(45) NOT NULL,
-  `apellido` VARCHAR(45) NOT NULL,
-  `dni` INT(8) NOT NULL,
-  `rol` VARCHAR(45) NOT NULL,
-  `correo` VARCHAR(45) NOT NULL,
-  `contrasena` VARCHAR(45) NOT NULL,
-  `direccion` VARCHAR(100) NOT NULL,
-  `telefono` INT(9) NOT NULL,
-  `estado` INT(1) NOT NULL,
-  PRIMARY KEY (`idlogistica`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `de_compras_store`.`vendedor`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `de_compras_store`.`vendedor` (
-  `idvendedor` INT NOT NULL,
-  `nombre` VARCHAR(45) NOT NULL,
-  `apellido` VARCHAR(45) NOT NULL,
-  `dni` INT(8) NOT NULL,
-  `rol` VARCHAR(45) NOT NULL,
-  `correo` VARCHAR(45) NOT NULL,
-  `contrasena` VARCHAR(45) NOT NULL,
-  `direccion` VARCHAR(100) NOT NULL,
-  `telefono` INT(9) NOT NULL,
-  `estado` INT(1) NOT NULL,
-  PRIMARY KEY (`idvendedor`))
-ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `de_compras_store`.`proveedor`
@@ -79,13 +25,15 @@ CREATE TABLE IF NOT EXISTS `de_compras_store`.`proveedor` (
   `razon_social` VARCHAR(45) NOT NULL,
   `ruc` VARCHAR(45) NOT NULL,
   `representante` VARCHAR(45) NOT NULL,
-  `telefono` INT(9) NOT NULL,
+  `telefono` INT NOT NULL,
   `correo` VARCHAR(45) NOT NULL,
   `distrito` VARCHAR(45) NOT NULL,
   `direccion` VARCHAR(100) NOT NULL,
-  `descripcion` VARCHAR(250) NULL,
+  `descripcion` VARCHAR(250) NULL DEFAULT NULL,
   PRIMARY KEY (`idproveedor`))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
@@ -97,18 +45,18 @@ CREATE TABLE IF NOT EXISTS `de_compras_store`.`producto` (
   `fecha_venc` TIME NOT NULL,
   `nombre` VARCHAR(45) NOT NULL,
   `precio` FLOAT NOT NULL,
-  `stock` INT(11) NOT NULL,
+  `stock` INT NOT NULL,
   `categoria` VARCHAR(45) NOT NULL,
   `marca` VARCHAR(45) NOT NULL,
-  `estado` INT(1) NOT NULL,
+  `estado` INT NOT NULL,
   PRIMARY KEY (`codigo`),
   INDEX `fk_producto_proveedor1_idx` (`proveedor_idproveedor` ASC) VISIBLE,
   CONSTRAINT `fk_producto_proveedor1`
     FOREIGN KEY (`proveedor_idproveedor`)
-    REFERENCES `de_compras_store`.`proveedor` (`idproveedor`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    REFERENCES `de_compras_store`.`proveedor` (`idproveedor`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
@@ -118,9 +66,31 @@ CREATE TABLE IF NOT EXISTS `de_compras_store`.`cliente` (
   `idcliente` INT NOT NULL,
   `nombres` VARCHAR(100) NOT NULL,
   `direccion` VARCHAR(100) NOT NULL,
-  `estado` INT(1) NOT NULL,
+  `estado` INT NOT NULL,
   PRIMARY KEY (`idcliente`))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `de_compras_store`.`vendedor`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `de_compras_store`.`vendedor` (
+  `idvendedor` INT NOT NULL,
+  `nombre` VARCHAR(45) NOT NULL,
+  `apellido` VARCHAR(45) NOT NULL,
+  `dni` INT NOT NULL,
+  `rol` VARCHAR(45) NOT NULL,
+  `correo` VARCHAR(45) NOT NULL,
+  `contrasena` VARCHAR(45) NOT NULL,
+  `direccion` VARCHAR(100) NOT NULL,
+  `telefono` INT NOT NULL,
+  `estado` INT NOT NULL,
+  PRIMARY KEY (`idvendedor`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
@@ -133,27 +103,23 @@ CREATE TABLE IF NOT EXISTS `de_compras_store`.`boleta` (
   `producto_codigo` INT NOT NULL,
   `fecha_venta` DATE NOT NULL,
   `monto` FLOAT NOT NULL,
-  `estado` INT(1) NOT NULL,
+  `estado` INT NOT NULL,
   PRIMARY KEY (`idboleta`),
   INDEX `fk_ventas_vendedor_idx` (`vendedor_idvendedor` ASC) VISIBLE,
   INDEX `fk_ventas_cliente1_idx` (`cliente_idcliente` ASC) VISIBLE,
   INDEX `fk_boleta_producto1_idx` (`producto_codigo` ASC) VISIBLE,
-  CONSTRAINT `fk_ventas_vendedor`
-    FOREIGN KEY (`vendedor_idvendedor`)
-    REFERENCES `de_compras_store`.`vendedor` (`idvendedor`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_ventas_cliente1`
-    FOREIGN KEY (`cliente_idcliente`)
-    REFERENCES `de_compras_store`.`cliente` (`idcliente`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `fk_boleta_producto1`
     FOREIGN KEY (`producto_codigo`)
-    REFERENCES `de_compras_store`.`producto` (`codigo`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    REFERENCES `de_compras_store`.`producto` (`codigo`),
+  CONSTRAINT `fk_ventas_cliente1`
+    FOREIGN KEY (`cliente_idcliente`)
+    REFERENCES `de_compras_store`.`cliente` (`idcliente`),
+  CONSTRAINT `fk_ventas_vendedor`
+    FOREIGN KEY (`vendedor_idvendedor`)
+    REFERENCES `de_compras_store`.`vendedor` (`idvendedor`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
@@ -166,44 +132,20 @@ CREATE TABLE IF NOT EXISTS `de_compras_store`.`ventas` (
   `num_ventas` VARCHAR(100) NOT NULL,
   `fecha_ventas` DATE NOT NULL,
   `monto` FLOAT NOT NULL,
-  `estado` VARCHAR(45) NULL,
-  `ventascol` INT(1) NOT NULL,
+  `estado` VARCHAR(45) NULL DEFAULT NULL,
+  `ventascol` INT NOT NULL,
   PRIMARY KEY (`idventas`),
   INDEX `fk_ventas_cliente2_idx` (`cliente_idcliente` ASC) VISIBLE,
   INDEX `fk_ventas_vendedor1_idx` (`vendedor_idvendedor` ASC) VISIBLE,
   CONSTRAINT `fk_ventas_cliente2`
     FOREIGN KEY (`cliente_idcliente`)
-    REFERENCES `de_compras_store`.`cliente` (`idcliente`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    REFERENCES `de_compras_store`.`cliente` (`idcliente`),
   CONSTRAINT `fk_ventas_vendedor1`
     FOREIGN KEY (`vendedor_idvendedor`)
-    REFERENCES `de_compras_store`.`vendedor` (`idvendedor`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `de_compras_store`.`logistica_has_proveedor`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `de_compras_store`.`logistica_has_proveedor` (
-  `logistica_idlogistica` INT NOT NULL,
-  `proveedor_idproveedor` INT NOT NULL,
-  PRIMARY KEY (`logistica_idlogistica`, `proveedor_idproveedor`),
-  INDEX `fk_logistica_has_proveedor_proveedor1_idx` (`proveedor_idproveedor` ASC) VISIBLE,
-  INDEX `fk_logistica_has_proveedor_logistica1_idx` (`logistica_idlogistica` ASC) VISIBLE,
-  CONSTRAINT `fk_logistica_has_proveedor_logistica1`
-    FOREIGN KEY (`logistica_idlogistica`)
-    REFERENCES `de_compras_store`.`logistica` (`idlogistica`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_logistica_has_proveedor_proveedor1`
-    FOREIGN KEY (`proveedor_idproveedor`)
-    REFERENCES `de_compras_store`.`proveedor` (`idproveedor`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    REFERENCES `de_compras_store`.`vendedor` (`idvendedor`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
@@ -215,20 +157,18 @@ CREATE TABLE IF NOT EXISTS `de_compras_store`.`detalle_ventas` (
   `producto_codigo` INT NOT NULL,
   `cantidad` INT NOT NULL,
   `precioVentas` FLOAT NOT NULL,
+  PRIMARY KEY (`iddetalleventa`, `ventas_idventas`, `producto_codigo`),
   INDEX `fk_ventas_has_producto_producto1_idx` (`producto_codigo` ASC) VISIBLE,
   INDEX `fk_ventas_has_producto_ventas1_idx` (`ventas_idventas` ASC) VISIBLE,
-  PRIMARY KEY (`iddetalleventa`, `ventas_idventas`, `producto_codigo`),
-  CONSTRAINT `fk_ventas_has_producto_ventas1`
-    FOREIGN KEY (`ventas_idventas`)
-    REFERENCES `de_compras_store`.`ventas` (`idventas`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `fk_ventas_has_producto_producto1`
     FOREIGN KEY (`producto_codigo`)
-    REFERENCES `de_compras_store`.`producto` (`codigo`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    REFERENCES `de_compras_store`.`producto` (`codigo`),
+  CONSTRAINT `fk_ventas_has_producto_ventas1`
+    FOREIGN KEY (`ventas_idventas`)
+    REFERENCES `de_compras_store`.`ventas` (`idventas`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
@@ -243,14 +183,50 @@ CREATE TABLE IF NOT EXISTS `de_compras_store`.`pagos` (
   `fecha_pago` DATE NOT NULL,
   `imagen` VARCHAR(250) NOT NULL,
   `administrador_idadministrador` INT NOT NULL,
-  PRIMARY KEY (`idpagos`),
-  INDEX `fk_pagos_administrador1_idx` (`administrador_idadministrador` ASC) VISIBLE,
-  CONSTRAINT `fk_pagos_administrador1`
-    FOREIGN KEY (`administrador_idadministrador`)
-    REFERENCES `de_compras_store`.`administrador` (`idadministrador`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+  PRIMARY KEY (`idpagos`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `de_compras_store`.`roles`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `de_compras_store`.`roles` (
+  `idrol` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idrol`),
+  UNIQUE INDEX `idrol_UNIQUE` (`idrol` ASC) VISIBLE)
+ENGINE = InnoDB
+AUTO_INCREMENT = 4
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `de_compras_store`.`usuarios`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `de_compras_store`.`usuarios` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(45) NOT NULL,
+  `apellido` VARCHAR(45) NOT NULL,
+  `dni` INT NOT NULL,
+  `roles_idrol` INT NOT NULL,
+  `correo` VARCHAR(45) NOT NULL,
+  `contrasena` VARCHAR(45) NOT NULL,
+  `direccion` VARCHAR(100) NOT NULL,
+  `telefono` INT NOT NULL,
+  `estado` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
+  INDEX `fk_usuarios_roles1_idx` (`roles_idrol` ASC) VISIBLE,
+  CONSTRAINT `fk_usuarios_roles1`
+    FOREIGN KEY (`roles_idrol`)
+    REFERENCES `de_compras_store`.`roles` (`idrol`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 2
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
