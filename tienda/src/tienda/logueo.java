@@ -5,6 +5,8 @@
  */
 package tienda;
 
+import Modelo.Login;
+import Modelo.LoginDAO;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -27,10 +29,13 @@ import javax.swing.JTextField;
  * @author David Pablo
  */
 public class logueo extends javax.swing.JFrame {
-
+    //maishet connection
+    Login lg = new Login();
+    LoginDAO login = new LoginDAO();
     FondoPanel FondoPanel=new FondoPanel();
-    transient Basedatos bd = new Basedatos ();
-    transient Statement st;
+    //david connection
+    /*transient Basedatos bd = new Basedatos ();
+    transient Statement st;*/
     public logueo() {
         this.setContentPane(FondoPanel);
         initComponents();
@@ -44,7 +49,21 @@ public class logueo extends javax.swing.JFrame {
 //            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE,null,"Principal");
 //        }
     }
-
+    public void validar(){
+        String correo = user.getText();
+        String contrasena = String.valueOf(password.getPassword());
+        
+        if (!"".equals(correo) || !"".equals(contrasena)) {
+            lg = login.log(correo, contrasena);
+            if (lg.getCorreo()!= null && lg.getContrasena() != null) {
+                administradorRegistrar adm = new administradorRegistrar();
+                adm.setVisible(true);
+                dispose();
+            }else{
+                JOptionPane.showMessageDialog(null, "Los datos son incorrectos");
+            }
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -241,12 +260,7 @@ public class logueo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        metodoLoguin metodoLoguin=new metodoLoguin();
-        if(metodoLoguin.validarIngreso()==1){
-            administradorRegistrar administradorRegistrar=new administradorRegistrar();
-            this.setVisible(false);
-            administradorRegistrar.setVisible(true);
-        }
+        validar();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
