@@ -5,6 +5,7 @@
  */
 package tienda;
 
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.security.Principal;
@@ -13,7 +14,9 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 //prueba David maquina 1
 //prueba maquiba 2
 //prueba maquina 3
@@ -31,6 +34,8 @@ public class logueo extends javax.swing.JFrame {
     public logueo() {
         this.setContentPane(FondoPanel);
         initComponents();
+        placeHolder("Correo", user);
+        placeHolder("Contraseña", password);
         //Probar coneccion de base de datos
 //        try {
 //            bd.conectar();
@@ -310,6 +315,11 @@ class logo extends JPanel
             super.paint(g);
         }
     }
+public void placeHolder(String texto,JTextField textField){
+    TextPrompt placeholder = new TextPrompt(texto, textField);
+    placeholder.changeAlpha(0.75f);
+    placeholder.changeStyle(Font.ITALIC);
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
