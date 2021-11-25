@@ -56,9 +56,23 @@ public class logueo extends javax.swing.JFrame {
         if (!"".equals(correo) || !"".equals(contrasena)) {
             lg = login.log(correo, contrasena);
             if (lg.getCorreo()!= null && lg.getContrasena() != null) {
-                administradorRegistrar adm = new administradorRegistrar();
-                adm.setVisible(true);
-                dispose();
+                if(lg.getRoles_idrol() == 1){
+                    administradorRegistrar adm = new administradorRegistrar();
+                    adm.setVisible(true);
+                    dispose();
+                }
+                if(lg.getRoles_idrol() == 2){
+                    //administradorRegistrar adm = new administradorRegistrar();
+                    //adm.setVisible(true);
+                    JOptionPane.showMessageDialog(null, "Lamar a clase de logistica y ponerlo true putit4s");
+                    // *******clase de logistica y ponerlo true********
+                    dispose();
+                }
+                if(lg.getRoles_idrol() == 3){
+                    usuarioCajero caj = new usuarioCajero();
+                    caj.setVisible(true);
+                    dispose();
+                }
             }else{
                 JOptionPane.showMessageDialog(null, "Los datos son incorrectos");
             }
