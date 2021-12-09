@@ -5,6 +5,9 @@
  */
 package tienda;
 
+import Modelo.Login;
+import Modelo.LoginDAO;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.security.Principal;
@@ -13,7 +16,9 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 //prueba David maquina 1
 //prueba maquiba 2
 //prueba maquina 3
@@ -24,13 +29,18 @@ import javax.swing.JPanel;
  * @author David Pablo
  */
 public class logueo extends javax.swing.JFrame {
-
+    //maishet connection
+    Login lg = new Login();
+    LoginDAO login = new LoginDAO();
     FondoPanel FondoPanel=new FondoPanel();
-    transient Basedatos bd = new Basedatos ();
-    transient Statement st;
+    //david connection
+    /*transient Basedatos bd = new Basedatos ();
+    transient Statement st;*/
     public logueo() {
         this.setContentPane(FondoPanel);
         initComponents();
+        placeHolder("Correo", user);
+        placeHolder("Contraseña", password);
         //Probar coneccion de base de datos
 //        try {
 //            bd.conectar();
@@ -39,7 +49,35 @@ public class logueo extends javax.swing.JFrame {
 //            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE,null,"Principal");
 //        }
     }
-
+    public void validar(){
+        String correo = user.getText();
+        String contrasena = String.valueOf(password.getPassword());
+        
+        if (!"".equals(correo) || !"".equals(contrasena)) {
+            lg = login.log(correo, contrasena);
+            if (lg.getCorreo()!= null && lg.getContrasena() != null) {
+                if(lg.getRoles_idrol() == 1){
+                    administradorRegistrar adm = new administradorRegistrar();
+                    adm.setVisible(true);
+                    dispose();
+                }
+                if(lg.getRoles_idrol() == 2){
+                    //administradorRegistrar adm = new administradorRegistrar();
+                    //adm.setVisible(true);
+                    JOptionPane.showMessageDialog(null, "Lamar a clase de logistica y ponerlo true putit4s");
+                    // *******clase de logistica y ponerlo true********
+                    dispose();
+                }
+                if(lg.getRoles_idrol() == 3){
+                    usuarioCajero caj = new usuarioCajero();
+                    caj.setVisible(true);
+                    dispose();
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "Los datos son incorrectos");
+            }
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -236,12 +274,7 @@ public class logueo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        metodoLoguin metodoLoguin=new metodoLoguin();
-        if(metodoLoguin.validarIngreso()==1){
-            administradorRegistrar administradorRegistrar=new administradorRegistrar();
-            this.setVisible(false);
-            administradorRegistrar.setVisible(true);
-        }
+        validar();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -310,6 +343,11 @@ class logo extends JPanel
             super.paint(g);
         }
     }
+public void placeHolder(String texto,JTextField textField){
+    TextPrompt placeholder = new TextPrompt(texto, textField);
+    placeholder.changeAlpha(0.75f);
+    placeholder.changeStyle(Font.ITALIC);
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

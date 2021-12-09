@@ -1,0 +1,45 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Modelo;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+/**
+ *
+ * @author MOISES
+ */
+public class LoginDAO {
+    Connection con;
+    PreparedStatement ps;
+    ResultSet rs;
+    Conexion conexion = new Conexion();
+
+    public Login log(String correo, String contrasena){
+        Login login = new Login();
+        String sql = "SELECT * FROM usuarios WHERE correo = ? AND contrasena = ?";  //a que tabla se referencia
+        try {
+            con = conexion.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, correo);    //el indice de la tabla y correo
+            ps.setString(2, contrasena);    //el indice de la tabla y contrasena
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                login.setId(rs.getInt("id")); //id diferente para cada usuario :/
+                login.setCorreo(rs.getString("correo"));
+                login.setContrasena(rs.getString("contrasena"));
+                login.setRoles_idrol(rs.getInt("roles_idrol")); 
+            }
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
+        return login;
+    }
+    
+    
+}
