@@ -2,6 +2,16 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Angel/Documents/GitHub/tienda/tienda/src/vista/administradorBuscar.java</file>
+            <file>file:/C:/Users/Angel/Documents/GitHub/tienda/tienda/src/vista/logueo.java</file>
+            <file>file:/C:/Users/Angel/Documents/GitHub/tienda/tienda/src/vista/usuarioCajero.java</file>
+            <file>file:/C:/Users/Angel/Documents/GitHub/tienda/tienda/src/vista/administradorModificar.java</file>
+            <file>file:/C:/Users/Angel/Documents/GitHub/tienda/tienda/src/controlador/NewClass.java</file>
+            <file>file:/C:/Users/Angel/Documents/GitHub/tienda/tienda/src/modelo/dto/loginDTO.java</file>
+            <file>file:/C:/Users/Angel/Documents/GitHub/tienda/tienda/src/controlador/MVC.java</file>
+            <file>file:/C:/Users/Angel/Documents/GitHub/tienda/tienda/src/modelo/dao/loguinDAO.java</file>
+            <file>file:/C:/Users/Angel/Documents/GitHub/tienda/tienda/src/modelo/conexion/Conexion.java</file>
+        </group>
     </open-files>
 </project-private>
