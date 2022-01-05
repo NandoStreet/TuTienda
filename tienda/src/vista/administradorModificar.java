@@ -29,7 +29,7 @@ import javax.swing.border.Border;
 public class administradorModificar extends javax.swing.JFrame {
 
     FondoPanel FondoPanel=new FondoPanel();
-    transient Basedatos bd = new Basedatos ();
+   // transient Basedatos bd = new Basedatos ();
     transient Statement st;
     public administradorModificar() {
         this.setContentPane(FondoPanel);

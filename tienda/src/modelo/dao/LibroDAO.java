@@ -14,13 +14,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.conexion.Conexion;
 import modelo.dto.LibroDTO;
-import modelo.interfaces.Obligacion;
+import modelo.interfaces.crud;
 
 /**
  *
  * @author David
  */
-public class LibroDAO implements Obligacion<LibroDTO> {
+public class LibroDAO implements crud<LibroDTO> {
     
     private static final String SQL_Insert="INSERT into libros(isbn, nobmre ,autor) VALUES (?, ?, ?)";
     private static final String SQL_Delete="DELETE from libros WHERE isbn=?";

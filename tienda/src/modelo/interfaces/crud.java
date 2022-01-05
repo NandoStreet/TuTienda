@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author David
  */
-public interface Obligacion <Cualquiercosa> {
+public interface crud <Cualquiercosa> {
     public boolean create(Cualquiercosa c);
     public boolean delete(Object key);
     public boolean update(Cualquiercosa c);

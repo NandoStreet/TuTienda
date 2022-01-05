@@ -29,18 +29,10 @@ import javax.swing.border.Border;
 public class administradorPagoRegistro extends javax.swing.JFrame {
 
     FondoPanel FondoPanel=new FondoPanel();
-    transient Basedatos bd = new Basedatos ();
+    //transient Basedatos bd = new Basedatos ();
     transient Statement st;
     public administradorPagoRegistro() {
-        this.setContentPane(FondoPanel);
-        initComponents();
-        //Probar coneccion de base de datos
-        try {
-            bd.conectar();
-            st = bd.con.createStatement();
-        } catch (SQLException e){
-            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE,null,"Principal");
-        }
+        
         
     }
 

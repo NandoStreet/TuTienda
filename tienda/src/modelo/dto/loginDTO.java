@@ -67,36 +67,6 @@ public class loginDTO {
         this.roles_idrol = roles_idrol;
     }
     
-    public void validar(){
- 
-        
-        
-        if (!"".equals(getCorreo()) || !"".equals(getContrasena())) {
-
- 
-            
-            if (getCorreo()!= null && getContrasena() != null) {
-                if(getRoles_idrol() == 1){
-                    administradorRegistrar adm = new administradorRegistrar();
-                    adm.setVisible(true);
-                    //dispose();
-                }
-                if(getRoles_idrol() == 2){
-                    administradorRegistrar adm = new administradorRegistrar();
-                    adm.setVisible(true);
-                    JOptionPane.showMessageDialog(null, "Lamar a clase de logistica y ponerlo true putit4s");
-                    // *******clase de logistica y ponerlo true********
-                    //dispose();
-                }
-                if(getRoles_idrol() == 3){
-                    usuarioCajero caj = new usuarioCajero();
-                    caj.setVisible(true);
-                    //dispose();
-                }
-            }else{
-                JOptionPane.showMessageDialog(null, "Los datos son incorrectos");
-            }
-        }
-    }
+   
     
 }

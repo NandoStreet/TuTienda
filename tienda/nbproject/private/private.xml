@@ -3,15 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Angel/Documents/GitHub/tienda/tienda/src/vista/administradorBuscar.java</file>
-            <file>file:/C:/Users/Angel/Documents/GitHub/tienda/tienda/src/vista/logueo.java</file>
-            <file>file:/C:/Users/Angel/Documents/GitHub/tienda/tienda/src/vista/usuarioCajero.java</file>
-            <file>file:/C:/Users/Angel/Documents/GitHub/tienda/tienda/src/vista/administradorModificar.java</file>
-            <file>file:/C:/Users/Angel/Documents/GitHub/tienda/tienda/src/controlador/NewClass.java</file>
-            <file>file:/C:/Users/Angel/Documents/GitHub/tienda/tienda/src/modelo/dto/loginDTO.java</file>
-            <file>file:/C:/Users/Angel/Documents/GitHub/tienda/tienda/src/controlador/MVC.java</file>
-            <file>file:/C:/Users/Angel/Documents/GitHub/tienda/tienda/src/modelo/dao/loguinDAO.java</file>
-            <file>file:/C:/Users/Angel/Documents/GitHub/tienda/tienda/src/modelo/conexion/Conexion.java</file>
+            <file>file:/C:/Users/David%20Pablo/OneDrive/cursos/cursos/7mo%20ciclo/Curso%20nehi/proyecto/tienda/src/modelo/dto/administradorDTO.java</file>
+            <file>file:/C:/Users/David%20Pablo/OneDrive/cursos/cursos/7mo%20ciclo/Curso%20nehi/proyecto/tienda/src/controlador/NewClass.java</file>
+            <file>file:/C:/Users/David%20Pablo/OneDrive/cursos/cursos/7mo%20ciclo/Curso%20nehi/proyecto/tienda/src/modelo/dao/administradorDAO.java</file>
+            <file>file:/C:/Users/David%20Pablo/OneDrive/cursos/cursos/7mo%20ciclo/Curso%20nehi/proyecto/tienda/src/modelo/dao/LibroDAO.java</file>
+            <file>file:/C:/Users/David%20Pablo/OneDrive/cursos/cursos/7mo%20ciclo/Curso%20nehi/proyecto/tienda/src/modelo/conexion/Conexion.java</file>
+            <file>file:/C:/Users/David%20Pablo/OneDrive/cursos/cursos/7mo%20ciclo/Curso%20nehi/proyecto/tienda/src/vista/administradorRegistrar.java</file>
+            <file>file:/C:/Users/David%20Pablo/OneDrive/cursos/cursos/7mo%20ciclo/Curso%20nehi/proyecto/tienda/src/controlador/main.java</file>
+            <file>file:/C:/Users/David%20Pablo/OneDrive/cursos/cursos/7mo%20ciclo/Curso%20nehi/proyecto/tienda/src/modelo/dao/loguinDAO.java</file>
         </group>
     </open-files>
 </project-private>

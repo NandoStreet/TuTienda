@@ -6,17 +6,21 @@
 package controlador;
 
 import modelo.dao.loguinDAO;
+import vista.administradorBuscar;
+import vista.administradorRegistrar;
 import vista.logueo;
 
 /**
  *
  * @author David
  */
-public class MVC {
+public class main {
     public static void main(String[] args){
         logueo lg=new logueo();  
         loguinDAO lDAO= new loguinDAO();
-        NewClass nc=new NewClass(lg, lDAO);
+        administradorRegistrar adm = new administradorRegistrar();
+        administradorBuscar admB= new administradorBuscar(); 
+        NewClass nc=new NewClass(lg,adm, lDAO, admB);
         nc.iniciar();
         
     }
