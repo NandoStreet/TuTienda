@@ -27,7 +27,7 @@ public class logisticaProductosDAO implements crud<logisticaProductosDTO> {
     
     private static final String SQL_Insert="INSERT into producto(codigo, fecha_venc, nombre, precio, stock, categoria, marca, estado, proveedor) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String SQL_Delete="DELETE from producto WHERE codigo=?";
-    private static final String SQL_Update="UPDATE proveedor SET razon_social=?, ruc=?, representante=?, telefono=?, correo=?, distrito=?, direccion=?, descripcion=?, estado=? WHERE ruc=?";
+    private static final String SQL_Update="UPDATE producto SET stock=? WHERE codigo=?";
     private static final String SQL_Read="SELECT * FROM producto WHERE codigo= ?";
     private static final String SQL_ReadAll="SELECT * from usuarios";
     private static final Conexion con=Conexion.saberEstado();//singleton
@@ -88,9 +88,41 @@ public class logisticaProductosDAO implements crud<logisticaProductosDTO> {
 
     @Override
     public boolean update(logisticaProductosDTO c, Object a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+            PreparedStatement ps;
+            try {
 
+                ps=con.getCon().prepareStatement(SQL_Update);
+                ps.setInt(1, c.getStock());
+                ps.setObject(2,a);
+                if(ps.executeUpdate()>0){
+                    return true;
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(CajeroVentasDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }finally{//Es una clausula que se va a ejecutar siempre
+                con.cerrarConexion();
+
+            }
+            return false;
+    }
+    /*public boolean update2(logisticaProductosDTO c, Object a) {
+        PreparedStatement ps;
+        try {
+            
+            ps=con.getCon().prepareStatement(SQL_Update);
+            ps.setInt(1, c.getNum_ventas());
+            ps.setObject(5,a);
+            if(ps.executeUpdate()>0){
+                return true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CajeroVentasDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{//Es una clausula que se va a ejecutar siempre
+            con.cerrarConexion();
+
+        }
+        return false;
+    }*/
     @Override
     public logisticaProductosDTO read(Object key) {
         PreparedStatement ps;

@@ -21,7 +21,7 @@ import modelo.interfaces.crud;
  * @author Angel
  */
 public class CajeroVentasDAO implements crud<CajeroVentasDTO>{
-    private static final String SQL_Insert="INSERT into ventas(num_ventas,fecha_ventas,monto) VALUES (?,?,?)";
+    private static final String SQL_Insert="INSERT into ventas(num_ventas,fecha_ventas,monto,estado) VALUES (?,?,?,?)";
     private static final String SQL_Delete="DELETE from ventas WHERE idventas=?";
     private static final String SQL_Update="UPDATE ventas SET num_ventas=?,fecha_ventas=?,monto=?,estado=? WHERE idventas=?";
     private static final String SQL_Read="SELECT *from ventas WHERE idventas=?";
@@ -37,7 +37,7 @@ public class CajeroVentasDAO implements crud<CajeroVentasDTO>{
             ps.setInt(1, c.getNum_ventas());
             ps.setString(2, c.getFecha_venta());
             ps.setFloat(3, c.getMonto());
-            
+            ps.setString(4, c.getEstado());
             if(ps.executeUpdate()>0){
                 return true;
             }
