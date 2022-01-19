@@ -1183,14 +1183,20 @@ public class NewClass implements ActionListener{
             if(comando.equals("botonSalirusuarioCajero")){
                 cajU.dispose();
                 view.setVisible(true);
+                view.user.setText("");
+                view.password.setText("");
             }
             if(comando.equals("botonSalirCajeroVenta")){
                 cajRegV.dispose();
                 view.setVisible(true);
+                view.user.setText("");
+            view.password.setText("");
             }
             if(comando.equals("botonSalirCajeroCotizacion")){
                 cajRegC.dispose();
                 view.setVisible(true);
+                view.user.setText("");
+            view.password.setText("");
             }
             /**/
         
