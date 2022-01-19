@@ -151,7 +151,7 @@ public class cajeroRegistrarCotizacion extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(7,142,45,220));
 
         botonCotAbrirVenta.setBackground(new java.awt.Color(6, 144, 45));
-        botonCotAbrirVenta.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        botonCotAbrirVenta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         botonCotAbrirVenta.setForeground(new java.awt.Color(255, 255, 255));
         botonCotAbrirVenta.setText("REGISTRAR VENTA");
         botonCotAbrirVenta.addActionListener(new java.awt.event.ActionListener() {
@@ -161,7 +161,7 @@ public class cajeroRegistrarCotizacion extends javax.swing.JFrame {
         });
 
         botonAbrirCot.setBackground(new java.awt.Color(6, 144, 45));
-        botonAbrirCot.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        botonAbrirCot.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         botonAbrirCot.setForeground(new java.awt.Color(255, 255, 255));
         botonAbrirCot.setText("REGISTRAR COTIZACION");
         botonAbrirCot.addActionListener(new java.awt.event.ActionListener() {
@@ -196,7 +196,7 @@ public class cajeroRegistrarCotizacion extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botonAbrirCot, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
+                    .addComponent(botonAbrirCot, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(botonCotAbrirVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addGap(11, 11, 11)
