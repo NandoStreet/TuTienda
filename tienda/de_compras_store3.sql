@@ -93,7 +93,7 @@ DROP TABLE IF EXISTS `detalle_ventas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `detalle_ventas` (
-  `iddetalleventa` int NOT NULL,
+  `iddetalleventa` int NOT NULL AUTO_INCREMENT,
   `ventas_idventas` int NOT NULL,
   `producto_codigo` int NOT NULL,
   `cantidad` int NOT NULL,
@@ -409,7 +409,7 @@ CREATE TABLE `ventas` (
   CONSTRAINT `fk_ventas_vendedor1` FOREIGN KEY (`vendedor_idvendedor`) REFERENCES `vendedor` (`idvendedor`)*/
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
+ALTER TABLE `ventas` AUTO_INCREMENT=100;
 --
 -- Dumping data for table `ventas`
 --
