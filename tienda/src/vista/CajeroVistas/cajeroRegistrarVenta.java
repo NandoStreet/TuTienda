@@ -197,7 +197,7 @@ public class cajeroRegistrarVenta extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(7,142,45,220));
 
         jButton7.setBackground(new java.awt.Color(6, 144, 45));
-        jButton7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton7.setForeground(new java.awt.Color(255, 255, 255));
         jButton7.setText("REGISTRAR VENTA");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -207,7 +207,7 @@ public class cajeroRegistrarVenta extends javax.swing.JFrame {
         });
 
         botonVentaAbrirCot.setBackground(new java.awt.Color(6, 144, 45));
-        botonVentaAbrirCot.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        botonVentaAbrirCot.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         botonVentaAbrirCot.setForeground(new java.awt.Color(255, 255, 255));
         botonVentaAbrirCot.setText("REGISTRAR COTIZACION");
         botonVentaAbrirCot.addActionListener(new java.awt.event.ActionListener() {
@@ -242,7 +242,7 @@ public class cajeroRegistrarVenta extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botonVentaAbrirCot, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
+                    .addComponent(botonVentaAbrirCot, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addGap(11, 11, 11)

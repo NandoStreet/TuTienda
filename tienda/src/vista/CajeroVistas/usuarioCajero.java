@@ -117,7 +117,7 @@ public class usuarioCajero extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(7,142,45,220));
 
         botonabrirVenta.setBackground(new java.awt.Color(7, 142, 45));
-        botonabrirVenta.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        botonabrirVenta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         botonabrirVenta.setForeground(new java.awt.Color(255, 255, 255));
         botonabrirVenta.setText("REGISTRAR VENTA");
         botonabrirVenta.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +127,7 @@ public class usuarioCajero extends javax.swing.JFrame {
         });
 
         botonabrirCotizacion.setBackground(new java.awt.Color(7, 142, 45));
-        botonabrirCotizacion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        botonabrirCotizacion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         botonabrirCotizacion.setForeground(new java.awt.Color(255, 255, 255));
         botonabrirCotizacion.setText("REGISTRAR COTIZACION");
         botonabrirCotizacion.addActionListener(new java.awt.event.ActionListener() {
@@ -174,7 +174,7 @@ public class usuarioCajero extends javax.swing.JFrame {
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGap(28, 28, 28)
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 18, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
