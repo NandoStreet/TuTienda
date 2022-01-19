@@ -5,6 +5,7 @@
  */
 package controlador;
 import java.awt.Image;
+import java.awt.TextField;
 import vista.Render;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,6 +22,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.GroupLayout;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -32,6 +34,8 @@ import static javax.swing.JOptionPane.WARNING_MESSAGE;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.UIManager;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.plaf.ColorUIResource;
@@ -1222,7 +1226,7 @@ public class NewClass implements ActionListener{
            /**Agregar productos Venta**/
          if(comando.equals("botonBusqProdVentaCajero")){
              try{
-                 String codigo;
+                String codigo;
                 int cantidad=0;
                 float monto;
                 if(cajRegV.labelMontoTotalVenta.getText().isEmpty()){
@@ -1274,17 +1278,42 @@ public class NewClass implements ActionListener{
            }   
            /**Agregar productos Cotizacion**/
            if(comando.equals("botonBusqProdCotCajero")){
-               logisticaProductosDTO productoCaj;
                try{
-                   productoCaj=lproductos.read(Integer.valueOf(cajRegC.textBusquedaCotizacionCajero.getText()));
+                   logisticaProductosDTO productoCaj=lproductos.read(Integer.valueOf(cajRegC.textBusquedaCotizacionCajero.getText()));
                    System.out.println("Producto: "+productoCaj.getCodigo()+","+productoCaj.getFecha());
+                   Object [] options={"Cancelar","Añadir"};
+                    JSpinner spinner=new JSpinner();
+                    SpinnerNumberModel modeloSpinner = new SpinnerNumberModel();
+                    modeloSpinner.setMaximum(productoCaj.getStock());
+                    modeloSpinner.setMinimum(0);
+                    spinner.setModel(modeloSpinner);
                    JPanel panel = new JPanel();
-                    panel.add(new JLabel("Producto Encontrado:"));
                     panel.add(new JLabel("Stock:"));
-                    panel.add(new JLabel("asd"));
-                    panel.add(new JLabel("Cantidad:"));
-                    panel.add(new JSpinner());
-                    JOptionPane.showConfirmDialog(cajRegC, panel);
+                    panel.add(new JLabel(String.valueOf(productoCaj.getStock())));
+                    panel.add(new JLabel(", Cantidad:"));
+                    panel.add(spinner);
+                   int result=JOptionPane.showOptionDialog(null, panel, "Producto Encontrado", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
+                   if(result==1){//Agregar datos a la tabla
+                       System.out.println(spinner.getValue());
+                        int cantidad=0;
+                        cantidad=(int) spinner.getValue();
+                        float monto;
+                        if(cajRegC.labelMontoTotalCotizacion.getText().isEmpty()){
+                            monto=0;
+                        }else{
+                        monto=Float.valueOf(cajRegC.labelMontoTotalCotizacion.getText());}
+                        Object[] datos= new Object[7];
+                        datos[0]=cajRegC.tablaCajeroCotizacion.getRowCount()+1;
+                        datos[1]=productoCaj.getCodigo();
+                        datos[2]=productoCaj.getNombre();
+                        datos[3]=productoCaj.getCategoria();
+                        datos[4]=productoCaj.getPrecio();
+                        datos[5]=cantidad;
+                        datos[6]=productoCaj.getPrecio()*cantidad;
+                        DefaultTableModel modelo=(DefaultTableModel)cajRegC.tablaCajeroCotizacion.getModel(); 
+                        modelo.addRow(datos); 
+                        cajRegC.tablaCajeroCotizacion.setModel(modelo);
+                   }
                }catch(java.lang.NullPointerException ex){
                    JOptionPane.showMessageDialog(cajRegC,"<html><h2>Producto no encontrado</h2></html>","Error",  ERROR_MESSAGE);
                }catch(java.lang.NumberFormatException ex){

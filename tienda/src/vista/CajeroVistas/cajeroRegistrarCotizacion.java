@@ -15,7 +15,10 @@ import java.awt.Component;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import javax.swing.Icon;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.PLAIN_MESSAGE;
+import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import vista.FormatoCabecero;
@@ -55,8 +58,6 @@ public class cajeroRegistrarCotizacion extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel7 = new logo();
-        j = new javax.swing.JScrollPane();
-        tablaCajeroCotizacion = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         botonCotAbrirVenta = new javax.swing.JButton();
         botonAbrirCot = new javax.swing.JButton();
@@ -78,6 +79,8 @@ public class cajeroRegistrarCotizacion extends javax.swing.JFrame {
         labelMontoTotalCotizacion = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         labelFechaActualCotizacion = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaCajeroCotizacion = new javax.swing.JTable();
 
         jTextField1.setText("jTextField1");
 
@@ -143,45 +146,6 @@ public class cajeroRegistrarCotizacion extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(26, Short.MAX_VALUE))
         );
-
-        j.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-
-        //jTable1.setDefaultRenderer (Object.class, new FormatoTabla());
-        JTableHeader jtableHeader = tablaCajeroCotizacion.getTableHeader();
-        jtableHeader.setDefaultRenderer(new FormatoCabecero());
-        tablaCajeroCotizacion.setTableHeader(jtableHeader);
-        tablaCajeroCotizacion.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        tablaCajeroCotizacion.setForeground(new java.awt.Color(255, 255, 255));
-        tablaCajeroCotizacion.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "N°", "CODIGO", "PRODUCTO", "CATEGORIA", "PRECIO", "CANTIDAD", "TOTAL"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.Integer.class, java.lang.Float.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tablaCajeroCotizacion.setGridColor(new java.awt.Color(51, 51, 51));
-        tablaCajeroCotizacion.setRowHeight(30);
-        tablaCajeroCotizacion.getTableHeader().setReorderingAllowed(false);
-        j.setViewportView(tablaCajeroCotizacion);
-        if (tablaCajeroCotizacion.getColumnModel().getColumnCount() > 0) {
-            tablaCajeroCotizacion.getColumnModel().getColumn(1).setResizable(false);
-        }
 
         jPanel5.setBackground(new java.awt.Color(7,142,45,220));
 
@@ -313,6 +277,11 @@ public class cajeroRegistrarCotizacion extends javax.swing.JFrame {
 
         botonBusqProdCotCajero.setBackground(new java.awt.Color(255, 255, 255));
         botonBusqProdCotCajero.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/iconoBuscar.png"))); // NOI18N
+        botonBusqProdCotCajero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonBusqProdCotCajeroActionPerformed(evt);
+            }
+        });
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -350,6 +319,42 @@ public class cajeroRegistrarCotizacion extends javax.swing.JFrame {
             .addComponent(labelFechaActualCotizacion, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
         );
 
+        jScrollPane1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+
+        //jTable1.setDefaultRenderer (Object.class, new FormatoTabla());
+        JTableHeader jtableHeader = tablaCajeroCotizacion.getTableHeader();
+        jtableHeader.setDefaultRenderer(new FormatoCabecero());
+        tablaCajeroCotizacion.setTableHeader(jtableHeader);
+        tablaCajeroCotizacion.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        tablaCajeroCotizacion.setForeground(new java.awt.Color(0, 0, 0));
+        tablaCajeroCotizacion.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "N°", "CODIGO", "PRODUCTO", "CATEGORIA", "PRECIO", "CANTIDAD", "TOTAL"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.Integer.class, java.lang.Float.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, true, true, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablaCajeroCotizacion.setGridColor(new java.awt.Color(51, 51, 51));
+        tablaCajeroCotizacion.setRowHeight(30);
+        tablaCajeroCotizacion.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tablaCajeroCotizacion);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -357,39 +362,43 @@ public class cajeroRegistrarCotizacion extends javax.swing.JFrame {
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(j)
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addComponent(btnCajeroCancelarCot, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(16, 16, 16)
+                                        .addComponent(btnCajeroCancelarCot, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(jLabel3)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(btnCajeroBoletaCot, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel8)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(btnCajeroBoletaCot, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(textBusquedaCotizacionCajero, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(botonBusqProdCotCajero, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel6)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(textBoletaCot, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(31, 31, 31))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(textBusquedaCotizacionCajero, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(botonBusqProdCotCajero, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel6)
+                                .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(textBoletaCot, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(31, 31, 31))
+                                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30))))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -412,8 +421,8 @@ public class cajeroRegistrarCotizacion extends javax.swing.JFrame {
                                 .addComponent(jLabel6)
                                 .addComponent(jLabel8)
                                 .addComponent(textBusquedaCotizacionCajero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(26, 26, 26)
-                        .addComponent(j, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel3)
@@ -447,6 +456,19 @@ public class cajeroRegistrarCotizacion extends javax.swing.JFrame {
     private void textBusquedaCotizacionCajeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textBusquedaCotizacionCajeroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textBusquedaCotizacionCajeroActionPerformed
+
+    private void botonBusqProdCotCajeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBusqProdCotCajeroActionPerformed
+       /*Object [] options={"Cancelar","Añadir"};
+       JSpinner spinner=new JSpinner();
+                   JPanel panel = new JPanel();
+                    panel.add(new JLabel("Stock:"));
+                    panel.add(new JLabel("4"));
+                    panel.add(new JLabel(", Cantidad:"));
+                    panel.add(spinner);
+                   JOptionPane.showOptionDialog(null, panel,
+                "Producto Encontrado",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);*/
+    }//GEN-LAST:event_botonBusqProdCotCajeroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -543,7 +565,6 @@ public class cajeroRegistrarCotizacion extends javax.swing.JFrame {
     public javax.swing.JButton botonSalirCajeroCotizacion;
     public javax.swing.JButton btnCajeroBoletaCot;
     public javax.swing.JButton btnCajeroCancelarCot;
-    private javax.swing.JScrollPane j;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -559,6 +580,7 @@ public class cajeroRegistrarCotizacion extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     public javax.swing.JLabel labelFechaActualCotizacion;
     public javax.swing.JLabel labelMontoTotalCotizacion;
