@@ -25,9 +25,12 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.ERROR_MESSAGE;
 import static javax.swing.JOptionPane.WARNING_MESSAGE;
+import javax.swing.JPanel;
+import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.UIManager;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -295,11 +298,19 @@ public class NewClass implements ActionListener{
         //Registrar Venta:
         this.cajRegV.botonBusqProdVentaCajero.setActionCommand("botonBusqProdVentaCajero");
         this.cajRegV.botonBusqProdVentaCajero.addActionListener(this);
-        this.cajRegV.btnCajeroCancelVenta.setActionCommand("btnCajeroCancelVenta");
-        this.cajRegV.btnCajeroCancelVenta.addActionListener(this);
         this.cajRegV.botonBoletaVenta.setActionCommand("botonBoletaVenta");
         this.cajRegV.botonBoletaVenta.addActionListener(this);
-        
+        //Cancelar Venta:
+        this.cajRegV.btnCajeroCancelVenta.setActionCommand("btnCajeroCancelVenta");
+        this.cajRegV.btnCajeroCancelVenta.addActionListener(this);
+        //Registrar Cotizacion:
+        this.cajRegC.botonBusqProdCotCajero.setActionCommand("botonBusqProdCotCajero");
+        this.cajRegC.botonBusqProdCotCajero.addActionListener(this);
+        this.cajRegC.btnCajeroBoletaCot.setActionCommand("btnCajeroBoletaCot");
+        this.cajRegC.btnCajeroBoletaCot.addActionListener(this);
+        //Cancelar Cotizacion:
+        this.cajRegC.btnCajeroCancelarCot.setActionCommand("btnCajeroCancelarCot");
+        this.cajRegC.btnCajeroCancelarCot.addActionListener(this);
         //---Fin--- Interfaces Cajero//
     }
     public void iniciar(){
@@ -1170,58 +1181,116 @@ public class NewClass implements ActionListener{
             }
             /**/
         
-           /**Agregar productos**/
+            /**Cancelar  Venta y Cotizacion**/
+            if(comando.equals("btnCajeroCancelVenta")){
+               int result = JOptionPane.showConfirmDialog(cajRegV, "Desea Cancelar la venta", "Mensaje", JOptionPane.YES_NO_OPTION);
+               if(result==0){
+                   DefaultTableModel modelo=(DefaultTableModel) cajRegV.tablaCajeroVenta.getModel(); 
+                   int a =modelo.getRowCount()-1;
+                    System.out.println(a);
+                    for(int i=a; i>=0; i--){
+                    System.out.println(i);
+                    modelo.removeRow(i);
+                    }
+                    cajRegV.tablaCajeroVenta.setModel(modelo);
+                    cajRegV.textBusquedaProdVentaCajero.setText("");
+                    cajRegV.labelMontoTotalVenta.setText("");
+                    JOptionPane.showMessageDialog(cajRegV, "Venta Cancelada");
+                    cajRegV.dispose();
+                    cajU.setVisible(true);
+               }
+            }
+            if(comando.equals("btnCajeroCancelarCot")){
+                int result = JOptionPane.showConfirmDialog(cajRegC, "Desea Cancelar la venta", "Mensaje", JOptionPane.YES_NO_OPTION);
+               if(result==0){
+                   DefaultTableModel modelo=(DefaultTableModel) cajRegC.tablaCajeroCotizacion.getModel(); 
+                   int a =modelo.getRowCount()-1;
+                    System.out.println(a);
+                    for(int i=a; i>=0; i--){
+                    System.out.println(i);
+                    modelo.removeRow(i);
+                    }
+                    cajRegC.tablaCajeroCotizacion.setModel(modelo);
+                    cajRegC.textBusquedaCotizacionCajero.setText("");
+                    cajRegC.labelMontoTotalCotizacion.setText("");
+                    JOptionPane.showMessageDialog(cajRegC, "Venta Cancelada");
+                    cajRegC.dispose();
+                    cajU.setVisible(true);
+               }
+            }
+            /**/
+           /**Agregar productos Venta**/
          if(comando.equals("botonBusqProdVentaCajero")){
-             String codigo;
-             int cantidad=0;
-             float monto;
-             if(cajRegV.labelMontoTotalVenta.getText().isEmpty()){
-                 monto=0;
-             }else{
-             monto=Float.valueOf(cajRegV.labelMontoTotalVenta.getText());}
-             float precio;
-             boolean encontrado=false;
-              /* System.out.println("AgregadoCajero");
-               cajRegV.textBoletaVenta.setText("aasda");*/
-              logisticaProductosDTO productoCaj=lproductos.read(Integer.valueOf(cajRegV.textBusquedaProdVentaCajero.getText()));
-              System.out.println("Codigo: "+productoCaj.getCodigo()+",Categoria:"+productoCaj.getCategoria()+"fecha:"+productoCaj.getFecha());
-              Object[] datos= new Object[7];
-              datos[0]=cajRegV.tablaCajeroVenta.getRowCount()+1;
-              datos[1]=productoCaj.getCodigo();
-              datos[2]=productoCaj.getNombre();
-              datos[3]=productoCaj.getCategoria();
-              datos[4]=productoCaj.getPrecio();
-              for(int i=0;i<cajRegV.tablaCajeroVenta.getRowCount();i++){
-                  codigo=(String) cajRegV.tablaCajeroVenta.getModel().getValueAt(i, 1);
-                  if(codigo.equals(productoCaj.getCodigo())){
-                      cantidad=(int) cajRegV.tablaCajeroVenta.getModel().getValueAt(i, 5);
-                      encontrado=true;
-                      cantidad++;
-                      precio=productoCaj.getPrecio()*cantidad;
-                      monto+=productoCaj.getPrecio();
-                      cajRegV.tablaCajeroVenta.getModel().setValueAt(cantidad, i, 5);
-                      cajRegV.tablaCajeroVenta.getModel().setValueAt(precio, i, 6);
-                  }
-              }
-              if(encontrado==false){
-                  datos[5]=1;
-                  datos[6]=productoCaj.getPrecio();
-                  monto+=productoCaj.getPrecio();
-                  DefaultTableModel modelo=(DefaultTableModel)cajRegV.tablaCajeroVenta.getModel(); 
-                modelo.addRow(datos); 
-                cajRegV.tablaCajeroVenta.setModel(modelo);
-              }
-              cajRegV.labelMontoTotalVenta.setText(Float.toString(monto));
-              
-           }
-           if(comando.equals("btnCajeroCancelVenta")){
-               /*System.out.println("AgregadoCajero");
-               cajRegV.textBoletaVenta.setText("aasda");*/
-           }        
+             try{
+                 String codigo;
+                int cantidad=0;
+                float monto;
+                if(cajRegV.labelMontoTotalVenta.getText().isEmpty()){
+                    monto=0;
+                }else{
+                monto=Float.valueOf(cajRegV.labelMontoTotalVenta.getText());}
+                float precio;
+                boolean encontrado=false;
+                 /* System.out.println("AgregadoCajero");
+                  cajRegV.textBoletaVenta.setText("aasda");*/
+                 logisticaProductosDTO productoCaj=lproductos.read(Integer.valueOf(cajRegV.textBusquedaProdVentaCajero.getText()));
+                 System.out.println("Codigo: "+productoCaj.getCodigo()+",Categoria:"+productoCaj.getCategoria()+"fecha:"+productoCaj.getFecha());
+                 Object[] datos= new Object[7];
+                 datos[0]=cajRegV.tablaCajeroVenta.getRowCount()+1;
+                 datos[1]=productoCaj.getCodigo();
+                 datos[2]=productoCaj.getNombre();
+                 datos[3]=productoCaj.getCategoria();
+                 datos[4]=productoCaj.getPrecio();
+                 for(int i=0;i<cajRegV.tablaCajeroVenta.getRowCount();i++){
+                     codigo=(String) cajRegV.tablaCajeroVenta.getModel().getValueAt(i, 1);
+                     if(codigo.equals(productoCaj.getCodigo())){
+                         cantidad=(int) cajRegV.tablaCajeroVenta.getModel().getValueAt(i, 5);
+                         encontrado=true;
+                         cantidad++;
+                         precio=productoCaj.getPrecio()*cantidad;
+                         monto+=productoCaj.getPrecio();
+                         cajRegV.tablaCajeroVenta.getModel().setValueAt(cantidad, i, 5);
+                         cajRegV.tablaCajeroVenta.getModel().setValueAt(precio, i, 6);
+                     }
+                 }
+                 if(encontrado==false){
+                     datos[5]=1;
+                     datos[6]=productoCaj.getPrecio();
+                     monto+=productoCaj.getPrecio();
+                     DefaultTableModel modelo=(DefaultTableModel)cajRegV.tablaCajeroVenta.getModel(); 
+                   modelo.addRow(datos); 
+                   cajRegV.tablaCajeroVenta.setModel(modelo);
+                 }
+                 cajRegV.labelMontoTotalVenta.setText(Float.toString(monto));
+             }catch(java.lang.NullPointerException ex){
+                 JOptionPane.showMessageDialog(cajRegV,"<html><h2>Código no encontrado</h2></html>","Error",  ERROR_MESSAGE);
+             }catch(java.lang.NumberFormatException ex){
+                 JOptionPane.showMessageDialog(cajRegV,"<html><h2>Código mal digitado</h2></html>","Error",  WARNING_MESSAGE);
+             }
+           }   
            if(comando.equals("botonBoletaVenta")){
                CajeroVentasDTO venta =  new CajeroVentasDTO(cajRegV.tablaCajeroVenta.getRowCount(),cajRegV.labelFechaActualVenta.getText(),Float.parseFloat(cajRegV.labelMontoTotalVenta.getText()));
                cajv.create(venta);
            }   
+           /**Agregar productos Cotizacion**/
+           if(comando.equals("botonBusqProdCotCajero")){
+               logisticaProductosDTO productoCaj;
+               try{
+                   productoCaj=lproductos.read(Integer.valueOf(cajRegC.textBusquedaCotizacionCajero.getText()));
+                   System.out.println("Producto: "+productoCaj.getCodigo()+","+productoCaj.getFecha());
+                   JPanel panel = new JPanel();
+                    panel.add(new JLabel("Producto Encontrado:"));
+                    panel.add(new JLabel("Stock:"));
+                    panel.add(new JLabel("asd"));
+                    panel.add(new JLabel("Cantidad:"));
+                    panel.add(new JSpinner());
+                    JOptionPane.showConfirmDialog(cajRegC, panel);
+               }catch(java.lang.NullPointerException ex){
+                   JOptionPane.showMessageDialog(cajRegC,"<html><h2>Producto no encontrado</h2></html>","Error",  ERROR_MESSAGE);
+               }catch(java.lang.NumberFormatException ex){
+                 JOptionPane.showMessageDialog(cajRegC,"<html><h2>Código mal digitado</h2></html>","Error",  WARNING_MESSAGE);
+             }    
+           }
         //---Fin--- Cajero Venta//
     
     }
