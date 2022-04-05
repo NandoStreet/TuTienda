@@ -17,6 +17,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -650,15 +653,30 @@ public class NewClass implements ActionListener{
 
         }  
         if(comando.equals("guardarRegistrarPagoAPG")){
-             a1.create(new administradorPagoDTO(admPR.tituloPago.getText(), Float.valueOf(admPR.montoPago.getText()), admPR.entidadPago.getText(), admPR.descripcionPago.getText(), admPR.fechaPago.getText(), input)); 
-             //Blanqueando
-             admPR.tituloPago.setText("");
-             admPR.montoPago.setText("");
-             admPR.entidadPago.setText("");
-             admPR.descripcionPago.setText("");
-             admPR.fechaPago.setText("");
-             input=null;
-             admPR.subirImagenRegistroPago.setText("Inserta PDF");
+            //Esto permite obtener el valor del componente fecha
+            java.util.Date date = admPR.fechaPago.getDate();
+            //permite cambiar el fotmato del componente fecha 
+            
+            
+            
+            if(admPR.tituloPago.getText().isEmpty()||admPR.montoPago.getText().isEmpty()||admPR.entidadPago.getText().isEmpty()||admPR.descripcionPago.getText().isEmpty()||admPR.fechaPago.getDate()==null||input==null){
+                JOptionPane.showMessageDialog(null,"No puede contener coma");
+            }
+            if(date==null){
+                SimpleDateFormat dcn = new SimpleDateFormat("yyyy-MM-dd");
+                String formatDate = dcn.format(date);
+                 a1.create(new administradorPagoDTO(admPR.tituloPago.getText(), Float.valueOf(admPR.montoPago.getText()), admPR.entidadPago.getText(), admPR.descripcionPago.getText(), formatDate, input)); 
+                //Blanqueando
+                System.out.println("-->"+formatDate);
+                admPR.tituloPago.setText("");
+                admPR.montoPago.setText("");
+                admPR.entidadPago.setText("");
+                admPR.descripcionPago.setText("");
+                admPR.fechaPago.setDate(null);
+                input=null;
+                admPR.subirImagenRegistroPago.setText("Inserta PDF");
+            }
+            
         }
         /*interfaz administradorPagoModifcar*/
         
@@ -784,7 +802,7 @@ public class NewClass implements ActionListener{
              admPR.montoPago.setText("");
              admPR.entidadPago.setText("");
              admPR.descripcionPago.setText("");
-             admPR.fechaPago.setText("");
+            // admPR.fechaPago.setText("");
              admPR.subirImagenRegistroPago.setText("Insertar PDF");
         }
         
@@ -793,7 +811,7 @@ public class NewClass implements ActionListener{
              admPR.montoPago.setText("");
              admPR.entidadPago.setText("");
              admPR.descripcionPago.setText("");
-             admPR.fechaPago.setText("");
+             //admPR.fechaPago.setText("");
              admPR.subirImagenRegistroPago.setText("Insertar PDF");
         }
         if(comando.equals("subMEAdminModificar")){
