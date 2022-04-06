@@ -22,7 +22,7 @@ import javax.swing.JPanel;
  * @author David Pablo
  */
 public class administradorBuscar extends javax.swing.JFrame {
-
+    
     FondoPanel FondoPanel=new FondoPanel();
     //transient Basedatos bd = new Basedatos ();
     transient Statement st;

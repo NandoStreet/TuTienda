@@ -49,7 +49,7 @@ public class administradorDAO implements crud<administradorDTO> {//NOSONAR
                 return true;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(LibroDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(administradorDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally{//Es una clausula que se va a ejecutar siempre
             con.cerrarConexion();
 
@@ -66,7 +66,7 @@ public class administradorDAO implements crud<administradorDTO> {//NOSONAR
                 return true;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(LibroDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(administradorDAO.class.getName()).log(Level.SEVERE, null, ex);
         }finally{//Es una clausula que se va a ejecutar siempre
             con.cerrarConexion();
 
@@ -91,7 +91,7 @@ public class administradorDAO implements crud<administradorDTO> {//NOSONAR
                 return true;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(LibroDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(administradorDAO.class.getName()).log(Level.SEVERE, null, ex);
         }finally{//Es una clausula que se va a ejecutar siempre
             con.cerrarConexion();
 
@@ -119,7 +119,7 @@ public class administradorDAO implements crud<administradorDTO> {//NOSONAR
             
             
         } catch (SQLException ex) {
-            Logger.getLogger(LibroDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(administradorDAO.class.getName()).log(Level.SEVERE, null, ex);
         }finally{//Es una clausula que se va a ejecutar siempre
             con.cerrarConexion();
 
@@ -155,7 +155,7 @@ public class administradorDAO implements crud<administradorDTO> {//NOSONAR
             
            
         } catch (SQLException ex) {
-            Logger.getLogger(LibroDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(administradorDAO.class.getName()).log(Level.SEVERE, null, ex);
         }finally{//Es una clausula que se va a ejecutar siempre
             con.cerrarConexion();
 

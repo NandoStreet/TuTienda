@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package vista;
-
+//@javax.annotation.Generated;
+//**/generated/**
 import com.toedter.calendar.JTextFieldDateEditor;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -13,6 +14,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
 //prueba David maquina 1
 //prueba maquiba 2
 //prueba maquina 3

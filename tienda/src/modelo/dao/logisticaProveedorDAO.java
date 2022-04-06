@@ -52,7 +52,7 @@ public class logisticaProveedorDAO implements crud<logisticaProveedorDTO> {//NOS
                 return true;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(LibroDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(logisticaProveedorDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally{//Es una clausula que se va a ejecutar siempre
             con.cerrarConexion();
 
@@ -69,7 +69,7 @@ public class logisticaProveedorDAO implements crud<logisticaProveedorDTO> {//NOS
                 return true;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(LibroDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(logisticaProveedorDAO.class.getName()).log(Level.SEVERE, null, ex);
         }finally{//Es una clausula que se va a ejecutar siempre
             con.cerrarConexion();
 
@@ -95,7 +95,7 @@ public class logisticaProveedorDAO implements crud<logisticaProveedorDTO> {//NOS
                 return true;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(LibroDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(logisticaProveedorDAO.class.getName()).log(Level.SEVERE, null, ex);
         }finally{//Es una clausula que se va a ejecutar siempre
             con.cerrarConexion();
 
@@ -123,7 +123,7 @@ public class logisticaProveedorDAO implements crud<logisticaProveedorDTO> {//NOS
             
             
         } catch (SQLException ex) {
-            Logger.getLogger(LibroDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(logisticaProveedorDAO.class.getName()).log(Level.SEVERE, null, ex);
         }finally{//Es una clausula que se va a ejecutar siempre
             con.cerrarConexion();
 
@@ -155,7 +155,7 @@ public class logisticaProveedorDAO implements crud<logisticaProveedorDTO> {//NOS
             
             
         } catch (SQLException ex) {
-            Logger.getLogger(LibroDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(logisticaProveedorDAO.class.getName()).log(Level.SEVERE, null, ex);
         }finally{//Es una clausula que se va a ejecutar siempre
             con.cerrarConexion();
 

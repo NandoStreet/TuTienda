@@ -5,20 +5,13 @@
  */
 package vista.CajeroVistas;
 
-import vista.CajeroVistas.cajeroRegistrarCotizacion;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.table.JTableHeader;
-import java.awt.Color;
-import java.awt.Component;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import javax.annotation.Generated;
 import javax.swing.Icon;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import vista.FormatoCabecero;
 
@@ -26,6 +19,8 @@ import vista.FormatoCabecero;
  *
  * @author Angel
  */
+//@Generated
+
 public class cajeroRegistrarVenta extends javax.swing.JFrame {
 
     FondoPanel FondoPanel=new FondoPanel();

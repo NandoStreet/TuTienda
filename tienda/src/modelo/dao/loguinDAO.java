@@ -60,7 +60,7 @@ public class loguinDAO implements crud<loginDTO> {//NOSONAR
             }
             
         } catch (SQLException ex) {
-            Logger.getLogger(LibroDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(loguinDAO.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
            
             //Es una clausula que se va a ejecutar siempre
