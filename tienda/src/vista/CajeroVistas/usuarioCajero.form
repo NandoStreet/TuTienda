@@ -231,7 +231,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonabrirVentaActionPerformed"/>
           </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="25"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="botonabrirCotizacion">
@@ -251,7 +251,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonabrirCotizacionActionPerformed"/>
           </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="25"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
@@ -296,7 +296,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="botonSalirusuarioCajero">
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="25"/>
           </AuxValues>
         </Component>
       </SubComponents>

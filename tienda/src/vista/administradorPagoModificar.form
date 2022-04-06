@@ -128,7 +128,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="25"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="buscarAdminPagoModificar">
@@ -147,7 +147,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="25"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="pagosAdminPagoModificar">
@@ -164,7 +164,7 @@
             <Property name="text" type="java.lang.String" value="Pagos"/>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="25"/>
           </AuxValues>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel5">
@@ -198,7 +198,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="botonSalirAdminPagoModificar">
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="25"/>
           </AuxValues>
         </Component>
       </SubComponents>
@@ -381,7 +381,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
               </Events>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="25"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="modificarAdminPagoModificar">
@@ -401,7 +401,7 @@
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="modificarAdminPagoModificar.setText(&quot;&lt;html&gt;&lt;p&gt;Modificar o&lt;/p&gt;&lt;p&gt;eliminar pago&lt;/p&gt;&lt;/html&gt;&quot;);"/>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="25"/>
               </AuxValues>
             </Component>
           </SubComponents>
@@ -457,13 +457,12 @@
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0"/>
                     </Property>
-                    <Property name="showGrid" type="boolean" value="true"/>
                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                       <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                     </Property>
                   </Properties>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="17"/>
                   </AuxValues>
                 </Component>
               </SubComponents>

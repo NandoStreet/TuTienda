@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.conexion.Conexion;
-import modelo.dto.LibroDTO;
 import modelo.dto.administradorDTO;
 import modelo.interfaces.crud;
 
@@ -21,21 +20,21 @@ import modelo.interfaces.crud;
  *
  * @author David
  */
-public class administradorDAO implements crud<administradorDTO> {
+public class administradorDAO implements crud<administradorDTO> {//NOSONAR
     
-    private static final String SQL_Insert="INSERT into usuarios(nombre, apellido, dni, rolesIdrol, correo, contrasena, direccion, telefono, estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    private static final String SQL_Delete="DELETE from usuarios WHERE dni=?";
-    private static final String SQL_Update="UPDATE usuarios SET nombre=?, apellido=?, dni=?, rolesIdrol=?, correo=?, contrasena=?, direccion=?, telefono=? WHERE id=?";
-    private static final String SQL_Read="SELECT * FROM usuarios WHERE dni = ?";
-    private static final String SQL_ReadAll="SELECT * from usuarios";
+    private static final String SQL_Insert="INSERT into usuarios(nombre, apellido, dni, rolesIdrol, correo, contrasena, direccion, telefono, estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";//NOSONAR
+    private static final String SQL_Delete="DELETE from usuarios WHERE dni=?";//NOSONAR
+    private static final String SQL_Update="UPDATE usuarios SET nombre=?, apellido=?, dni=?, rolesIdrol=?, correo=?, contrasena=?, direccion=?, telefono=? WHERE id=?";//NOSONAR
+    private static final String SQL_Read="SELECT * FROM usuarios WHERE dni = ?";//NOSONAR
+    private static final String SQL_ReadAll="SELECT * from usuarios";//NOSONAR
     private static final Conexion con=Conexion.saberEstado();//singleton
 
     @Override
     public boolean create(administradorDTO c) {
-        PreparedStatement ps;
-        try {
+        
+        try (PreparedStatement ps=con.getCon().prepareStatement(SQL_Insert)) {
             
-            ps=con.getCon().prepareStatement(SQL_Insert);
+            
             ps.setString(1, c.getNombre());
             ps.setString(2, c.getApellido());
             ps.setInt(3, c.getDNI());
@@ -60,10 +59,8 @@ public class administradorDAO implements crud<administradorDTO> {
 
     @Override
     public boolean delete(Object key) {
-        try{
-            
-        PreparedStatement ps;
-        ps =con.getCon().prepareStatement(SQL_Delete);
+        try(PreparedStatement ps=con.getCon().prepareStatement(SQL_Delete)){
+           
         ps.setInt(1, (int) key);
             if(ps.executeUpdate()>0){
                 return true;
@@ -79,9 +76,8 @@ public class administradorDAO implements crud<administradorDTO> {
 
     @Override
     public boolean update(administradorDTO c, Object b) {
-        try {
-            PreparedStatement ps;
-            ps=con.getCon().prepareStatement(SQL_Update);
+        try (PreparedStatement ps=con.getCon().prepareStatement(SQL_Update)){
+
             ps.setString(1, c.getNombre());
             ps.setString(2, c.getApellido());
             ps.setInt(3, c.getTelefono());
@@ -105,20 +101,23 @@ public class administradorDAO implements crud<administradorDTO> {
 
     @Override
     public administradorDTO read(Object key) {
-        PreparedStatement ps;
-        ResultSet res;
+       
+       
         administradorDTO l = null;
-        try {
+        try(PreparedStatement ps=con.getCon().prepareStatement(SQL_Read)) {
             
-            ps=con.getCon().prepareStatement(SQL_Read);
+           
             ps.setInt(1, (int) key);
-            res=ps.executeQuery();
-            while(res.next()){
+            try(ResultSet res=ps.executeQuery()){
+                while(res.next()){
                 
                 l=new administradorDTO(res.getInt("id"),res.getString("nombre"),res.getString("apellido"),
                         res.getInt("dni"), res.getInt("rolesIdrol"),   res.getString("correo") , 
                         res.getString("contrasena"),  res.getString("direccion"),  res.getInt("telefono"));
+                }
             }
+            
+            
         } catch (SQLException ex) {
             Logger.getLogger(LibroDAO.class.getName()).log(Level.SEVERE, null, ex);
         }finally{//Es una clausula que se va a ejecutar siempre
@@ -136,23 +135,25 @@ public class administradorDAO implements crud<administradorDTO> {
 
     @Override
     public List<administradorDTO> readAll() {
-        PreparedStatement ps;
-        ResultSet res;
+       
+        
         administradorDTO l = null;
         List<administradorDTO> customerList = new ArrayList<>();
        
-        try {
+        try (PreparedStatement ps=con.getCon().prepareStatement(SQL_ReadAll)){
             
-            ps=con.getCon().prepareStatement(SQL_ReadAll);
-            
-            res=ps.executeQuery();
-            while(res.next()){
+            try(ResultSet res=ps.executeQuery()){
+                while(res.next()){
                 
                 l=new administradorDTO(res.getInt("id"),res.getString("nombre"),res.getString("apellido"),
                         res.getInt("dni"), res.getInt("rolesIdrol"),   res.getString("correo") , 
                         res.getString("contrasena"),  res.getString("direccion"),  res.getInt("telefono"));
                 customerList.add(l);
+                } 
             }
+            
+            
+           
         } catch (SQLException ex) {
             Logger.getLogger(LibroDAO.class.getName()).log(Level.SEVERE, null, ex);
         }finally{//Es una clausula que se va a ejecutar siempre

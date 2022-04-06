@@ -5,20 +5,13 @@
  */
 package vista;
 
-import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Insets;
-import java.security.Principal;
-import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
 //prueba David maquina 1
 //prueba maquiba 2
 //prueba maquina 3
@@ -72,31 +65,9 @@ public class administradorRegistrar extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jPanel7 = new logo();
         jPanel1 = new javax.swing.JPanel();
-        registrarAdminRegistrar = new javax.swing.JButton();
-        botonBuscarAdmin = new javax.swing.JButton();
-        pagosAdminReg = new javax.swing.JButton();
         jPanel5 = new userSilueta();
         jLabel7 = new javax.swing.JLabel();
-        salirAdminRegistrar = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        textDireccion = new javax.swing.JTextField();
-        textNombre = new javax.swing.JTextField();
-        textDNI = new javax.swing.JTextField();
-        textCorreo = new javax.swing.JTextField();
-        textApellido = new javax.swing.JTextField();
-        textTelefono = new javax.swing.JTextField();
-        textContraseña = new javax.swing.JTextField();
-        barraRol = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
-        botonRegistrarAdmin = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -567,35 +538,35 @@ public void listaDesplegable(){
         barraRol.setSelectedItem("Seleccione el distrito");  
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JComboBox<String> barraRol;
-    public javax.swing.JButton botonBuscarAdmin;
-    public javax.swing.JButton botonRegistrarAdmin;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    public final javax.swing.JComboBox<String> barraRol = new javax.swing.JComboBox<>();
+    public static final javax.swing.JButton botonBuscarAdmin = new javax.swing.JButton();
+    public static final javax.swing.JButton botonRegistrarAdmin = new javax.swing.JButton();
+    private static final javax.swing.JLabel jLabel1 = new javax.swing.JLabel();
+    private static final javax.swing.JLabel jLabel10 = new javax.swing.JLabel();
+    private static final javax.swing.JLabel jLabel11 = new javax.swing.JLabel();
+    private static final javax.swing.JLabel jLabel2 = new javax.swing.JLabel();
+    private static final javax.swing.JLabel jLabel3 = new javax.swing.JLabel();
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private static final javax.swing.JLabel jLabel5 = new javax.swing.JLabel();
+    private static final javax.swing.JLabel jLabel6 = new javax.swing.JLabel();
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private static final javax.swing.JLabel jLabel8 = new javax.swing.JLabel();
+    private static final javax.swing.JLabel jLabel9 = new javax.swing.JLabel();
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    public javax.swing.JButton pagosAdminReg;
-    public javax.swing.JButton registrarAdminRegistrar;
-    public javax.swing.JButton salirAdminRegistrar;
-    public javax.swing.JTextField textApellido;
-    public javax.swing.JTextField textContraseña;
-    public javax.swing.JTextField textCorreo;
-    public javax.swing.JTextField textDNI;
-    public javax.swing.JTextField textDireccion;
-    public javax.swing.JTextField textNombre;
-    public javax.swing.JTextField textTelefono;
+    public static final javax.swing.JButton pagosAdminReg = new javax.swing.JButton();
+    public static final javax.swing.JButton registrarAdminRegistrar = new javax.swing.JButton();
+    public static final javax.swing.JButton salirAdminRegistrar = new javax.swing.JButton();
+    public final javax.swing.JTextField textApellido = new javax.swing.JTextField();
+    public final javax.swing.JTextField textContraseña = new javax.swing.JTextField();
+    public final javax.swing.JTextField textCorreo = new javax.swing.JTextField();
+    public final javax.swing.JTextField textDNI = new javax.swing.JTextField();
+    public final javax.swing.JTextField textDireccion = new javax.swing.JTextField();
+    public final javax.swing.JTextField textNombre = new javax.swing.JTextField();
+    public final javax.swing.JTextField textTelefono = new javax.swing.JTextField();
     // End of variables declaration//GEN-END:variables
 }

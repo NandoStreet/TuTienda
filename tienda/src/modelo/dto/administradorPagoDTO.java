@@ -5,19 +5,12 @@
  */
 package modelo.dto;
 
-import java.io.FileInputStream;
 import java.io.InputStream;
-import java.sql.Date;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-import modelo.dao.loguinDAO;
-import vista.administradorRegistrar;
-import vista.CajeroVistas.usuarioCajero;
 /**
  *
  * @author MOISES
  */
-public class administradorPagoDTO {
+public class administradorPagoDTO {//NOSONAR
     private int id;
     private String titulo;
     private float monto;

@@ -5,19 +5,12 @@
  */
 package vista;
 
-import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Insets;
-import java.security.Principal;
-import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
 //prueba David maquina 1
 //prueba maquiba 2
 //prueba maquina 3
@@ -62,23 +55,16 @@ public class administradorPagoModificar extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        registrarAdminPagoModificar = new javax.swing.JButton();
-        buscarAdminPagoModificar = new javax.swing.JButton();
-        pagosAdminPagoModificar = new javax.swing.JButton();
         jPanel5 = new userSilueta();
         jLabel7 = new javax.swing.JLabel();
-        botonSalirAdminPagoModificar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jPanel7 = new logo();
         jPanel2 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
-        registroPagoadminPagoModificar = new javax.swing.JButton();
-        modificarAdminPagoModificar = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tablasbMEAdminModificar = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(6);
@@ -262,7 +248,6 @@ public class administradorPagoModificar extends javax.swing.JFrame {
 
             }
         ));
-        tablasbMEAdminModificar.setShowGrid(true);
         jScrollPane2.setViewportView(tablasbMEAdminModificar);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -677,8 +662,8 @@ class userSilueta extends JPanel
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton botonSalirAdminPagoModificar;
-    public javax.swing.JButton buscarAdminPagoModificar;
+    public static final javax.swing.JButton botonSalirAdminPagoModificar = new javax.swing.JButton();
+    public static final javax.swing.JButton buscarAdminPagoModificar = new javax.swing.JButton();
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
@@ -690,10 +675,10 @@ class userSilueta extends JPanel
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane2;
-    public javax.swing.JButton modificarAdminPagoModificar;
-    public javax.swing.JButton pagosAdminPagoModificar;
-    public javax.swing.JButton registrarAdminPagoModificar;
-    public javax.swing.JButton registroPagoadminPagoModificar;
-    public javax.swing.JTable tablasbMEAdminModificar;
+    public static final javax.swing.JButton modificarAdminPagoModificar = new javax.swing.JButton();
+    public static final javax.swing.JButton pagosAdminPagoModificar = new javax.swing.JButton();
+    public static final javax.swing.JButton registrarAdminPagoModificar = new javax.swing.JButton();
+    public static final javax.swing.JButton registroPagoadminPagoModificar = new javax.swing.JButton();
+    public final javax.swing.JTable tablasbMEAdminModificar = new javax.swing.JTable();
     // End of variables declaration//GEN-END:variables
 }

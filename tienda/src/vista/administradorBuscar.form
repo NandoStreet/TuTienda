@@ -238,7 +238,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registrarUsuarioAdminBuscarActionPerformed"/>
           </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="25"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="buscarAdminBuscar">
@@ -257,7 +257,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="25"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="pagosAdminBuscar">
@@ -274,7 +274,7 @@
             <Property name="text" type="java.lang.String" value="Pagos"/>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="25"/>
           </AuxValues>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel5">
@@ -308,7 +308,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="botonSalirAdminBuscar">
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="25"/>
           </AuxValues>
         </Component>
       </SubComponents>
@@ -363,6 +363,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Busqueda por DNI:  "/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="26"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="barraBusquedaAdmin">
           <Events>
@@ -370,7 +373,7 @@
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="barraBusquedaAdminKeyTyped"/>
           </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="17"/>
           </AuxValues>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -396,14 +399,14 @@
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tablaBusquedaAdminMouseClicked"/>
               </Events>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="17"/>
               </AuxValues>
             </Component>
           </SubComponents>
         </Container>
         <Component class="javax.swing.JButton" name="botonBusquedaAdministrador">
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="25"/>
           </AuxValues>
         </Component>
       </SubComponents>

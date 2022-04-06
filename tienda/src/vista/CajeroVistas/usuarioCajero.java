@@ -44,12 +44,9 @@ public class usuarioCajero extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel7 = new logo();
         jPanel5 = new javax.swing.JPanel();
-        botonabrirVenta = new javax.swing.JButton();
-        botonabrirCotizacion = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jPanel8 = new logoUsuario();
         jLabel5 = new javax.swing.JLabel();
-        botonSalirusuarioCajero = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(6);
@@ -316,9 +313,9 @@ public class usuarioCajero extends javax.swing.JFrame {
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton botonSalirusuarioCajero;
-    public javax.swing.JButton botonabrirCotizacion;
-    public javax.swing.JButton botonabrirVenta;
+    public static final javax.swing.JButton botonSalirusuarioCajero = new javax.swing.JButton();
+    public static final javax.swing.JButton botonabrirCotizacion = new javax.swing.JButton();
+    public static final javax.swing.JButton botonabrirVenta = new javax.swing.JButton();
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

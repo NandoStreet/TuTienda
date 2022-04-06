@@ -324,7 +324,7 @@
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="//jTable1.setDefaultRenderer (Object.class, new FormatoTabla());&#xa;JTableHeader jtableHeader = tablaCajeroVenta.getTableHeader();&#xa;jtableHeader.setDefaultRenderer(new FormatoCabecero());&#xa;tablaCajeroVenta.setTableHeader(jtableHeader);"/>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="17"/>
           </AuxValues>
         </Component>
       </SubComponents>
@@ -412,6 +412,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton7ActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="26"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="botonVentaAbrirCot">
           <Properties>
@@ -430,7 +433,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonVentaAbrirCotActionPerformed"/>
           </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="25"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
@@ -475,7 +478,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="botonSalirCajeroVenta">
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="25"/>
           </AuxValues>
         </Component>
       </SubComponents>
@@ -487,6 +490,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Registrar Venta"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="26"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
@@ -510,7 +516,7 @@
         <Property name="text" type="java.lang.String" value="GENERAR BOLETA"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="25"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="btnCajeroCancelVenta">
@@ -530,7 +536,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCajeroCancelVentaActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="25"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
@@ -540,6 +546,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="BOLETA N&#xb0;"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="26"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
@@ -548,6 +557,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="FECHA ACTUAL:"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="26"/>
+      </AuxValues>
     </Component>
     <Container class="javax.swing.JPanel" name="jPanel3">
       <Properties>
@@ -580,7 +592,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="17"/>
           </AuxValues>
         </Component>
       </SubComponents>
@@ -597,7 +609,7 @@
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="textBusquedaProdVentaCajeroKeyTyped"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="17"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="botonBusqProdVentaCajero">
@@ -613,7 +625,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonBusqProdVentaCajeroActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="25"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
@@ -623,6 +635,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="AGREGAR PRODUCTO:"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="26"/>
+      </AuxValues>
     </Component>
     <Container class="javax.swing.JPanel" name="jPanel6">
       <Properties>
@@ -655,7 +670,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="17"/>
           </AuxValues>
         </Component>
       </SubComponents>
@@ -691,7 +706,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="17"/>
           </AuxValues>
         </Component>
       </SubComponents>

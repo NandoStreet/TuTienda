@@ -128,7 +128,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="25"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="buscarAdminPR">
@@ -147,7 +147,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="25"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="pagosAdminPR">
@@ -164,7 +164,7 @@
             <Property name="text" type="java.lang.String" value="Pagos"/>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="25"/>
           </AuxValues>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel5">
@@ -198,7 +198,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="botonSalirAdminDetallesPagoModif">
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="25"/>
           </AuxValues>
         </Component>
       </SubComponents>
@@ -455,6 +455,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Titulo de pago: "/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="26"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
@@ -463,6 +466,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Monto de pago:"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="26"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
@@ -471,6 +477,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Entidad:"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="26"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
               <Properties>
@@ -479,6 +488,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Descripci&#xf3;n del pago:"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="26"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
@@ -487,23 +499,26 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Fecha de pago:"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="26"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="montoPago">
               <Events>
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="montoPagoKeyTyped"/>
               </Events>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="17"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="tituloPago">
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="17"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="descripcionPago">
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="17"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="fechaPago">
@@ -511,12 +526,12 @@
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fechaPagoKeyTyped"/>
               </Events>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="17"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="entidadPago">
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="17"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="subirImagenRegistroPago">
@@ -536,7 +551,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="subirImagenRegistroPagoActionPerformed"/>
               </Events>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="17"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="guardarRegistrarPagoAPG">
@@ -553,7 +568,7 @@
                 <Property name="text" type="java.lang.String" value="Guardar"/>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="25"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="jButton10">
@@ -569,6 +584,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Borrar Campos"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="26"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
@@ -579,6 +597,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Registro Pago"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="26"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="jButton11">
           <Properties>
@@ -593,6 +614,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Atras"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="26"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

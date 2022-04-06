@@ -5,20 +5,13 @@
  */
 package vista;
 
-import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Insets;
-import java.security.Principal;
-import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
 //prueba David maquina 1
 //prueba maquiba 2
 //prueba maquina 3
@@ -62,38 +55,13 @@ public class administradorModificar extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        registrarAdminModificar = new javax.swing.JButton();
-        modificarAdminModificar = new javax.swing.JButton();
-        pago = new javax.swing.JButton();
         jPanel5 = new userSilueta();
         jLabel7 = new javax.swing.JLabel();
-        botonSalirAdminModificar = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        campoDireccionAdminMod = new javax.swing.JTextField();
-        campoNombreAdminMod = new javax.swing.JTextField();
-        campodniAdminMod = new javax.swing.JTextField();
-        campoCorreoAdminMod = new javax.swing.JTextField();
-        campoApellidoAdminMod = new javax.swing.JTextField();
-        campoRolAdminMod = new javax.swing.JTextField();
-        campoTelefonoAdminMod = new javax.swing.JTextField();
-        campoContrasenaAdminMod = new javax.swing.JTextField();
-        botonGuardarAdminModif = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        barraBusquedaAdmMod = new javax.swing.JTextField();
-        botonEliminarAdminMod = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jPanel7 = new logo();
         jPanel2 = new javax.swing.JPanel();
-        botonBusquedaAdminModific = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(6);
@@ -601,38 +569,38 @@ class userSilueta extends JPanel
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JTextField barraBusquedaAdmMod;
-    public javax.swing.JButton botonBusquedaAdminModific;
-    public javax.swing.JButton botonEliminarAdminMod;
-    public javax.swing.JButton botonGuardarAdminModif;
-    public javax.swing.JButton botonSalirAdminModificar;
-    public javax.swing.JTextField campoApellidoAdminMod;
-    public javax.swing.JTextField campoContrasenaAdminMod;
-    public javax.swing.JTextField campoCorreoAdminMod;
-    public javax.swing.JTextField campoDireccionAdminMod;
-    public javax.swing.JTextField campoNombreAdminMod;
-    public javax.swing.JTextField campoRolAdminMod;
-    public javax.swing.JTextField campoTelefonoAdminMod;
-    public javax.swing.JTextField campodniAdminMod;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    public final javax.swing.JTextField barraBusquedaAdmMod = new javax.swing.JTextField();
+    public static final javax.swing.JButton botonBusquedaAdminModific = new javax.swing.JButton();
+    public static final javax.swing.JButton botonEliminarAdminMod = new javax.swing.JButton();
+    public static final javax.swing.JButton botonGuardarAdminModif = new javax.swing.JButton();
+    public static final javax.swing.JButton botonSalirAdminModificar = new javax.swing.JButton();
+    public final javax.swing.JTextField campoApellidoAdminMod = new javax.swing.JTextField();
+    public final javax.swing.JTextField campoContrasenaAdminMod = new javax.swing.JTextField();
+    public final javax.swing.JTextField campoCorreoAdminMod = new javax.swing.JTextField();
+    public final javax.swing.JTextField campoDireccionAdminMod = new javax.swing.JTextField();
+    public final javax.swing.JTextField campoNombreAdminMod = new javax.swing.JTextField();
+    public final javax.swing.JTextField campoRolAdminMod = new javax.swing.JTextField();
+    public final javax.swing.JTextField campoTelefonoAdminMod = new javax.swing.JTextField();
+    public final javax.swing.JTextField campodniAdminMod = new javax.swing.JTextField();
+    private static final javax.swing.JLabel jLabel1 = new javax.swing.JLabel();
+    private static final javax.swing.JLabel jLabel10 = new javax.swing.JLabel();
+    private static final javax.swing.JLabel jLabel11 = new javax.swing.JLabel();
+    private static final javax.swing.JLabel jLabel2 = new javax.swing.JLabel();
+    private static final javax.swing.JLabel jLabel3 = new javax.swing.JLabel();
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private static final javax.swing.JLabel jLabel5 = new javax.swing.JLabel();
+    private static final javax.swing.JLabel jLabel6 = new javax.swing.JLabel();
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private static final javax.swing.JLabel jLabel8 = new javax.swing.JLabel();
+    private static final javax.swing.JLabel jLabel9 = new javax.swing.JLabel();
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel7;
-    public javax.swing.JButton modificarAdminModificar;
-    public javax.swing.JButton pago;
-    public javax.swing.JButton registrarAdminModificar;
+    public static final javax.swing.JButton modificarAdminModificar = new javax.swing.JButton();
+    public static final javax.swing.JButton pago = new javax.swing.JButton();
+    public static final javax.swing.JButton registrarAdminModificar = new javax.swing.JButton();
     // End of variables declaration//GEN-END:variables
 }

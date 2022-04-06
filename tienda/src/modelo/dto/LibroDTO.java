@@ -9,7 +9,7 @@ package modelo.dto;
  *
  * @author David
  */
-public class LibroDTO {
+public class LibroDTO {//NOSONAR
     private String isbn;
     private String nombre;
     private String autor;

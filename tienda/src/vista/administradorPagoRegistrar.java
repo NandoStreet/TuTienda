@@ -5,23 +5,14 @@
  */
 package vista;
 
-import com.toedter.calendar.JDateChooser;
 import com.toedter.calendar.JTextFieldDateEditor;
-import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Insets;
-import java.awt.event.KeyEvent;
-import java.security.Principal;
-import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
 //prueba David maquina 1
 //prueba maquiba 2
 //prueba maquina 3
@@ -68,35 +59,15 @@ public class administradorPagoRegistrar extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        registrarAdminPR = new javax.swing.JButton();
-        buscarAdminPR = new javax.swing.JButton();
-        pagosAdminPR = new javax.swing.JButton();
         jPanel5 = new userSilueta();
         jLabel7 = new javax.swing.JLabel();
-        botonSalirAdminPagoRegistrar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jPanel7 = new logo();
         jPanel2 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        subRPAdminRegistro = new javax.swing.JButton();
-        subMEAdminModificar = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        montoPago = new javax.swing.JTextField();
-        tituloPago = new javax.swing.JTextField();
-        descripcionPago = new javax.swing.JTextField();
-        entidadPago = new javax.swing.JTextField();
-        subirImagenRegistroPago = new javax.swing.JButton();
-        guardarRegistrarPagoAPG = new javax.swing.JButton();
-        subBorrarRPAdminRegistro = new javax.swing.JButton();
-        fechaPago = new com.toedter.calendar.JDateChooser();
-        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(6);
@@ -354,12 +325,9 @@ public class administradorPagoRegistrar extends javax.swing.JFrame {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(guardarRegistrarPagoAPG, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(113, 113, 113)
-                        .addComponent(subBorrarRPAdminRegistro)))
+                        .addComponent(subBorrarRPAdminRegistro))
+                    .addComponent(subirImagenRegistroPago, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap(211, Short.MAX_VALUE)
-                .addComponent(subirImagenRegistroPago, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(207, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -844,20 +812,20 @@ class userSilueta extends JPanel
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton botonSalirAdminPagoRegistrar;
-    public javax.swing.JButton buscarAdminPR;
-    public javax.swing.JTextField descripcionPago;
-    public javax.swing.JTextField entidadPago;
-    public com.toedter.calendar.JDateChooser fechaPago;
-    public javax.swing.JButton guardarRegistrarPagoAPG;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    public static final javax.swing.JButton botonSalirAdminPagoRegistrar = new javax.swing.JButton();
+    public static final javax.swing.JButton buscarAdminPR = new javax.swing.JButton();
+    public final javax.swing.JTextField descripcionPago = new javax.swing.JTextField();
+    public final javax.swing.JTextField entidadPago = new javax.swing.JTextField();
+    public final com.toedter.calendar.JDateChooser fechaPago = new com.toedter.calendar.JDateChooser();
+    public static final javax.swing.JButton guardarRegistrarPagoAPG = new javax.swing.JButton();
+    private static final javax.swing.JLabel jLabel1 = new javax.swing.JLabel();
+    private static final javax.swing.JLabel jLabel2 = new javax.swing.JLabel();
+    private static final javax.swing.JLabel jLabel3 = new javax.swing.JLabel();
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private static final javax.swing.JLabel jLabel5 = new javax.swing.JLabel();
+    private static final javax.swing.JLabel jLabel6 = new javax.swing.JLabel();
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private static final javax.swing.JLabel jLabel8 = new javax.swing.JLabel();
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -866,13 +834,13 @@ class userSilueta extends JPanel
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    public javax.swing.JTextField montoPago;
-    public javax.swing.JButton pagosAdminPR;
-    public javax.swing.JButton registrarAdminPR;
-    public javax.swing.JButton subBorrarRPAdminRegistro;
-    public javax.swing.JButton subMEAdminModificar;
-    public javax.swing.JButton subRPAdminRegistro;
-    public javax.swing.JButton subirImagenRegistroPago;
-    public javax.swing.JTextField tituloPago;
+    public final javax.swing.JTextField montoPago = new javax.swing.JTextField();
+    public static final javax.swing.JButton pagosAdminPR = new javax.swing.JButton();
+    public static final javax.swing.JButton registrarAdminPR = new javax.swing.JButton();
+    public static final javax.swing.JButton subBorrarRPAdminRegistro = new javax.swing.JButton();
+    public static final javax.swing.JButton subMEAdminModificar = new javax.swing.JButton();
+    public static final javax.swing.JButton subRPAdminRegistro = new javax.swing.JButton();
+    public final javax.swing.JButton subirImagenRegistroPago = new javax.swing.JButton();
+    public final javax.swing.JTextField tituloPago = new javax.swing.JTextField();
     // End of variables declaration//GEN-END:variables
 }

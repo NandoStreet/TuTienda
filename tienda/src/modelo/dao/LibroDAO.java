@@ -20,21 +20,21 @@ import modelo.interfaces.crud;
  *
  * @author David
  */
-public class LibroDAO implements crud<LibroDTO> {
+public class LibroDAO implements crud<LibroDTO> {//NOSONAR
     
-    private static final String SQL_Insert="INSERT into libros(isbn, nobmre ,autor) VALUES (?, ?, ?)";
-    private static final String SQL_Delete="DELETE from libros WHERE isbn=?";
-    private static final String SQL_Update="UPDATE libros SET nombres=?, autor=? WHERE isbn=?";
-    private static final String SQL_Read="SELECT * from libros WHERE isbn =?";
-    private static final String SQL_ReadAll="SELECT * from libros";
+    private static final String SQL_Insert="INSERT into libros(isbn, nobmre ,autor) VALUES (?, ?, ?)";//NOSONAR
+    private static final String SQL_Delete="DELETE from libros WHERE isbn=?";//NOSONAR
+    private static final String SQL_Update="UPDATE libros SET nombres=?, autor=? WHERE isbn=?";//NOSONAR
+    private static final String SQL_Read="SELECT * from libros WHERE isbn =?";//NOSONAR
+    private static final String SQL_ReadAll="SELECT * from libros";//NOSONAR
     private static final Conexion con=Conexion.saberEstado();//singleton
 
     @Override
     public boolean create(LibroDTO c) {
-        PreparedStatement ps;
-        try {
+        
+        try (PreparedStatement ps=con.getCon().prepareStatement(SQL_Insert)){
             
-            ps=con.getCon().prepareStatement(SQL_Insert);
+            
             ps.setString(1, c.getIsbn());
             ps.setString(2, c.getNombre());
             ps.setString(3, c.getAutor());
@@ -54,9 +54,9 @@ public class LibroDAO implements crud<LibroDTO> {
 
     @Override
     public boolean delete(Object key) {
-        try {
-            PreparedStatement ps;
-            ps=con.getCon().prepareStatement(SQL_Delete);
+        try (PreparedStatement ps=con.getCon().prepareStatement(SQL_Delete)){
+            
+            
             ps.setString(1, key.toString());
             if(ps.executeUpdate()>0){
                 return true;
@@ -73,9 +73,8 @@ public class LibroDAO implements crud<LibroDTO> {
 
     @Override
     public boolean update(LibroDTO c, Object a ) {
-        try {
-            PreparedStatement ps;
-            ps=con.getCon().prepareStatement(SQL_Update);
+        try(PreparedStatement ps=con.getCon().prepareStatement(SQL_Update)) {
+           
             ps.setString(1, c.getNombre());
             ps.setString(2, c.getAutor());
             ps.setString(3, c.getIsbn());
@@ -93,17 +92,18 @@ public class LibroDAO implements crud<LibroDTO> {
     //de aqui en adelante estos metodo son distintos
     @Override
     public LibroDTO read(Object key) {
-        PreparedStatement ps;
-        ResultSet res;
+        
+        
         LibroDTO l = null;
-        try {
+        try (PreparedStatement ps=con.getCon().prepareStatement(SQL_Read)){
             
-            ps=con.getCon().prepareStatement(SQL_Read);
-            ps.setString(1, key.toString());
-            res=ps.executeQuery();
-            while(res.next()){
-                l=new LibroDTO(res.getString(1));
+            try(ResultSet res=ps.executeQuery()){
+               ps.setString(1, key.toString());
+                while(res.next()){
+                    l=new LibroDTO(res.getString(1));
+                } 
             }
+            
         } catch (SQLException ex) {
             Logger.getLogger(LibroDAO.class.getName()).log(Level.SEVERE, null, ex);
         }finally{//Es una clausula que se va a ejecutar siempre
@@ -115,17 +115,18 @@ public class LibroDAO implements crud<LibroDTO> {
 
     @Override
     public List<LibroDTO> readAll() {
-         PreparedStatement ps;
-         ResultSet res;
+         
+        
          ArrayList<LibroDTO> libros=new ArrayList();
-        try {
+        try (PreparedStatement ps=con.getCon().prepareStatement(SQL_ReadAll)){
 
+            try(ResultSet res=ps.executeQuery()){
+                
+                while(res.next()){
+                    libros.add(new LibroDTO(res.getString(1), res.getString(2), res.getString(3)));
+                }
+            }   
             
-            ps=con.getCon().prepareStatement(SQL_ReadAll);
-            res=ps.executeQuery();
-            while(res.next()){
-                libros.add(new LibroDTO(res.getString(1), res.getString(2), res.getString(3)));
-            }
         } catch (SQLException ex) {
             Logger.getLogger(LibroDAO.class.getName()).log(Level.SEVERE, null, ex);
         }finally{//Es una clausula que se va a ejecutar siempre

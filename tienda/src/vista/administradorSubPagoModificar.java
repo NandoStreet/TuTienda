@@ -5,20 +5,13 @@
  */
 package vista;
 
-import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Insets;
-import java.security.Principal;
-import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
 //prueba David maquina 1
 //prueba maquiba 2
 //prueba maquina 3
@@ -62,33 +55,14 @@ public class administradorSubPagoModificar extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        registrarAdminSubPagoModificar = new javax.swing.JButton();
-        buscarAdminPR = new javax.swing.JButton();
-        pagosAdminPR = new javax.swing.JButton();
         jPanel5 = new userSilueta();
         jLabel7 = new javax.swing.JLabel();
-        botonSalirAdminPagoRegistrar = new javax.swing.JButton();
-        botonSalirAdminSubPagoModificar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jPanel7 = new logo();
         jPanel2 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        montoPago = new javax.swing.JTextField();
-        tituloPago = new javax.swing.JTextField();
-        descripcionPago = new javax.swing.JTextField();
-        fechaPago = new javax.swing.JTextField();
-        entidadPago = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        atrasSubPagoModificar = new javax.swing.JButton();
-        guardarEditarPagoASubPago = new javax.swing.JButton();
-        eliminarSubPagoModif = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(6);
@@ -144,11 +118,6 @@ public class administradorSubPagoModificar extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(botonSalirAdminSubPagoModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(botonSalirAdminPagoRegistrar)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,14 +132,9 @@ public class administradorSubPagoModificar extends javax.swing.JFrame {
                 .addComponent(buscarAdminPR, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(pagosAdminPR, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
                 .addComponent(botonSalirAdminSubPagoModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(botonSalirAdminPagoRegistrar)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         jPanel3.setBackground(new java.awt.Color(85, 101, 240));
@@ -346,20 +310,21 @@ public class administradorSubPagoModificar extends javax.swing.JFrame {
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addContainerGap(107, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(atrasSubPagoModificar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 249, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel8)
-                .addContainerGap(426, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(guardarEditarPagoASubPago, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(100, 100, 100)
-                        .addComponent(eliminarSubPagoModif)))
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap(312, Short.MAX_VALUE)
+                .addComponent(guardarEditarPagoASubPago, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
+                .addComponent(eliminarSubPagoModif)
+                .addContainerGap(321, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1023,23 +988,22 @@ class userSilueta extends JPanel
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton atrasSubPagoModificar;
-    public javax.swing.JButton botonSalirAdminPagoRegistrar;
-    public javax.swing.JButton botonSalirAdminSubPagoModificar;
-    public javax.swing.JButton buscarAdminPR;
-    public javax.swing.JTextField descripcionPago;
-    public javax.swing.JButton eliminarSubPagoModif;
-    public javax.swing.JTextField entidadPago;
-    public javax.swing.JTextField fechaPago;
-    public javax.swing.JButton guardarEditarPagoASubPago;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    public static final javax.swing.JButton atrasSubPagoModificar = new javax.swing.JButton();
+    public static final javax.swing.JButton botonSalirAdminSubPagoModificar = new javax.swing.JButton();
+    public static final javax.swing.JButton buscarAdminPR = new javax.swing.JButton();
+    public final javax.swing.JTextField descripcionPago = new javax.swing.JTextField();
+    public static final javax.swing.JButton eliminarSubPagoModif = new javax.swing.JButton();
+    public final javax.swing.JTextField entidadPago = new javax.swing.JTextField();
+    public final javax.swing.JTextField fechaPago = new javax.swing.JTextField();
+    public static final javax.swing.JButton guardarEditarPagoASubPago = new javax.swing.JButton();
+    private static final javax.swing.JLabel jLabel1 = new javax.swing.JLabel();
+    private static final javax.swing.JLabel jLabel2 = new javax.swing.JLabel();
+    private static final javax.swing.JLabel jLabel3 = new javax.swing.JLabel();
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private static final javax.swing.JLabel jLabel5 = new javax.swing.JLabel();
+    private static final javax.swing.JLabel jLabel6 = new javax.swing.JLabel();
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private static final javax.swing.JLabel jLabel8 = new javax.swing.JLabel();
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -1047,9 +1011,9 @@ class userSilueta extends JPanel
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    public javax.swing.JTextField montoPago;
-    public javax.swing.JButton pagosAdminPR;
-    public javax.swing.JButton registrarAdminSubPagoModificar;
-    public javax.swing.JTextField tituloPago;
+    public final javax.swing.JTextField montoPago = new javax.swing.JTextField();
+    public static final javax.swing.JButton pagosAdminPR = new javax.swing.JButton();
+    public static final javax.swing.JButton registrarAdminSubPagoModificar = new javax.swing.JButton();
+    public final javax.swing.JTextField tituloPago = new javax.swing.JTextField();
     // End of variables declaration//GEN-END:variables
 }

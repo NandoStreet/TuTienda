@@ -9,13 +9,7 @@ package vista;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.security.Principal;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 //prueba David maquina 1
@@ -60,19 +54,8 @@ public class logueo extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jPanel1 = new javax.swing.JPanel();
-        password = new javax.swing.JPasswordField();
-        user = new javax.swing.JTextField();
-        botonIniciarSesion = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
         jPanel6 = new logo();
-        jLabel4 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
         jPanel5 = new logo();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(6);
@@ -167,7 +150,7 @@ public class logueo extends javax.swing.JFrame {
         );
 
         jPanel3.add(jPanel6);
-        jPanel6.setBounds(1680, 10, 0, 0);
+        jPanel6.setBounds(1680, 10, 79, 75);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -329,18 +312,18 @@ public void placeHolder(String texto,JTextField textField){
     placeholder.changeStyle(Font.ITALIC);
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton botonIniciarSesion;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
+    public static final javax.swing.JButton botonIniciarSesion = new javax.swing.JButton();
+    private static final javax.swing.JLabel jLabel1 = new javax.swing.JLabel();
+    private static final javax.swing.JLabel jLabel2 = new javax.swing.JLabel();
+    private static final javax.swing.JLabel jLabel3 = new javax.swing.JLabel();
+    private static final javax.swing.JLabel jLabel4 = new javax.swing.JLabel();
+    private static final javax.swing.JPanel jPanel1 = new javax.swing.JPanel();
+    private static final javax.swing.JPanel jPanel2 = new javax.swing.JPanel();
+    private static final javax.swing.JPanel jPanel3 = new javax.swing.JPanel();
+    private static final javax.swing.JPanel jPanel4 = new javax.swing.JPanel();
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    public static javax.swing.JPasswordField password;
-    public static javax.swing.JTextField user;
+    public static final javax.swing.JPasswordField password = new javax.swing.JPasswordField();
+    public static final javax.swing.JTextField user = new javax.swing.JTextField();
     // End of variables declaration//GEN-END:variables
 }

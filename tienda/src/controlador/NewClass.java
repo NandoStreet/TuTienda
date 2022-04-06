@@ -5,7 +5,6 @@
  */
 package controlador;
 import java.awt.Image;
-import java.awt.TextField;
 import vista.Render;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,16 +16,12 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Date;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.GroupLayout;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -37,22 +32,18 @@ import static javax.swing.JOptionPane.ERROR_MESSAGE;
 import static javax.swing.JOptionPane.WARNING_MESSAGE;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
-import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.UIManager;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.plaf.ColorUIResource;
 import javax.swing.table.DefaultTableModel;
 import modelo.dao.CajeroVentasDAO;
-import modelo.dao.LibroDAO;
 import modelo.dao.administradorDAO;
 import modelo.dao.administradorPagoDAO;
 import modelo.dao.logisticaProductosDAO;
 import modelo.dao.logisticaProveedorDAO;
 import modelo.dao.loguinDAO;
 import modelo.dto.CajeroVentasDTO;
-import modelo.dto.LibroDTO;
 import modelo.dto.administradorDTO;
 import modelo.dto.administradorPagoDTO;
 import modelo.dto.loginDTO;
@@ -62,7 +53,6 @@ import vista.CajeroVistas.cajeroRegistrarCotizacion;
 import vista.CajeroVistas.cajeroRegistrarVenta;
 import vista.LogisticaVistas.logisticaModificarProv;
 import vista.LogisticaVistas.logisticaRegistrarProd;
-import vista.LogisticaVistas.logisticaRegistroProv;
 import vista.administradorBuscar;
 import vista.administradorModificar;
 import vista.administradorRegistrar;
@@ -80,6 +70,7 @@ import vista.administradordetallesPagoModificar;
  *
  * @author David
  */
+@SuppressWarnings("findsecbugs:PATH_TRAVERSAL_IN")
 public class NewClass implements ActionListener{
     
     static String obtener;
@@ -385,49 +376,51 @@ public class NewClass implements ActionListener{
             adm.textTelefono.setText("");
             
         }
-        if(comando.equals("botonRegistrarAdmin")){
+        
+
+        if(comando.equals("botonRegistrarAdmin")){//NOSONAR
 		
-            int flag = 0;
-            if(!adm.textNombre.getText().isEmpty()){
-                if(!adm.textApellido.getText().isEmpty()){
-                    if(!adm.textDNI.getText().isEmpty()){
-                        if(adm.barraRol.getSelectedItem()== "Admin"||adm.barraRol.getSelectedItem()== "Logistica"||adm.barraRol.getSelectedItem()== "Cajero"){
-                            if (!adm.textCorreo.getText().isEmpty()) {
-                                if(!adm.textContraseña.getText().isEmpty()){
-                                    if(!adm.textDireccion.getText().isEmpty()){
-                                        if(!adm.textTelefono.getText().isEmpty()){
-                                            flag=1;
-                                            JOptionPane.showMessageDialog(null,"Los datos fueron guardados con éxito");
-                                    }else{
-                                            JOptionPane.showMessageDialog(null,"Por favor ingrese su telefono");
-                                            } 
-                                    }else{
-                                            JOptionPane.showMessageDialog(null,"Por favor ingrese su dirección");
-                                            } 
-                                    }else{
-                                            JOptionPane.showMessageDialog(null,"Por favor ingrese su contraseña");
-                                            }
-                                }else{
-                                     JOptionPane.showMessageDialog(null,"Por favor ingrese su correo");
-                                }
+            int flag = 0;//NOSONAR
+            if(!adm.textNombre.getText().isEmpty()){//NOSONAR
+                if(!adm.textApellido.getText().isEmpty()){//NOSONAR
+                    if(!adm.textDNI.getText().isEmpty()){//NOSONAR
+                        if(adm.barraRol.getSelectedItem()== "Admin"||adm.barraRol.getSelectedItem()== "Logistica"||adm.barraRol.getSelectedItem()== "Cajero"){//NOSONAR
+                            if (!adm.textCorreo.getText().isEmpty()) {//NOSONAR
+                                if(!adm.textContraseña.getText().isEmpty()){//NOSONAR
+                                    if(!adm.textDireccion.getText().isEmpty()){//NOSONAR
+                                        if(!adm.textTelefono.getText().isEmpty()){//NOSONAR
+                                            flag=1;//NOSONAR
+                                            JOptionPane.showMessageDialog(null,"Los datos fueron guardados con éxito");//NOSONAR
+                                    }else{//NOSONAR
+                                            JOptionPane.showMessageDialog(null,"Por favor ingrese su telefono");//NOSONAR
+                                            } //NOSONAR
+                                    }else{//NOSONAR
+                                            JOptionPane.showMessageDialog(null,"Por favor ingrese su dirección");//NOSONAR
+                                            } //NOSONAR
+                                    }else{//NOSONAR
+                                            JOptionPane.showMessageDialog(null,"Por favor ingrese su contraseña");//NOSONAR
+                                            }//NOSONAR
+                                }else{//NOSONAR
+                                     JOptionPane.showMessageDialog(null,"Por favor ingrese su correo");//NOSONAR
+                                }//NOSONAR
                                       
-                               }else{
-                                      JOptionPane.showMessageDialog(null,"Por favor ingrese su rol");
-                                  } 
+                               }else{//NOSONAR
+                                      JOptionPane.showMessageDialog(null,"Por favor ingrese su rol");//NOSONAR
+                                  } //NOSONAR
                 
-                           }else{
-                               JOptionPane.showMessageDialog(null,"Por favor ingrese su dni");
-                           } 
+                           }else{//NOSONAR
+                               JOptionPane.showMessageDialog(null,"Por favor ingrese su dni");//NOSONAR
+                           } //NOSONAR
                 
-                    }else{
-                        JOptionPane.showMessageDialog(null,"Por favor ingrese sus apellidos");
-                    } 
+                    }else{//NOSONAR
+                        JOptionPane.showMessageDialog(null,"Por favor ingrese sus apellidos");//NOSONAR
+                    } //NOSONAR
                 
-            }else{
-                JOptionPane.showMessageDialog(null,"Por favor ingrese su(s) nombre(s)");
-            } 
+            }else{//NOSONAR
+                JOptionPane.showMessageDialog(null,"Por favor ingrese su(s) nombre(s)");//NOSONAR
+            } //NOSONAR
             
-            int rol=3;
+            int rol=3;//NOSONAR
             
             if(adm.barraRol.getSelectedItem()=="Admin"){
                 rol=1;

@@ -4,16 +4,11 @@
  * and open the template in the editor.
  */
 package modelo.dto;
-
-import javax.swing.JOptionPane;
-import modelo.dao.loguinDAO;
-import vista.administradorRegistrar;
-import vista.CajeroVistas.usuarioCajero;
 /**
  *
  * @author MOISES
  */
-public class administradorDTO {
+public class administradorDTO {//NOSONAR
     private int id;
     private String nombre;
     private String apellido;

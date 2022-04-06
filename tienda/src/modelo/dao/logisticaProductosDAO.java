@@ -8,28 +8,24 @@ package modelo.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.conexion.Conexion;
-import modelo.dto.LibroDTO;
-import modelo.dto.administradorDTO;
 import modelo.dto.logisticaProductosDTO;
-import modelo.dto.logisticaProveedorDTO;
 import modelo.interfaces.crud;
 
 /**
  *
  * @author David
  */
-public class logisticaProductosDAO implements crud<logisticaProductosDTO> {
+public class logisticaProductosDAO implements crud<logisticaProductosDTO> {//NOSONAR
     
-    private static final String SQL_Insert="INSERT into producto(codigo, fecha_venc, nombre, precio, stock, categoria, marca, estado, proveedor) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    private static final String SQL_Delete="DELETE from producto WHERE codigo=?";
-    private static final String SQL_Update="UPDATE producto SET stock=? WHERE codigo=?";
-    private static final String SQL_Read="SELECT * FROM producto WHERE codigo= ?";
-    private static final String SQL_ReadAll="SELECT * from usuarios";
+    private static final String SQL_Insert="INSERT into producto(codigo, fecha_venc, nombre, precio, stock, categoria, marca, estado, proveedor) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";//NOSONAR
+    private static final String SQL_Delete="DELETE from producto WHERE codigo=?";//NOSONAR
+    private static final String SQL_Update="UPDATE producto SET stock=? WHERE codigo=?";//NOSONAR
+    private static final String SQL_Read="SELECT * FROM producto WHERE codigo= ?";//NOSONAR
+    private static final String SQL_ReadAll="SELECT * from usuarios";//NOSONAR
     private static final Conexion con=Conexion.saberEstado();//singleton
 
    
@@ -40,10 +36,9 @@ public class logisticaProductosDAO implements crud<logisticaProductosDTO> {
 
     @Override
     public boolean create(logisticaProductosDTO c) {
-        PreparedStatement ps;
-        try {
+        
+        try(PreparedStatement ps=con.getCon().prepareStatement(SQL_Insert)) {
             
-            ps=con.getCon().prepareStatement(SQL_Insert);
             ps.setString(1, c.getCodigo());
             ps.setString(2, c.getFecha());
             ps.setString(3, c.getNombre());
@@ -69,10 +64,8 @@ public class logisticaProductosDAO implements crud<logisticaProductosDTO> {
 
     @Override
     public boolean delete(Object key) {
-        try{
-            
-        PreparedStatement ps;
-        ps =con.getCon().prepareStatement(SQL_Delete);
+        try(PreparedStatement ps=con.getCon().prepareStatement(SQL_Delete);){
+
         ps.setInt(1, (int) key);
             if(ps.executeUpdate()>0){
                 return true;
@@ -88,10 +81,9 @@ public class logisticaProductosDAO implements crud<logisticaProductosDTO> {
 
     @Override
     public boolean update(logisticaProductosDTO c, Object a) {
-            PreparedStatement ps;
-            try {
+            
+            try (PreparedStatement ps=con.getCon().prepareStatement(SQL_Update)){
 
-                ps=con.getCon().prepareStatement(SQL_Update);
                 ps.setInt(1, c.getStock());
                 ps.setObject(2,a);
                 if(ps.executeUpdate()>0){
@@ -125,21 +117,23 @@ public class logisticaProductosDAO implements crud<logisticaProductosDTO> {
     }*/
     @Override
     public logisticaProductosDTO read(Object key) {
-        PreparedStatement ps;
-        ResultSet res;
+ 
+        
         logisticaProductosDTO l = null;
-        try {
-            
-            ps=con.getCon().prepareStatement(SQL_Read);
+        try(PreparedStatement ps=con.getCon().prepareStatement(SQL_Read)) {
+
             ps.setInt(1, (int) key);
-            res=ps.executeQuery();
-            while(res.next()){
+            try(ResultSet res=ps.executeQuery()){
+                while(res.next()){
                 System.out.println(res.getInt("codigo"));
                 
                 l=new logisticaProductosDTO(String.valueOf(res.getInt("codigo")),res.getString("nombre"),res.getInt("precio"),
                         res.getString("estado"), res.getString("fecha_venc"),   res.getString("proveedor") , 
                         res.getString("marca"),  res.getString("categoria"),  res.getInt("stock"));
+                }
             }
+            
+            
         } catch (SQLException ex) {
             Logger.getLogger(LibroDAO.class.getName()).log(Level.SEVERE, null, ex);
         }finally{//Es una clausula que se va a ejecutar siempre

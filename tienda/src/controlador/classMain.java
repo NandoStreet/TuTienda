@@ -31,7 +31,7 @@ import vista.logueo;
  *
  * @author David
  */
-public class main {
+public class classMain {//NOSONAR
     public static void main(String[] args){
         logueo lg=new logueo();  
         loguinDAO lDAO= new loguinDAO();

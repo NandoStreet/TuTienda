@@ -66,29 +66,14 @@ public class cajeroRegistrarVenta extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel7 = new logo();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tablaCajeroVenta = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
-        jButton7 = new javax.swing.JButton();
-        botonVentaAbrirCot = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jPanel2 = new logoUsuario();
         jLabel5 = new javax.swing.JLabel();
-        botonSalirCajeroVenta = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        botonBoletaVenta = new javax.swing.JButton();
-        btnCajeroCancelVenta = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        labelMontoTotalVenta = new javax.swing.JLabel();
-        textBusquedaProdVentaCajero = new javax.swing.JTextField();
-        botonBusqProdVentaCajero = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        labelFechaActualVenta = new javax.swing.JLabel();
         jPanel13 = new javax.swing.JPanel();
-        labelNBoletaVenta = new javax.swing.JLabel();
 
         jTextField1.setText("jTextField1");
 
@@ -606,20 +591,20 @@ public class cajeroRegistrarVenta extends javax.swing.JFrame {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton botonBoletaVenta;
-    public javax.swing.JButton botonBusqProdVentaCajero;
-    public javax.swing.JButton botonSalirCajeroVenta;
-    public javax.swing.JButton botonVentaAbrirCot;
-    public javax.swing.JButton btnCajeroCancelVenta;
-    private javax.swing.JButton jButton7;
+    public static final javax.swing.JButton botonBoletaVenta = new javax.swing.JButton();
+    public static final javax.swing.JButton botonBusqProdVentaCajero = new javax.swing.JButton();
+    public static final javax.swing.JButton botonSalirCajeroVenta = new javax.swing.JButton();
+    public static final javax.swing.JButton botonVentaAbrirCot = new javax.swing.JButton();
+    public static final javax.swing.JButton btnCajeroCancelVenta = new javax.swing.JButton();
+    private static final javax.swing.JButton jButton7 = new javax.swing.JButton();
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private static final javax.swing.JLabel jLabel2 = new javax.swing.JLabel();
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private static final javax.swing.JLabel jLabel6 = new javax.swing.JLabel();
+    private static final javax.swing.JLabel jLabel7 = new javax.swing.JLabel();
+    private static final javax.swing.JLabel jLabel8 = new javax.swing.JLabel();
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
@@ -630,10 +615,10 @@ public class cajeroRegistrarVenta extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
-    public javax.swing.JLabel labelFechaActualVenta;
-    public javax.swing.JLabel labelMontoTotalVenta;
-    public javax.swing.JLabel labelNBoletaVenta;
-    public javax.swing.JTable tablaCajeroVenta;
-    public javax.swing.JTextField textBusquedaProdVentaCajero;
+    public final javax.swing.JLabel labelFechaActualVenta = new javax.swing.JLabel();
+    public final javax.swing.JLabel labelMontoTotalVenta = new javax.swing.JLabel();
+    public final javax.swing.JLabel labelNBoletaVenta = new javax.swing.JLabel();
+    public final javax.swing.JTable tablaCajeroVenta = new javax.swing.JTable();
+    public final javax.swing.JTextField textBusquedaProdVentaCajero = new javax.swing.JTextField();
     // End of variables declaration//GEN-END:variables
 }

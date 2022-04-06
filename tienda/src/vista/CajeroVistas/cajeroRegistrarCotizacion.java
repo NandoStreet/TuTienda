@@ -59,29 +59,14 @@ public class cajeroRegistrarCotizacion extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel7 = new logo();
         jPanel5 = new javax.swing.JPanel();
-        botonCotAbrirVenta = new javax.swing.JButton();
-        botonAbrirCot = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jPanel2 = new logoUsuario();
         jLabel5 = new javax.swing.JLabel();
-        botonSalirCajeroCotizacion = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        btnCajeroBoletaCot = new javax.swing.JButton();
-        btnCajeroCancelarCot = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        textBusquedaCotizacionCajero = new javax.swing.JTextField();
-        botonBusqProdCotCajero = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        labelMontoTotalCotizacion = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        labelFechaActualCotizacion = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tablaCajeroCotizacion = new javax.swing.JTable();
         jPanel13 = new javax.swing.JPanel();
-        labelNBoletaCot = new javax.swing.JLabel();
 
         jTextField1.setText("jTextField1");
 
@@ -578,20 +563,20 @@ public class cajeroRegistrarCotizacion extends javax.swing.JFrame {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton botonAbrirCot;
-    public javax.swing.JButton botonBusqProdCotCajero;
-    public javax.swing.JButton botonCotAbrirVenta;
-    public javax.swing.JButton botonSalirCajeroCotizacion;
-    public javax.swing.JButton btnCajeroBoletaCot;
-    public javax.swing.JButton btnCajeroCancelarCot;
+    public static final javax.swing.JButton botonAbrirCot = new javax.swing.JButton();
+    public static final javax.swing.JButton botonBusqProdCotCajero = new javax.swing.JButton();
+    public static final javax.swing.JButton botonCotAbrirVenta = new javax.swing.JButton();
+    public static final javax.swing.JButton botonSalirCajeroCotizacion = new javax.swing.JButton();
+    public static final javax.swing.JButton btnCajeroBoletaCot = new javax.swing.JButton();
+    public static final javax.swing.JButton btnCajeroCancelarCot = new javax.swing.JButton();
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private static final javax.swing.JLabel jLabel2 = new javax.swing.JLabel();
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private static final javax.swing.JLabel jLabel6 = new javax.swing.JLabel();
+    private static final javax.swing.JLabel jLabel7 = new javax.swing.JLabel();
+    private static final javax.swing.JLabel jLabel8 = new javax.swing.JLabel();
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
@@ -602,10 +587,10 @@ public class cajeroRegistrarCotizacion extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
-    public javax.swing.JLabel labelFechaActualCotizacion;
-    public javax.swing.JLabel labelMontoTotalCotizacion;
-    public javax.swing.JLabel labelNBoletaCot;
-    public javax.swing.JTable tablaCajeroCotizacion;
-    public javax.swing.JTextField textBusquedaCotizacionCajero;
+    public final javax.swing.JLabel labelFechaActualCotizacion = new javax.swing.JLabel();
+    public final javax.swing.JLabel labelMontoTotalCotizacion = new javax.swing.JLabel();
+    public final javax.swing.JLabel labelNBoletaCot = new javax.swing.JLabel();
+    public final javax.swing.JTable tablaCajeroCotizacion = new javax.swing.JTable();
+    public final javax.swing.JTextField textBusquedaCotizacionCajero = new javax.swing.JTextField();
     // End of variables declaration//GEN-END:variables
 }

@@ -5,20 +5,13 @@
  */
 package vista;
 
-import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Insets;
-import java.security.Principal;
-import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
 //prueba David maquina 1
 //prueba maquiba 2
 //prueba maquina 3
@@ -78,18 +71,10 @@ public class administradorBuscar extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jPanel7 = new logo();
         jPanel1 = new javax.swing.JPanel();
-        registrarUsuarioAdminBuscar = new javax.swing.JButton();
-        buscarAdminBuscar = new javax.swing.JButton();
-        pagosAdminBuscar = new javax.swing.JButton();
         jPanel5 = new userSilueta();
         jLabel7 = new javax.swing.JLabel();
-        botonSalirAdminBuscar = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        barraBusquedaAdmin = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tablaBusquedaAdmin = new javax.swing.JTable();
-        botonBusquedaAdministrador = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -434,11 +419,11 @@ class userSilueta extends JPanel
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JTextField barraBusquedaAdmin;
-    public javax.swing.JButton botonBusquedaAdministrador;
-    public javax.swing.JButton botonSalirAdminBuscar;
-    public javax.swing.JButton buscarAdminBuscar;
-    private javax.swing.JLabel jLabel1;
+    public final javax.swing.JTextField barraBusquedaAdmin = new javax.swing.JTextField();
+    public static final javax.swing.JButton botonBusquedaAdministrador = new javax.swing.JButton();
+    public static final javax.swing.JButton botonSalirAdminBuscar = new javax.swing.JButton();
+    public static final javax.swing.JButton buscarAdminBuscar = new javax.swing.JButton();
+    private static final javax.swing.JLabel jLabel1 = new javax.swing.JLabel();
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
@@ -449,8 +434,8 @@ class userSilueta extends JPanel
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JButton pagosAdminBuscar;
-    public javax.swing.JButton registrarUsuarioAdminBuscar;
-    public javax.swing.JTable tablaBusquedaAdmin;
+    public static final javax.swing.JButton pagosAdminBuscar = new javax.swing.JButton();
+    public static final javax.swing.JButton registrarUsuarioAdminBuscar = new javax.swing.JButton();
+    public final javax.swing.JTable tablaBusquedaAdmin = new javax.swing.JTable();
     // End of variables declaration//GEN-END:variables
 }
