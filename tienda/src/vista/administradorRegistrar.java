@@ -8,6 +8,8 @@ package vista;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.sql.Statement;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -216,6 +218,11 @@ public class administradorRegistrar extends javax.swing.JFrame {
         jLabel11.setText("Apellido:");
 
         textDireccion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        textDireccion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textDireccionKeyTyped(evt);
+            }
+        });
 
         textNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         textNombre.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -232,6 +239,11 @@ public class administradorRegistrar extends javax.swing.JFrame {
         });
 
         textCorreo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        textCorreo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textCorreoKeyTyped(evt);
+            }
+        });
 
         textApellido.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         textApellido.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -248,6 +260,11 @@ public class administradorRegistrar extends javax.swing.JFrame {
         });
 
         textContraseña.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        textContraseña.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textContraseñaKeyTyped(evt);
+            }
+        });
 
         barraRol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -412,6 +429,12 @@ public class administradorRegistrar extends javax.swing.JFrame {
             
             JOptionPane.showMessageDialog(rootPane,"Ingresar solo letras");
         }
+        if(textNombre.getText().length()>100){
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(rootPane,"El rango de caracteres debe estar entre 2 y 100");
+        }
     }//GEN-LAST:event_textNombreKeyTyped
 
     private void textApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textApellidoKeyTyped
@@ -422,6 +445,12 @@ public class administradorRegistrar extends javax.swing.JFrame {
             evt.consume();
             
             JOptionPane.showMessageDialog(rootPane,"Ingresar solo letras");
+        }
+        if(textApellido.getText().length()>=100){
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(rootPane,"El rango de caracteres debe estar entre 2 y 100");
         }
     }//GEN-LAST:event_textApellidoKeyTyped
 
@@ -434,6 +463,12 @@ public class administradorRegistrar extends javax.swing.JFrame {
             
             JOptionPane.showMessageDialog(rootPane,"Ingresar solo números");
         }
+        if(textDNI.getText().length()>=8){
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(rootPane,"El Dni debe tener 8 digitos");
+        }
     }//GEN-LAST:event_textDNIKeyTyped
 
     private void textTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textTelefonoKeyTyped
@@ -445,7 +480,41 @@ public class administradorRegistrar extends javax.swing.JFrame {
             
             JOptionPane.showMessageDialog(rootPane,"Ingresar solo números");
         }
+        if(textTelefono.getText().length()>=9){
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(rootPane,"El teléfono debe ser de 9 digitos.");
+        }
+           
     }//GEN-LAST:event_textTelefonoKeyTyped
+
+    private void textCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textCorreoKeyTyped
+         if(textCorreo.getText().length()>=40){
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(rootPane,"No exceder el máximo de 40 caracteres.");
+        }   
+    }//GEN-LAST:event_textCorreoKeyTyped
+
+    private void textContraseñaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textContraseñaKeyTyped
+        if(textContraseña.getText().length()>=30){
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(rootPane,"No exceder el máximo de 30 caracteres.");
+        } 
+    }//GEN-LAST:event_textContraseñaKeyTyped
+
+    private void textDireccionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textDireccionKeyTyped
+        if(textDireccion.getText().length()>=100){
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(rootPane,"No exceder el máximo de 100 caracteres.");
+        } 
+    }//GEN-LAST:event_textDireccionKeyTyped
 
     /**
      * @param args the command line arguments

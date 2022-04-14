@@ -40,7 +40,7 @@ public class administradorPagoRegistrar extends javax.swing.JFrame {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE,null,"Principal");
         }
         */
-      ImageIcon fondoboton=new ImageIcon(getClass().getResource("/image/exit.png"));
+        ImageIcon fondoboton=new ImageIcon(getClass().getResource("/image/exit.png"));
         Icon fondo1=new ImageIcon(fondoboton.getImage().getScaledInstance(66,56, Image.SCALE_AREA_AVERAGING));
         Icon fondo1press=new ImageIcon(fondoboton.getImage().getScaledInstance(60,50, Image.SCALE_AREA_AVERAGING));
         botonSalirAdminPagoRegistrar.setIcon(fondo1);
@@ -264,6 +264,18 @@ public class administradorPagoRegistrar extends javax.swing.JFrame {
             }
         });
 
+        tituloPago.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tituloPagoKeyTyped(evt);
+            }
+        });
+
+        entidadPago.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                entidadPagoKeyTyped(evt);
+            }
+        });
+
         subirImagenRegistroPago.setBackground(new java.awt.Color(0, 0, 0));
         subirImagenRegistroPago.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         subirImagenRegistroPago.setForeground(new java.awt.Color(255, 255, 255));
@@ -278,6 +290,11 @@ public class administradorPagoRegistrar extends javax.swing.JFrame {
         guardarRegistrarPagoAPG.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         guardarRegistrarPagoAPG.setForeground(new java.awt.Color(255, 255, 255));
         guardarRegistrarPagoAPG.setText("Guardar");
+        guardarRegistrarPagoAPG.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarRegistrarPagoAPGActionPerformed(evt);
+            }
+        });
 
         subBorrarRPAdminRegistro.setBackground(new java.awt.Color(252, 16, 16));
         subBorrarRPAdminRegistro.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -457,6 +474,7 @@ public class administradorPagoRegistrar extends javax.swing.JFrame {
             evt.consume();
             JOptionPane.showMessageDialog(rootPane,"No puede contener coma");
         }
+        
        
         
     }//GEN-LAST:event_montoPagoKeyTyped
@@ -474,6 +492,28 @@ public class administradorPagoRegistrar extends javax.swing.JFrame {
     private void fechaPagoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fechaPagoKeyReleased
         
     }//GEN-LAST:event_fechaPagoKeyReleased
+
+    private void tituloPagoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tituloPagoKeyTyped
+        if(tituloPago.getText().length()>=100){
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(rootPane,"El Titulo debe tener como maximo 100 caracteres.");
+        }
+    }//GEN-LAST:event_tituloPagoKeyTyped
+
+    private void guardarRegistrarPagoAPGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarRegistrarPagoAPGActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_guardarRegistrarPagoAPGActionPerformed
+
+    private void entidadPagoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_entidadPagoKeyTyped
+        if(entidadPago.getText().length()>=50){
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(rootPane,"No exceder el máximo de 50 caracteres.");
+        } 
+    }//GEN-LAST:event_entidadPagoKeyTyped
 
     /**
      * @param args the command line arguments

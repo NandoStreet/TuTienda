@@ -11,7 +11,7 @@ package modelo.dto;
 public class logisticaProductosDTO {//NOSONAR
     private String codigo;
     private String nombre;
-    private int precio;
+    private float precio;
     private String descripcion;
     private String fecha;
     private String proveedor;
@@ -20,7 +20,7 @@ public class logisticaProductosDTO {//NOSONAR
     private String categoria;
     private int stock;
 
-    public logisticaProductosDTO(String codigo, String nombre, int precio, String descripcion, String fecha, String proveedor, String marca, String categoria, int stock) {
+    public logisticaProductosDTO(String codigo, String nombre, float precio, String descripcion, String fecha, String proveedor, String marca, String categoria, int stock) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.precio = precio;
@@ -49,7 +49,7 @@ public class logisticaProductosDTO {//NOSONAR
         return nombre;
     }
 
-    public int getPrecio() {
+    public float getPrecio() {
         return precio;
     }
 

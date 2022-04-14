@@ -13,13 +13,13 @@ public class logisticaProveedorDTO {//NOSONAR
     private String representante;
     private int telefono;
     private String distrito;
-    private int ruc;
+    private String ruc;
     private String estado;
     private String email;
     private String direccion;
     private String detalles;
 
-    public logisticaProveedorDTO(String razonSocial, String representante, int telefono, String distrito, int ruc, String estado, String email, String direccion, String detalles) {
+    public logisticaProveedorDTO(String razonSocial, String representante, int telefono, String distrito, String ruc, String estado, String email, String direccion, String detalles) {
         this.razonSocial = razonSocial;
         this.representante = representante;
         this.telefono = telefono;
@@ -52,7 +52,7 @@ public class logisticaProveedorDTO {//NOSONAR
         return distrito;
     }
 
-    public int getRuc() {
+    public String getRuc() {
         return ruc;
     }
 
@@ -88,7 +88,7 @@ public class logisticaProveedorDTO {//NOSONAR
         this.distrito = distrito;
     }
 
-    public void setRuc(int ruc) {
+    public void setRuc(String ruc) {
         this.ruc = ruc;
     }
 

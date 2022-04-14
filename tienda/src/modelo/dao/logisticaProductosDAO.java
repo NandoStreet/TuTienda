@@ -42,7 +42,7 @@ public class logisticaProductosDAO implements crud<logisticaProductosDTO> {//NOS
             ps.setString(1, c.getCodigo());
             ps.setString(2, c.getFecha());
             ps.setString(3, c.getNombre());
-            ps.setInt(4, c.getPrecio());
+            ps.setFloat(4, c.getPrecio());
             ps.setInt(5, c.getStock());
             ps.setString(6, c.getCategoria());
             ps.setString(7, c.getMarca());

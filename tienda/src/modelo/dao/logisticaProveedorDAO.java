@@ -37,7 +37,7 @@ public class logisticaProveedorDAO implements crud<logisticaProveedorDTO> {//NOS
             
             
             ps.setString(1, c.getRazonSocial());
-            ps.setInt(2, c.getRuc());
+            ps.setString(2, c.getRuc());
             ps.setString(3, c.getRepresentante());
             ps.setInt(4, c.getTelefono());
             ps.setString(5, c.getEmail());
@@ -82,7 +82,7 @@ public class logisticaProveedorDAO implements crud<logisticaProveedorDTO> {//NOS
        try (PreparedStatement ps=con.getCon().prepareStatement(SQL_Update)){
 
             ps.setString(1, c.getRazonSocial());
-            ps.setInt(2, c.getRuc());
+            ps.setString(2, c.getRuc());
             ps.setString(3, c.getRepresentante());
             ps.setInt(4, c.getTelefono());
             ps.setString(5, c.getEmail());
@@ -111,11 +111,11 @@ public class logisticaProveedorDAO implements crud<logisticaProveedorDTO> {//NOS
         try (PreparedStatement ps=con.getCon().prepareStatement(SQL_Read)){
             
             
-            ps.setInt(1, (int) key);
+            ps.setString(1, (String) key);
             try(ResultSet res=ps.executeQuery()){
                 while(res.next()){
                 
-                l=new logisticaProveedorDTO(res.getString("razon_social"), res.getString("representante"), res.getInt("telefono"), res.getString("distrito"), res.getInt("ruc"), res.getString("estado"), res.getString("correo"), res.getString("direccion"), res.getString("descripcion"));
+                l=new logisticaProveedorDTO(res.getString("razon_social"), res.getString("representante"), res.getInt("telefono"), res.getString("distrito"), res.getString("ruc"), res.getString("estado"), res.getString("correo"), res.getString("direccion"), res.getString("descripcion"));
                 
             
                 }
