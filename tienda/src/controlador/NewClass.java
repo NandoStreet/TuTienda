@@ -1340,8 +1340,10 @@ public class NewClass implements ActionListener {
 
         }
         if (comando.equals("botonRegistrarLogisiticaProductos")) {
+            
+            
 
-            if (lrprod.textcodigo.getText().isEmpty() || lrprod.textNombre.getText().isEmpty() || lrprod.textPrecio.getText().isEmpty() || lrprod.textAreaDescripcion.getText().isEmpty() || lrprod.textFechaVencimiento.getDate() == null || lrprod.comboBoxProveedor.getSelectedItem() == "Ninguno" || lrprod.textCantidad.getText() == null) {
+            if (lrprod.textcodigo.getText().isEmpty() || lrprod.textNombre.getText().isEmpty() || lrprod.textPrecio.getText().isEmpty() || lrprod.textAreaDescripcion.getText().isEmpty() || lrprod.textFechaVencimiento.getDate() == null || lrprod.comboBoxProveedor.getSelectedItem().equals("Ninguno")||lrprod.textCateogria.getSelectedItem().equals("Ninguno")|| lrprod.textCantidad.getText().isEmpty()||lrprod.textMarca.getText().isEmpty() ) {
                 JOptionPane.showMessageDialog(null, "Existe por lo menos algun campo vacío");
             } else {
                 java.util.Date date = lrprod.textFechaVencimiento.getDate();
@@ -1371,15 +1373,15 @@ public class NewClass implements ActionListener {
                 if (lrprod.textNombre.getText().length() <= 2) {
                     caso = 2;
                 }
-                if (Float.valueOf(lrprod.textPrecio.getText()) <= 0) {
+                if (Float.valueOf(lrprod.textPrecio.getText()) <= 0 ||Float.valueOf(lrprod.textPrecio.getText()) >= 100 ) {
                     caso = 3;
                 }
-                if (Float.valueOf(lrprod.textCantidad.getText().length()) <= 0) {
+                if (Integer.valueOf(lrprod.textCantidad.getText()) <= 0 ||Integer.valueOf(lrprod.textCantidad.getText()) >= 1000 ) {
                     caso = 4;
                 }
-                /*if(file.length()>840000){
+                if(lrprod.textMarca.getText().length()<=2){
                     caso=5;
-                }*/
+                }
                 if (fechaNoActual.before(fechaactual)) {
                     caso = 6;
                 }
@@ -1396,7 +1398,7 @@ public class NewClass implements ActionListener {
                         lrprod.textMarca.setText("");
                         lrprod.textCateogria.setSelectedItem("Ninguno");
                         lrprod.textCantidad.setText("");
-                        JOptionPane.showMessageDialog(null, "Pago Registrado Correctamente.");
+                        JOptionPane.showMessageDialog(null, "Producto Registrado Correctamente.");
 
                         break;
                     case 1:
@@ -1406,12 +1408,12 @@ public class NewClass implements ActionListener {
                         JOptionPane.showMessageDialog(null, "El nombre debe tener mas de 2 caracteres.");
                         break;
                     case 3:
-                        JOptionPane.showMessageDialog(null, "El campo de precio debe ser mayor a 0.");
+                        JOptionPane.showMessageDialog(null, "El campo de precio debe ser mayor a 0 y menor a 100.0 soles.");
                         break;
                     case 4:
-                        JOptionPane.showMessageDialog(null, "La descripción del pago debe contener por los menos 3 caracteres.");
+                        JOptionPane.showMessageDialog(null, "El campo de cantidad debe ser mayor a 0 y menor a 1000 unidades.");
                         break;
-                    //case 5: JOptionPane.showMessageDialog(null, "El archivo supera los 840 kb"); break;
+                    case 5: JOptionPane.showMessageDialog(null, "La marca debe ser mayor a 2 caracteres."); break;
                     case 6:
                         JOptionPane.showMessageDialog(null, "La fecha debe ser mayor a la fecha actual.");
                         break;

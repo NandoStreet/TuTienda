@@ -119,6 +119,11 @@ public class logisticaRegistrarProd extends javax.swing.JFrame {
                 textMarcaActionPerformed(evt);
             }
         });
+        textMarca.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textMarcaKeyTyped(evt);
+            }
+        });
 
         textAreaDescripcion.setBackground(new java.awt.Color(196, 196, 196));
         textAreaDescripcion.setColumns(20);
@@ -149,12 +154,10 @@ public class logisticaRegistrarProd extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(128, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel5)
-                            .addGap(30, 30, 30)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(botonRegistrarLogisiticaProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(30, 30, 30)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -187,6 +190,10 @@ public class logisticaRegistrarProd extends javax.swing.JFrame {
                             .addComponent(textCateogria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(textFechaVencimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(223, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botonRegistrarLogisiticaProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -482,11 +489,11 @@ public class logisticaRegistrarProd extends javax.swing.JFrame {
     }//GEN-LAST:event_textNombreKeyTyped
 
     private void textAreaDescripcionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textAreaDescripcionKeyTyped
-        if(textAreaDescripcion.getText().length()>=5000){
+        if(textAreaDescripcion.getText().length()>=499){
             getToolkit().beep();
             evt.consume();
             
-            JOptionPane.showMessageDialog(rootPane,"El área de descripción debe contener como máximo 5000 caracteres.");
+            JOptionPane.showMessageDialog(rootPane,"El área de descripción debe ser menor a 500 caracteres.");
         }
     }//GEN-LAST:event_textAreaDescripcionKeyTyped
 
@@ -498,6 +505,7 @@ public class logisticaRegistrarProd extends javax.swing.JFrame {
             
             JOptionPane.showMessageDialog(rootPane,"Ingresar solo números");
         }
+        
     }//GEN-LAST:event_textPrecioKeyTyped
 
     private void textCantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textCantidadKeyTyped
@@ -508,7 +516,22 @@ public class logisticaRegistrarProd extends javax.swing.JFrame {
             
             JOptionPane.showMessageDialog(rootPane,"Ingresar solo números");
         }
+        if(validar=='.'){
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(rootPane,"Ingresar solo números enteros");
+        }
     }//GEN-LAST:event_textCantidadKeyTyped
+
+    private void textMarcaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textMarcaKeyTyped
+        if(textMarca.getText().length()>=29){
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(rootPane,"La marca debe tener menos de 30 caracteres.");
+        }
+    }//GEN-LAST:event_textMarcaKeyTyped
 
     /**
      * @param args the command line arguments
