@@ -31,6 +31,7 @@ public class administradorRegistrar extends javax.swing.JFrame {
     public administradorRegistrar() {
         this.setContentPane(FondoPanel);
         initComponents();
+        setIconImage(new ImageIcon(getClass().getResource("/image/logoDiscord.png")).getImage());
         listaDesplegable();
         //Probar coneccion de base de datos
         /*try {

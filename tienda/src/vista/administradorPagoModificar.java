@@ -28,6 +28,7 @@ public class administradorPagoModificar extends javax.swing.JFrame {
     public administradorPagoModificar() {
         this.setContentPane(FondoPanel);
         initComponents();
+        setIconImage(new ImageIcon(getClass().getResource("/image/logoDiscord.png")).getImage());
         tablasbMEAdminModificar.setDefaultRenderer(Object.class, new Render());
         //Probar coneccion de base de datos
        /* try {

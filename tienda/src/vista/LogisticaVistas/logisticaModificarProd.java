@@ -17,6 +17,7 @@ public class logisticaModificarProd extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setContentPane(FondoPanel);
         initComponents();
+        setIconImage(new ImageIcon(getClass().getResource("/image/logoDiscord.png")).getImage());
         ImageIcon fondoboton=new ImageIcon(getClass().getResource("/image/exit.png"));
         Icon fondo1=new ImageIcon(fondoboton.getImage().getScaledInstance(66,56, Image.SCALE_AREA_AVERAGING));
         Icon fondo1press=new ImageIcon(fondoboton.getImage().getScaledInstance(60,50, Image.SCALE_AREA_AVERAGING));
@@ -322,6 +323,13 @@ public class logisticaModificarProd extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("(Logisitica)");
 
+        registrarCategoriaLogisticaModProd.setBackground(new java.awt.Color(72, 104, 218));
+        registrarCategoriaLogisticaModProd.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        registrarCategoriaLogisticaModProd.setForeground(new java.awt.Color(255, 255, 255));
+        registrarCategoriaLogisticaModProd.setText("Añadir Categoría Productos");
+        registrarCategoriaLogisticaModProd.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        jButton7.setText("<html><CENTER><p>MODIFICAR</p><p>ELIMINAR PRODUCTO</p></center></html>");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -344,6 +352,10 @@ public class logisticaModificarProd extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(botonSalirLogisticaModifProd, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(registrarCategoriaLogisticaModProd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -364,6 +376,8 @@ public class logisticaModificarProd extends javax.swing.JFrame {
                 .addComponent(registrarProductoLogisticaModProd, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(registrarCategoriaLogisticaModProd, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(botonSalirLogisticaModifProd, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
@@ -562,6 +576,7 @@ public class logisticaModificarProd extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     public static final javax.swing.JButton modElimProvLogisModProd = new javax.swing.JButton();
+    public static final javax.swing.JButton registrarCategoriaLogisticaModProd = new javax.swing.JButton();
     public static final javax.swing.JButton registrarProductoLogisticaModProd = new javax.swing.JButton();
     public static final javax.swing.JButton registrarProvedLogModProd = new javax.swing.JButton();
     public final javax.swing.JTextArea textAreaDescripcion = new javax.swing.JTextArea();

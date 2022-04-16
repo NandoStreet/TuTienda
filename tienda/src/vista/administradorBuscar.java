@@ -29,6 +29,7 @@ public class administradorBuscar extends javax.swing.JFrame {
     public administradorBuscar() {
         this.setContentPane(FondoPanel);
         initComponents();
+        setIconImage(new ImageIcon(getClass().getResource("/image/logoDiscord.png")).getImage());
         //Probar coneccion de base de datos
         /*try {
             bd.conectar();

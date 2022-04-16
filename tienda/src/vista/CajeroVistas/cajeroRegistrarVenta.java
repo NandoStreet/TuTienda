@@ -27,6 +27,7 @@ public class cajeroRegistrarVenta extends javax.swing.JFrame {
     public cajeroRegistrarVenta() {
         this.setContentPane(FondoPanel);
         initComponents();
+        setIconImage(new ImageIcon(getClass().getResource("/image/logoDiscord.png")).getImage());
         ImageIcon fondoboton=new ImageIcon(getClass().getResource("/image/exit.png"));
         Icon fondo1=new ImageIcon(fondoboton.getImage().getScaledInstance(66,56, Image.SCALE_AREA_AVERAGING));
         Icon fondo1press=new ImageIcon(fondoboton.getImage().getScaledInstance(60,50, Image.SCALE_AREA_AVERAGING));

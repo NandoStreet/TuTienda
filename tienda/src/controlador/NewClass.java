@@ -46,6 +46,7 @@ import javax.swing.table.DefaultTableModel;
 import modelo.dao.CajeroVentasDAO;
 import modelo.dao.administradorDAO;
 import modelo.dao.administradorPagoDAO;
+import modelo.dao.logisticaCategoriasDAO;
 import modelo.dao.logisticaProductosDAO;
 import modelo.dao.logisticaProveedorDAO;
 import modelo.dao.loguinDAO;
@@ -53,6 +54,7 @@ import modelo.dto.CajeroVentasDTO;
 import modelo.dto.administradorDTO;
 import modelo.dto.administradorPagoDTO;
 import modelo.dto.loginDTO;
+import modelo.dto.logisticaCategoriasDTO;
 import modelo.dto.logisticaProductosDTO;
 import modelo.dto.logisticaProveedorDTO;
 import vista.CajeroVistas.cajeroRegistrarCotizacion;
@@ -64,6 +66,7 @@ import vista.administradorModificar;
 import vista.administradorRegistrar;
 import vista.logueo;
 import vista.CajeroVistas.usuarioCajero;
+import vista.LogisticaVistas.logisticaCategoriasProd;
 import vista.LogisticaVistas.logisticaModificarProd;
 import vista.LogisticaVistas.logisticaRegistroProv;
 import vista.administradorPagoModificar;
@@ -85,6 +88,7 @@ public class NewClass implements ActionListener {
     private administradorPagoDAO a1;
     private logisticaProveedorDAO lp;
     private logisticaProductosDAO lproductos;
+    private logisticaCategoriasDAO lcategorias;
     private CajeroVentasDAO cajv;
     private administradorRegistrar adm;
     private administradorBuscar admB;
@@ -97,6 +101,7 @@ public class NewClass implements ActionListener {
     private logisticaModificarProv lmp;
     private logisticaRegistrarProd lrprod;
     private logisticaModificarProd lmproducto;
+    private logisticaCategoriasProd lcproducto;
     private cajeroRegistrarCotizacion cajRegC;
     private cajeroRegistrarVenta cajRegV;
     private usuarioCajero cajU;
@@ -110,11 +115,11 @@ public class NewClass implements ActionListener {
     //usuarioCajero caj = new usuarioCajero();
 
     public NewClass(logueo view, administradorRegistrar adm, loguinDAO model, administradorDAO a,
-            administradorPagoDAO a1, logisticaProveedorDAO lp, logisticaProductosDAO lproductos, CajeroVentasDAO cajv,
+            administradorPagoDAO a1, logisticaProveedorDAO lp, logisticaProductosDAO lproductos, logisticaCategoriasDAO lcategorias, CajeroVentasDAO cajv,
             administradorBuscar admB, administradorModificar admM, administradorPagoRegistrar admPR,
             administradorPagoModificar admPM, administradordetallesPagoModificar adPM, administradorSubPagoModificar adSPM,
             logisticaRegistroProv lrp, logisticaModificarProv lmp, logisticaRegistrarProd lrprod,
-            logisticaModificarProd lmproducto, cajeroRegistrarCotizacion cajRegC, cajeroRegistrarVenta cajRegV, usuarioCajero cajU) {
+            logisticaModificarProd lmproducto, logisticaCategoriasProd lcproducto, cajeroRegistrarCotizacion cajRegC, cajeroRegistrarVenta cajRegV, usuarioCajero cajU) {
         this.view = view;
         this.model = model;
         //dao
@@ -122,6 +127,7 @@ public class NewClass implements ActionListener {
         this.a1 = a1;
         this.lp = lp;
         this.lproductos = lproductos;
+        this.lcategorias=lcategorias;
         this.cajv = cajv;
         this.adm = adm;
         this.admB = admB;
@@ -134,6 +140,7 @@ public class NewClass implements ActionListener {
         this.lmp = lmp;
         this.lrprod = lrprod;
         this.lmproducto = lmproducto;
+        this.lcproducto=lcproducto;
         this.cajRegC = cajRegC;
         this.cajRegV = cajRegV;
         this.cajU = cajU;
@@ -231,6 +238,8 @@ public class NewClass implements ActionListener {
         this.lrp.registrarProductoLogistica.addActionListener(this);
         this.lrp.editarProductoLogistica.setActionCommand("editarProductoLogistica");
         this.lrp.editarProductoLogistica.addActionListener(this);
+        this.lrp.registrarCategorialogisticaRProv.setActionCommand("registrarCategorialogisticaRProv");
+        this.lrp.registrarCategorialogisticaRProv.addActionListener(this);
         this.lrp.botonSalirLogRegProv.setActionCommand("botonSalirLogRegProv");
         this.lrp.botonSalirLogRegProv.addActionListener(this);
 
@@ -251,6 +260,8 @@ public class NewClass implements ActionListener {
         this.lmp.registrarProveedorLogisticaModifProv.addActionListener(this);
         this.lmp.modElimProdLogModProv.setActionCommand("modElimProdLogModProv");
         this.lmp.modElimProdLogModProv.addActionListener(this);
+        this.lmp.registrarCategoriaLogModifProv.setActionCommand("registrarCategoriaLogModifProv");
+        this.lmp.registrarCategoriaLogModifProv.addActionListener(this);        
         //interfaz logisiticaRegistrarProd 
 
         this.lrprod.botonRegistrarLogisiticaProductos.setActionCommand("botonRegistrarLogisiticaProductos");
@@ -263,6 +274,8 @@ public class NewClass implements ActionListener {
         this.lrprod.modelimLogRegProd.addActionListener(this);
         this.lrprod.modElimProvLogRegProd.setActionCommand("modElimProvLogRegProd");
         this.lrprod.modElimProvLogRegProd.addActionListener(this);
+        this.lrprod.categoriaLogisticaRegProducto.setActionCommand("categoriaLogisticaRegProducto");
+        this.lrprod.categoriaLogisticaRegProducto.addActionListener(this);
 
         //interfaz logisiticaModificarProd        
         this.lmproducto.btnBusquedaLogisiticaProducto.setActionCommand("btnBusquedaLogisiticaProducto");
@@ -277,7 +290,20 @@ public class NewClass implements ActionListener {
         this.lmproducto.modElimProvLogisModProd.addActionListener(this);
         this.lmproducto.registrarProvedLogModProd.setActionCommand("registrarProvedLogModProd");
         this.lmproducto.registrarProvedLogModProd.addActionListener(this);
-
+        this.lmproducto.registrarCategoriaLogisticaModProd.setActionCommand("registrarCategoriaLogisticaModProd");
+        this.lmproducto.registrarCategoriaLogisticaModProd.addActionListener(this);
+        //interfaz logisitica categoriasProducto
+        
+        this.lcproducto.registrarProvedLogCat.setActionCommand("registrarProvedLogCat");
+        this.lcproducto.registrarProvedLogCat.addActionListener(this);
+        this.lcproducto.modElimProvLogisCat.setActionCommand("modElimProvLogisCat");
+        this.lcproducto.modElimProvLogisCat.addActionListener(this);
+        this.lcproducto.registrarProductoLogisticaCat.setActionCommand("registrarProductoLogisticaCat");
+        this.lcproducto.registrarProductoLogisticaCat.addActionListener(this);
+        this.lcproducto.modProdLogCat.setActionCommand("modProdLogCat");
+        this.lcproducto.modProdLogCat.addActionListener(this);
+        this.lcproducto.botonGuardarLogisiticaCategorias.setActionCommand("botonGuardarLogisiticaCategorias");
+        this.lcproducto.botonGuardarLogisiticaCategorias.addActionListener(this);
         //añadiendo addMouseListener a tabla
         admPM.tablasbMEAdminModificar.addMouseListener(new escuchaTablaPago());
         //---Inicio--- Interfaces Cajero//
@@ -323,7 +349,7 @@ public class NewClass implements ActionListener {
 
     public void iniciar() {
         this.view.setVisible(true);
-
+        
     }
 
     public static void setObtener(String obtener) {
@@ -1106,7 +1132,11 @@ public class NewClass implements ActionListener {
             view.password.setText("");
 
         }
+        if (comando.equals("registrarCategorialogisticaRProv")) {
+            lrp.dispose();
+            lcproducto.setVisible(true);
 
+        }
         //logisiticaModirifacarProv
         if (comando.equals("btnBusquedaLogisitica")) {
             this.ruc = lmp.textBusquedaRuc.getText();
@@ -1236,7 +1266,8 @@ public class NewClass implements ActionListener {
         if (comando.equals("registrarProductoLogModifProv")) {
 
             lmp.dispose();
-            lrp.setVisible(true);
+            lrprod.setVisible(true);
+            cargarComboCategorias();
         }
         if (comando.equals("modElimLogisticaModProv")) {
 
@@ -1266,24 +1297,8 @@ public class NewClass implements ActionListener {
         if (comando.equals("registrarProductoLogistica")) {
             lrp.dispose();
             lrprod.setVisible(true);
-            List<logisticaProveedorDTO> customerList = null;
-
-            customerList = lp.readAll();
-            /*DefaultTableModel modelo=new DefaultTableModel();
-            modelo.addColumn("N°");
-            modelo.addColumn("DNI");
-            modelo.addColumn("NOMBRES");
-            modelo.addColumn("APELLIDOS");
-            modelo.addColumn("ROL");
-            modelo.addColumn("ACCIONES");
-            admB.tablaBusquedaAdmin.setModel(modelo);*/
-            for (logisticaProveedorDTO customer : customerList) {
-                String rucProveedor;
-                //se cargan de la base de datos los ruc de los proveedores en el combox
-                rucProveedor = customer.getRazonSocial();
-                lrprod.comboBoxProveedor.addItem(rucProveedor);
-            }
-
+            cargarComboCategorias();
+            
         }
         if (comando.equals("botonSalirLogRegProd")) {
             lrp.dispose();
@@ -1292,10 +1307,17 @@ public class NewClass implements ActionListener {
             view.password.setText("");
         }
         if (comando.equals("modelimLogRegProd")) {
-            lrp.dispose();
-            lmp.setVisible(true);
+            lrprod.dispose();
+            lmproducto.setVisible(true);
+            
+           
         }
-
+        if (comando.equals("registrarCategoriaLogModifProv")) {
+            lmp.dispose();
+            lcproducto.setVisible(true);
+            
+           
+        }
         //logisiticaRegistrarProducto
         if (comando.equals("registrarProveedorLogRegProd")) {
             lrp.setVisible(true);
@@ -1399,7 +1421,10 @@ public class NewClass implements ActionListener {
             }
 //
         }
-
+        if (comando.equals("categoriaLogisticaRegProducto")) {
+             lrprod.dispose();
+             lcproducto.setVisible(true);
+        }
         //logisticaModificarProdcuto
         if (comando.equals("btnBusquedaLogisiticaProducto")) {
             codigo = Integer.valueOf(lmproducto.textBusquedaRucProducto.getText());
@@ -1429,6 +1454,7 @@ public class NewClass implements ActionListener {
             lmproducto.textCategoria.setText("");
 
         }
+        
         if (comando.equals("botonSalirLogisticaModifProd")) {
             lmproducto.dispose();
             view.setVisible(true);
@@ -1438,6 +1464,7 @@ public class NewClass implements ActionListener {
         if (comando.equals("registrarProductoLogisticaModProd")) {
             lmproducto.dispose();
             lrprod.setVisible(true);
+            cargarComboCategorias();
         }
 
         if (comando.equals("modElimProvLogisModProd")) {
@@ -1450,7 +1477,74 @@ public class NewClass implements ActionListener {
             lrp.setVisible(true);
 
         }
+        if (comando.equals("registrarCategoriaLogisticaModProd")) {
+            lmproducto.dispose();
+            lcproducto.setVisible(true);
+            
+        }
+        //logisitica categoria 
+        if(comando.equals("registrarProvedLogCat")){
+            lcproducto.dispose();
+            lrp.setVisible(true);
+        }
+        if (comando.equals("modElimProvLogisCat")) {
+            lcproducto.dispose();
+            lmp.setVisible(true);
 
+        }
+        if (comando.equals("registrarProductoLogisticaCat")) {
+            lcproducto.dispose();
+            lrprod.setVisible(true);
+            cargarComboCategorias();
+        }
+        if (comando.equals("modProdLogCat")) {
+            lcproducto.dispose();
+            lmproducto.setVisible(true);
+        }
+        
+        if (comando.equals("botonGuardarLogisiticaCategorias")) {
+            if (lcproducto.textcodigo.getText().isEmpty() || lcproducto.textNombre.getText().isEmpty() || lcproducto.textAreaDescripcion.getText().isEmpty() ) {
+                JOptionPane.showMessageDialog(null, "Existe por lo menos algun campo vacío");
+            } else {
+                
+                int caso = 0;
+               
+                if (lcproducto.textcodigo.getText().length() != 4 && lrprod.textcodigo.getText().length() < 4) {
+
+                    caso = 1;
+
+                }
+                if (lcproducto.textNombre.getText().length() <= 2) {
+                    caso = 2;
+                }
+                
+                
+
+                //long numberOFDays = DAYS.(LocalDate.parse(myDate),  LocalDate.now());
+                switch (caso) {
+                    case 0:
+                        lcategorias.create(new logisticaCategoriasDTO(lcproducto.textcodigo.getText(), lcproducto.textNombre.getText(), lcproducto.textAreaDescripcion.getText()));
+                        lcproducto.textcodigo.setText("");
+                        lcproducto.textNombre.setText("");
+                        lcproducto.textAreaDescripcion.setText("");
+                       
+                        JOptionPane.showMessageDialog(null, "Categoría creada correctamente.");
+
+                        break;
+                    case 1:
+                        JOptionPane.showMessageDialog(null, "El codigo debe ser de 4 digitos");
+                        break;
+                    case 2:
+                        JOptionPane.showMessageDialog(null, "El nombre debe tener mas de 2 caracteres.");
+                        break;
+                   
+                   
+
+                }
+
+            }
+        }
+        
         //---Inicio--- Cajero Venta//     
         /**
          * Abrir ventanas cotizacion y venta**
@@ -1902,7 +1996,47 @@ public class NewClass implements ActionListener {
         botón.setEnabled(true);
         System.out.println("hereee");
     }
+    public void cargarComboCategorias(){
+        lrprod.comboBoxProveedor.removeAllItems();
+        lrprod.textCateogria.removeAllItems();
+        List<logisticaProveedorDTO> customerList = null;
 
+            customerList = lp.readAll();
+            /*DefaultTableModel modelo=new DefaultTableModel();
+            modelo.addColumn("N°");
+            modelo.addColumn("DNI");
+            modelo.addColumn("NOMBRES");
+            modelo.addColumn("APELLIDOS");
+            modelo.addColumn("ROL");
+            modelo.addColumn("ACCIONES");
+            admB.tablaBusquedaAdmin.setModel(modelo);*/
+            for (logisticaProveedorDTO customer : customerList) {
+                
+                String rucProveedor;
+                //se cargan de la base de datos los ruc de los proveedores en el combox
+                rucProveedor = customer.getRazonSocial();
+                lrprod.comboBoxProveedor.addItem(rucProveedor);
+            }
+            List<logisticaCategoriasDTO> customerList2 = null;
+
+            customerList2 = lcategorias.readAll();
+            /*DefaultTableModel modelo=new DefaultTableModel();
+            modelo.addColumn("N°");
+            modelo.addColumn("DNI");
+            modelo.addColumn("NOMBRES");
+            modelo.addColumn("APELLIDOS");
+            modelo.addColumn("ROL");
+            modelo.addColumn("ACCIONES");
+            admB.tablaBusquedaAdmin.setModel(modelo);*/
+            for (logisticaCategoriasDTO customer : customerList2) {
+                
+                String rucProveedor2;
+                //se cargan de la base de datos los ruc de los proveedores en el combox
+                rucProveedor2 = customer.getNombre();
+                lrprod.textCateogria.addItem(rucProveedor2);
+            }
+            
+    }
 }
 
 /* 

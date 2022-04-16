@@ -32,6 +32,7 @@ public class logueo extends javax.swing.JFrame {
     public logueo() {
         this.setContentPane(FondoPanel);
         initComponents();
+        setIconImage(new ImageIcon(getClass().getResource("/image/logoDiscord.png")).getImage());
         placeHolder("Correo", user);
         placeHolder("Contraseña", password);
         //Probar coneccion de base de datos
