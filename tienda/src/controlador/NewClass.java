@@ -1027,7 +1027,7 @@ public class NewClass implements ActionListener {
                 if (lrp.textTelefono.getText().length() !=9) {
                     caso = 3;
                 }
-                if (lrp.textDistrito.getText().length() <= 3) {
+                if (lrp.textDistrito.getText().length() <= 2) {
                     caso = 4;
                 }
                 if (lrp.textRUC.getText().length() !=11) {
@@ -1077,7 +1077,7 @@ public class NewClass implements ActionListener {
                         JOptionPane.showMessageDialog(null, "El teléfono debe ser de 9 dígitos.");
                         break;
                     case 4:
-                        JOptionPane.showMessageDialog(null, "El distrito debe tener mas de 3 caracteres.");
+                        JOptionPane.showMessageDialog(null, "El distrito debe tener mas de 2 caracteres.");
                         break;
                     case 5:
                         JOptionPane.showMessageDialog(null, "El RUC debe contener 11 digitos.");
