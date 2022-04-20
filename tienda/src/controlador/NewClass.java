@@ -411,7 +411,7 @@ public class NewClass implements ActionListener {
         }
 
         if (comando.equals("botonRegistrarAdmin")) {//NOSONAR
-
+            
             int flag = 0;//NOSONAR
             if (!adm.textNombre.getText().isEmpty()) {//NOSONAR
                 if (adm.textNombre.getText().length() < 3) {
@@ -436,8 +436,9 @@ public class NewClass implements ActionListener {
                                                             JOptionPane.showMessageDialog(null, "La dirección debe contener mas de 4 caracteres.");//NOSONAR
                                                         } else {
                                                             if (!adm.textTelefono.getText().isEmpty()) {  //NOSONAR
-
-                                                                if (adm.textTelefono.getText().length() != 9) {
+                                                                Pattern p=Pattern.compile("[9]");
+                                                                Matcher matcher=p.matcher(adm.textTelefono.getText().substring(0,1));
+                                                                if (adm.textTelefono.getText().length() != 9 || !matcher.matches()) {
                                                                     JOptionPane.showMessageDialog(null, "El teléfono debe tener 9 digitos y empezar en 9.");//NOSONAR
                                                                 } else {
                                                                     flag = 1;//NOSONAR
@@ -1880,6 +1881,7 @@ public class NewClass implements ActionListener {
                 admM.setVisible(true);
                 admB.setVisible(false);
                 administradorDTO admDTO = a.read(Integer.valueOf(var));
+                System.out.println("-->"+admDTO.getContrasena());
                 admM.campoApellidoAdminMod.setText(admDTO.getApellido());
                 admM.campoContrasenaAdminMod.setText(admDTO.getContrasena());
                 admM.campoCorreoAdminMod.setText(admDTO.getCorreo());

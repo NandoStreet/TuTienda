@@ -260,13 +260,6 @@ public class administradorRegistrar extends javax.swing.JFrame {
             }
         });
 
-        textContraseña.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        textContraseña.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                textContraseñaKeyTyped(evt);
-            }
-        });
-
         barraRol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 barraRolActionPerformed(evt);
@@ -304,18 +297,18 @@ public class administradorRegistrar extends javax.swing.JFrame {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(textTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(textContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(textTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addComponent(barraRol, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(barraRol, 0, 240, Short.MAX_VALUE)
+                                    .addComponent(textContraseña))))))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(52, Short.MAX_VALUE)
+                .addContainerGap(49, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(textApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11)
@@ -337,7 +330,7 @@ public class administradorRegistrar extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(jLabel9)
                     .addComponent(textCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 13, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -434,7 +427,7 @@ public class administradorRegistrar extends javax.swing.JFrame {
             getToolkit().beep();
             evt.consume();
             
-            JOptionPane.showMessageDialog(rootPane,"El rango de caracteres debe estar entre 2 y 100");
+            JOptionPane.showMessageDialog(rootPane,"El rango de caracteres debe estar entre 3 y 100");
         }
     }//GEN-LAST:event_textNombreKeyTyped
 
@@ -451,7 +444,7 @@ public class administradorRegistrar extends javax.swing.JFrame {
             getToolkit().beep();
             evt.consume();
             
-            JOptionPane.showMessageDialog(rootPane,"El rango de caracteres debe estar entre 2 y 100");
+            JOptionPane.showMessageDialog(rootPane,"El rango de caracteres debe estar entre 3 y 100");
         }
     }//GEN-LAST:event_textApellidoKeyTyped
 
@@ -498,15 +491,6 @@ public class administradorRegistrar extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane,"No exceder el máximo de 40 caracteres.");
         }   
     }//GEN-LAST:event_textCorreoKeyTyped
-
-    private void textContraseñaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textContraseñaKeyTyped
-        if(textContraseña.getText().length()>=30){
-            getToolkit().beep();
-            evt.consume();
-            
-            JOptionPane.showMessageDialog(rootPane,"No exceder el máximo de 30 caracteres.");
-        } 
-    }//GEN-LAST:event_textContraseñaKeyTyped
 
     private void textDireccionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textDireccionKeyTyped
         if(textDireccion.getText().length()>=100){
@@ -632,7 +616,7 @@ public void listaDesplegable(){
     public static final javax.swing.JButton registrarAdminRegistrar = new javax.swing.JButton();
     public static final javax.swing.JButton salirAdminRegistrar = new javax.swing.JButton();
     public final javax.swing.JTextField textApellido = new javax.swing.JTextField();
-    public final javax.swing.JTextField textContraseña = new javax.swing.JTextField();
+    public final javax.swing.JPasswordField textContraseña = new javax.swing.JPasswordField();
     public final javax.swing.JTextField textCorreo = new javax.swing.JTextField();
     public final javax.swing.JTextField textDNI = new javax.swing.JTextField();
     public final javax.swing.JTextField textDireccion = new javax.swing.JTextField();
