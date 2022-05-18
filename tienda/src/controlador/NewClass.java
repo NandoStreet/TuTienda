@@ -1172,10 +1172,14 @@ public class NewClass implements ActionListener {
             int caso = 0;
             Date fechaNoActual = null;
             Date fechaactual = new Date(System.currentTimeMillis());
+            
+            Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+            Matcher mather = pattern.matcher(lmp.textEmail.getText());
 
             if (lmp.textRazonSocial.getText().isEmpty() || lmp.textRUC.getText().isEmpty() || lmp.textRepresentante.getText().isEmpty() || lmp.comboBoxEstadoCivil.getSelectedItem()=="Ninguno" || lmp.textTelefono.getText().isEmpty() || lmp.textEmail.getText().isEmpty() || lmp.textDistrito.getText().isEmpty()|| lmp.textDireccion.getText().isEmpty()|| lmp.textAreaDescripcion.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Existe por lo menos algun campo vacío");
-            } else {
+            } else {/*
                 //Esto permite obtener el valor del componente fecha
                 java.util.Date date = admPR.fechaPago.getDate();
                 //permite cambiar el fotmato del componente fecha 
@@ -1191,28 +1195,37 @@ public class NewClass implements ActionListener {
                 }
                 int milisecondsByDay = 86400000;
                 int dias = (int) ((fechaactual.getTime() - fechaNoActual.getTime()) / milisecondsByDay);
-
+*/
                 if (lmp.textRazonSocial.getText().length() < 3) {
                     caso = 1;
                 }
-                if (Float.parseFloat(admPR.montoPago.getText()) <= 0) {
+                if (lmp.textRUC.getText().length()!=11) {
                     caso = 2;
                 }
-                if (admPR.entidadPago.getText().length() <= 2) {
+                if (lmp.textRepresentante.getText().length() <= 2) {
                     caso = 3;
                 }
-                if (admPR.descripcionPago.getText().length() <= 2) {
+                if (lmp.comboBoxEstadoCivil.getSelectedItem()=="Ninguno") {
                     caso = 4;
                 }
-                if (file.length() > 840000) {
+                if (lmp.textTelefono.getText().length()!=9) {
                     caso = 5;
                 }
-                if (fechaNoActual.after(fechaactual)) {
+                if (lmp.textEmail.getText().length() <= 3 || mather.find() != true) {
                     caso = 6;
                 }
-                if (dias > 10) {
+                if (lmp.textDistrito.getText().length()<3) {
                     caso = 7;
                 }
+                if (lmp.textDireccion.getText().length()<3) {
+                    caso = 8;
+                }
+                if (lmp.textAreaDescripcion.getText().length()<3) {
+                    caso = 9;
+                }/*
+                if (dias > 10) {
+                    caso = 7;
+                }*/
                 //long numberOFDays = DAYS.(LocalDate.parse(myDate),  LocalDate.now());
 
                 switch (caso) {
@@ -1233,22 +1246,28 @@ public class NewClass implements ActionListener {
                         JOptionPane.showMessageDialog(null, "Titulo pago debe contener por lo menos 3 caracteres.");
                         break;
                     case 2:
-                        JOptionPane.showMessageDialog(null, "El monto debe ser mayor a 0.");
+                        JOptionPane.showMessageDialog(null, "El RUC debe ser de 11 dígitos.");
                         break;
                     case 3:
-                        JOptionPane.showMessageDialog(null, "El campo entidad pago debe contener por los menos 3 caracteres.");
+                        JOptionPane.showMessageDialog(null, "El campo representante contener por los menos 3 caracteres.");
                         break;
                     case 4:
-                        JOptionPane.showMessageDialog(null, "La descripción del pago debe contener por los menos 3 caracteres.");
+                        JOptionPane.showMessageDialog(null, "Seleccione estado.");
                         break;
                     case 5:
-                        JOptionPane.showMessageDialog(null, "El archivo supera los 840 kb");
+                        JOptionPane.showMessageDialog(null, "El teléfono debe contener 9 dígitos.");
                         break;
                     case 6:
-                        JOptionPane.showMessageDialog(null, "La fecha no debe ser mayor a la actual.");
+                        JOptionPane.showMessageDialog(null, "Ingresar un email valido.");
                         break;
                     case 7:
-                        JOptionPane.showMessageDialog(null, "La fecha anterior debe debe estar en un margen de 10 días respecto a la fecha actual.");
+                        JOptionPane.showMessageDialog(null, "El campo distrito debe contener por lo menos 3 caracteres.");
+                        break;
+                    case 8:
+                        JOptionPane.showMessageDialog(null, "El campo dirección debe contener por lo menos 3 caracteres.");
+                        break;
+                    case 9:
+                        JOptionPane.showMessageDialog(null, "El campo descripción debe contener por lo menos 3 caracteres.");
                         break;
                 }
 

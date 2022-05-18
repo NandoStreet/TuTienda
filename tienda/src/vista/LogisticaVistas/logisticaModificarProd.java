@@ -269,7 +269,6 @@ public class logisticaModificarProd extends javax.swing.JFrame {
         registrarProvedLogModProd.setText("REGISTRAR PROVEEDOR");
         registrarProvedLogModProd.setHideActionText(true);
         registrarProvedLogModProd.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        registrarProvedLogModProd.setText("<html><p>REGISTRAR</p><p>PROVEEDOR</p></html>");
         registrarProvedLogModProd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registrarProvedLogModProdActionPerformed(evt);

@@ -637,7 +637,6 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registrarProvedLogModProdActionPerformed"/>
           </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="registrarProvedLogModProd.setText(&quot;&lt;html&gt;&lt;p&gt;REGISTRAR&lt;/p&gt;&lt;p&gt;PROVEEDOR&lt;/p&gt;&lt;/html&gt;&quot;);"/>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="25"/>
           </AuxValues>
         </Component>
