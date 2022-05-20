@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -212,6 +213,11 @@ public class logisticaModificarProd extends javax.swing.JFrame {
         jLabel13.setText("Busqueda por código");
 
         textBusquedaRucProducto.setBackground(new java.awt.Color(196, 196, 196));
+        textBusquedaRucProducto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textBusquedaRucProductoKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -462,6 +468,23 @@ public class logisticaModificarProd extends javax.swing.JFrame {
     private void modElimProvLogisModProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modElimProvLogisModProdActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_modElimProvLogisModProdActionPerformed
+
+    private void textBusquedaRucProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textBusquedaRucProductoKeyTyped
+        // TODO add your handling code here:
+        char validar = evt.getKeyChar();
+        if (Character.isLetter(validar)) {
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(rootPane,"Ingresar solo números");
+        }
+        if(textBusquedaRucProducto.getText().length()>=4){
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(rootPane,"El código debe ser de 4 digitos.");
+        }
+    }//GEN-LAST:event_textBusquedaRucProductoKeyTyped
 
     /**
      * @param args the command line arguments

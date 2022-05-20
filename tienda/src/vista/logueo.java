@@ -35,6 +35,9 @@ public class logueo extends javax.swing.JFrame {
         setIconImage(new ImageIcon(getClass().getResource("/image/logoDiscord.png")).getImage());
         placeHolder("Correo", user);
         placeHolder("Contraseña", password);
+        //Desactivar Paste en jtext
+        user.setTransferHandler(null);
+        password.setTransferHandler(null);
         //Probar coneccion de base de datos
 //        try {
 //            bd.conectar();

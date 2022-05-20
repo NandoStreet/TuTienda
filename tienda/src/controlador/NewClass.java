@@ -284,6 +284,8 @@ public class NewClass implements ActionListener {
         this.lmproducto.botonEliminarModProducto.addActionListener(this);
         this.lmproducto.botonSalirLogisticaModifProd.setActionCommand("botonSalirLogisticaModifProd");
         this.lmproducto.botonSalirLogisticaModifProd.addActionListener(this);
+        this.lmproducto.botonGuardarLogisiticaProducto.setActionCommand("botonGuardarLogisiticaProducto");
+        this.lmproducto.botonGuardarLogisiticaProducto.addActionListener(this);
         this.lmproducto.registrarProductoLogisticaModProd.setActionCommand("registrarProductoLogisticaModProd");
         this.lmproducto.registrarProductoLogisticaModProd.addActionListener(this);
         this.lmproducto.modElimProvLogisModProd.setActionCommand("modElimProvLogisModProd");
@@ -1143,15 +1145,21 @@ public class NewClass implements ActionListener {
             this.ruc = lmp.textBusquedaRuc.getText();
             
             logisticaProveedorDTO admDTO = lp.read(ruc);
-            lmp.textRazonSocial.setText(admDTO.getRazonSocial());
-            lmp.textRepresentante.setText(admDTO.getRepresentante());
-            lmp.textTelefono.setText(String.valueOf(admDTO.getTelefono()));
-            lmp.textDistrito.setText(admDTO.getDistrito());
-            lmp.textRUC.setText(String.valueOf(admDTO.getRuc()));
-            lmp.comboBoxEstadoCivil.setSelectedItem(admDTO.getEstado());
-            lmp.textEmail.setText(admDTO.getEmail());
-            lmp.textDireccion.setText(admDTO.getDireccion());
-            lmp.textAreaDescripcion.setText(admDTO.getDetalles());
+            if(admDTO==null){
+                JOptionPane.showMessageDialog(null, "No se encontró en la base de datos.");
+            }
+            else{
+                lmp.textRazonSocial.setText(admDTO.getRazonSocial());
+                lmp.textRepresentante.setText(admDTO.getRepresentante());
+                lmp.textTelefono.setText(String.valueOf(admDTO.getTelefono()));
+                lmp.textDistrito.setText(admDTO.getDistrito());
+                lmp.textRUC.setText(String.valueOf(admDTO.getRuc()));
+                lmp.comboBoxEstadoCivil.setSelectedItem(admDTO.getEstado());
+                lmp.textEmail.setText(admDTO.getEmail());
+                lmp.textDireccion.setText(admDTO.getDireccion());
+                lmp.textAreaDescripcion.setText(admDTO.getDetalles());
+            }
+            
 
         }
         if (comando.equals("botonEliminarModProv")) {
@@ -1451,17 +1459,24 @@ public class NewClass implements ActionListener {
         if (comando.equals("btnBusquedaLogisiticaProducto")) {
             codigo = Integer.valueOf(lmproducto.textBusquedaRucProducto.getText());
             logisticaProductosDTO lproductoDTO = lproductos.read(codigo);
-            lmproducto.textcodigo.setText(lproductoDTO.getCodigo());
-            lmproducto.textRepresentante.setText(lproductoDTO.getNombre());
-            lmproducto.textPrecio.setText(String.valueOf(lproductoDTO.getPrecio()));
-            lmproducto.textCantidad.setText(String.valueOf(lproductoDTO.getStock()));
-            lmproducto.textVencimiento.setText(lproductoDTO.getFecha());
-            lmproducto.comboBoxProveedor.setSelectedItem(lproductoDTO.getProveedor());
-            lmproducto.textAreaDescripcion.setText(lproductoDTO.getDescripcion());
-            lmproducto.textMarca.setText(lproductoDTO.getMarca());
-            lmproducto.textCategoria.setText(lproductoDTO.getCategoria());
+            if(lproductoDTO==null){
+                JOptionPane.showMessageDialog(null, "No se encontró el producto en la base de datos.");
+            }
+            else{
+                lmproducto.textcodigo.setText(lproductoDTO.getCodigo());
+                lmproducto.textRepresentante.setText(lproductoDTO.getNombre());
+                lmproducto.textPrecio.setText(String.valueOf(lproductoDTO.getPrecio()));
+                lmproducto.textCantidad.setText(String.valueOf(lproductoDTO.getStock()));
+                lmproducto.textVencimiento.setText(lproductoDTO.getFecha());
+                lmproducto.comboBoxProveedor.setSelectedItem(lproductoDTO.getProveedor());
+                lmproducto.textAreaDescripcion.setText(lproductoDTO.getDescripcion());
+                lmproducto.textMarca.setText(lproductoDTO.getMarca());
+                lmproducto.textCategoria.setText(lproductoDTO.getCategoria());
+            }
+            
 
         }
+        
         if (comando.equals("botonEliminarModProducto")) {
 
             lproductos.delete(codigo);

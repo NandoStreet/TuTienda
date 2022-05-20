@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -207,6 +208,11 @@ public class logisticaModificarProv extends javax.swing.JFrame {
         jLabel13.setText("Busqueda por Ruc");
 
         textBusquedaRuc.setBackground(new java.awt.Color(196, 196, 196));
+        textBusquedaRuc.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textBusquedaRucKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -452,6 +458,23 @@ public class logisticaModificarProv extends javax.swing.JFrame {
     private void textEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textEmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textEmailActionPerformed
+
+    private void textBusquedaRucKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textBusquedaRucKeyTyped
+         // TODO add your handling code here:
+        char validar = evt.getKeyChar();
+        if (Character.isLetter(validar)) {
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(rootPane,"Ingresar solo números");
+        }
+        if(textBusquedaRuc.getText().length()>=11){
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(rootPane,"El RUC debe ser de 11 digitos.");
+        }
+    }//GEN-LAST:event_textBusquedaRucKeyTyped
 
     /**
      * @param args the command line arguments
