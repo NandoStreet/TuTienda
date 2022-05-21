@@ -5,6 +5,7 @@
  */
 package controlador;
 
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.formatDate;
 import java.awt.Image;
 import vista.Render;
 import java.awt.event.ActionEvent;
@@ -1109,6 +1110,7 @@ public class NewClass implements ActionListener {
         if (comando.equals("editarProductoLogistica")) {
             lrp.dispose();
             lmproducto.setVisible(true);
+            cargarComboCategorias();
             List<logisticaProveedorDTO> customerList = null;
 
             customerList = lp.readAll();
@@ -1314,11 +1316,13 @@ public class NewClass implements ActionListener {
 
             lmp.dispose();
             lrp.setVisible(true);
+            
         }
         if (comando.equals("modElimProdLogModProv")) {
-
+            
             lmp.dispose();
             lmproducto.setVisible(true);
+            cargarComboCategorias();
 
         }
 
@@ -1337,6 +1341,7 @@ public class NewClass implements ActionListener {
         if (comando.equals("modelimLogRegProd")) {
             lrprod.dispose();
             lmproducto.setVisible(true);
+            cargarComboCategorias();
             
            
         }
@@ -1463,20 +1468,134 @@ public class NewClass implements ActionListener {
                 JOptionPane.showMessageDialog(null, "No se encontró el producto en la base de datos.");
             }
             else{
-                lmproducto.textcodigo.setText(lproductoDTO.getCodigo());
-                lmproducto.textRepresentante.setText(lproductoDTO.getNombre());
-                lmproducto.textPrecio.setText(String.valueOf(lproductoDTO.getPrecio()));
-                lmproducto.textCantidad.setText(String.valueOf(lproductoDTO.getStock()));
-                lmproducto.textVencimiento.setText(lproductoDTO.getFecha());
-                lmproducto.comboBoxProveedor.setSelectedItem(lproductoDTO.getProveedor());
-                lmproducto.textAreaDescripcion.setText(lproductoDTO.getDescripcion());
-                lmproducto.textMarca.setText(lproductoDTO.getMarca());
-                lmproducto.textCategoria.setText(lproductoDTO.getCategoria());
+                String fecha=lproductoDTO.getFecha();
+                SimpleDateFormat inFmt = new SimpleDateFormat("yyyy-MM-dd");
+                SimpleDateFormat outFmt = new SimpleDateFormat("dd/MM/yyyy");
+                
+                try {
+                    String cdate = outFmt.format(inFmt.parse(fecha));
+                    System.out.println("-->"+cdate);
+                    Date date = new SimpleDateFormat("dd/MM/yyyy").parse(cdate);
+                    lmproducto.textcodigo.setText(lproductoDTO.getCodigo());
+                    lmproducto.textRepresentante.setText(lproductoDTO.getNombre());
+                    lmproducto.textPrecio.setText(String.valueOf(lproductoDTO.getPrecio()));
+                    lmproducto.textCantidad.setText(String.valueOf(lproductoDTO.getStock()));
+                    lmproducto.textVencimiento.setDate(date);
+                    lmproducto.comboBoxProveedor.setSelectedItem(lproductoDTO.getProveedor());
+                    lmproducto.textAreaDescripcion.setText(lproductoDTO.getDescripcion());
+                    lmproducto.textMarca.setText(lproductoDTO.getMarca());
+                    lmproducto.textCategorias.setSelectedItem(lproductoDTO.getCategoria());
+                } catch (ParseException ex) {
+                    Logger.getLogger(NewClass.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                
+                
+                /*String dd = year + "-" + month + "-" + day;
+
+Date date = new SimpleDateFormat("yyyy-MM-dd").parse(dd);
+jDateChooser1.setDate(date);
+                
+                 String info6 = "11/03/1984";
+        SimpleDateFormat inFmt = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat outFmt = new SimpleDateFormat("yyyy-MM-dd");
+        String cdate = outFmt.format(inFmt.parse(info6));
+        Date birthdate = outFmt.parse(cdate);*/
             }
             
 
         }
         
+        if (comando.equals("botonGuardarLogisiticaProducto")) {
+            if (lmproducto.textcodigo.getText().isEmpty() || lmproducto.textRepresentante.getText().isEmpty() || lmproducto.textPrecio.getText().isEmpty() || lmproducto.textAreaDescripcion.getText().isEmpty() || lmproducto.textVencimiento.getDate() == null || lmproducto.comboBoxProveedor.getSelectedItem().equals("Ninguno")||lmproducto.textCategorias.getSelectedItem().equals("Ninguno")|| lmproducto.textCantidad.getText().isEmpty()||lmproducto.textMarca.getText().isEmpty() ) {
+                JOptionPane.showMessageDialog(null, "Existe por lo menos algun campo vacío");
+            } else {
+                java.util.Date date = lmproducto.textVencimiento.getDate();
+                //permite cambiar el fotmato del componente fecha 
+                //dar formato a fecha 
+                SimpleDateFormat dcn = new SimpleDateFormat("yyyy-MM-dd");
+                String formatDate = dcn.format(date);
+
+                //sssssssssssssssssssssssssssssssssss
+                int caso = 0;
+                Date fechaNoActual = null;
+                Date fechaactual = new Date(System.currentTimeMillis());
+
+                //Esto permite obtener el valor del componente fecha
+                try {
+                    fechaNoActual = dcn.parse(formatDate);
+                } catch (ParseException ex) {
+                    Logger.getLogger(NewClass.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                int milisecondsByDay = 86400000;
+                int dias = (int) ((fechaactual.getTime() - fechaNoActual.getTime()) / milisecondsByDay);
+                if (lmproducto.textcodigo.getText().length() != 4 && lmproducto.textcodigo.getText().length() < 4) {
+
+                    caso = 1;
+
+                }
+                if (lmproducto.textRepresentante.getText().length() <= 2) {
+                    caso = 2;
+                }
+                if (Float.valueOf(lmproducto.textPrecio.getText()) <= 0 ||Float.valueOf(lmproducto.textPrecio.getText()) >= 100 ) {
+                    caso = 3;
+                }
+                if (Integer.valueOf(lmproducto.textCantidad.getText()) <= 0 ||Integer.valueOf(lmproducto.textCantidad.getText()) >= 1000 ) {
+                    caso = 4;
+                }
+                if(lmproducto.textMarca.getText().length()<=2){
+                    caso=5;
+                }
+                if (fechaNoActual.before(fechaactual)) {
+                    caso = 6;
+                }
+
+                //long numberOFDays = DAYS.(LocalDate.parse(myDate),  LocalDate.now());
+                switch (caso) {
+                    case 0:
+                        //lproductos.create(new logisticaProductosDTO(lrprod.textcodigo.getText(), lrprod.textNombre.getText(), Float.valueOf(lrprod.textPrecio.getText()), lrprod.textAreaDescripcion.getText(), formatDate, String.valueOf(lrprod.comboBoxProveedor.getSelectedItem()), lrprod.textMarca.getText(), (String) lrprod.textCateogria.getSelectedItem(), Integer.valueOf(lrprod.textCantidad.getText())));
+                        lproductos.update(new logisticaProductosDTO(lmproducto.textcodigo.getText(), lmproducto.textRepresentante.getText(), Float.valueOf(lmproducto.textPrecio.getText()), lmproducto.textAreaDescripcion.getText(), formatDate, String.valueOf(lmproducto.comboBoxProveedor.getSelectedItem()), lmproducto.textMarca.getText(), (String) lmproducto.textCategorias.getSelectedItem(), Integer.valueOf(lmproducto.textCantidad.getText())),lmproducto.textBusquedaRucProducto.getText());
+                        lmproducto.textcodigo.setText("");
+                        lmproducto.textRepresentante.setText("");
+                        lmproducto.textPrecio.setText("");
+                        lmproducto.textAreaDescripcion.setText("");
+                        lmproducto.comboBoxProveedor.setSelectedItem("Ninguno");
+                        lmproducto.textMarca.setText("");
+                        lmproducto.textCategorias.setSelectedItem("Ninguno");
+                        lmproducto.textCantidad.setText("");
+                        JOptionPane.showMessageDialog(null, "Producto Actualizado Correctamente.");
+
+                        break;
+                    case 1:
+                        JOptionPane.showMessageDialog(null, "El codigo debe ser de 4 digitos");
+                        break;
+                    case 2:
+                        JOptionPane.showMessageDialog(null, "El nombre debe tener mas de 2 caracteres.");
+                        break;
+                    case 3:
+                        JOptionPane.showMessageDialog(null, "El campo de precio debe ser mayor a 0 y menor a 100.0 soles.");
+                        break;
+                    case 4:
+                        JOptionPane.showMessageDialog(null, "El campo de cantidad debe ser mayor a 0 y menor a 1000 unidades.");
+                        break;
+                    case 5: JOptionPane.showMessageDialog(null, "La marca debe ser mayor a 2 caracteres."); break;
+                    case 6:
+                        JOptionPane.showMessageDialog(null, "La fecha debe ser mayor a la fecha actual.");
+                        break;
+
+                }
+
+            }
+            
+            /*
+            //Esto permite obtener el valor del componente fecha
+            java.util.Date date = lmproducto.textVencimiento.getDate();
+            SimpleDateFormat dcn = new SimpleDateFormat("yyyy-MM-dd");
+            String formatDate = dcn.format(date);
+
+            lproductos.update(new logisticaProductosDTO(lmproducto.textcodigo.getText(), lmproducto.textRepresentante.getText(), Float.valueOf(lmproducto.textPrecio.getText()), lmproducto.textAreaDescripcion.getText(), formatDate, String.valueOf(lmproducto.comboBoxProveedor.getSelectedItem()), lmproducto.textMarca.getText(), (String) lmproducto.textCategorias.getSelectedItem(), Integer.valueOf(lmproducto.textCantidad.getText())),lmproducto.textBusquedaRucProducto.getText());
+            */
+        }
         if (comando.equals("botonEliminarModProducto")) {
 
             lproductos.delete(codigo);
@@ -1484,11 +1603,11 @@ public class NewClass implements ActionListener {
             lmproducto.textRepresentante.setText("");
             lmproducto.textPrecio.setText("");
             lmproducto.textCantidad.setText("");
-            lmproducto.textVencimiento.setText("");
+            //lmproducto.textVencimiento.setText("");
             lmproducto.comboBoxProveedor.setSelectedItem("Ninguno");
             lmproducto.textAreaDescripcion.setText("");
             lmproducto.textMarca.setText("");
-            lmproducto.textCategoria.setText("");
+            lmproducto.textCategorias.setSelectedItem("Ninguno");
 
         }
         
@@ -1537,6 +1656,7 @@ public class NewClass implements ActionListener {
         if (comando.equals("modProdLogCat")) {
             lcproducto.dispose();
             lmproducto.setVisible(true);
+            cargarComboCategorias();
         }
         
         if (comando.equals("botonGuardarLogisiticaCategorias")) {
@@ -2037,6 +2157,9 @@ public class NewClass implements ActionListener {
     public void cargarComboCategorias(){
         lrprod.comboBoxProveedor.removeAllItems();
         lrprod.textCateogria.removeAllItems();
+        
+        lmproducto.textCategorias.removeAllItems();
+        lmproducto.comboBoxProveedor.removeAllItems();
         List<logisticaProveedorDTO> customerList = null;
 
             customerList = lp.readAll();
@@ -2054,6 +2177,7 @@ public class NewClass implements ActionListener {
                 //se cargan de la base de datos los ruc de los proveedores en el combox
                 rucProveedor = customer.getRazonSocial();
                 lrprod.comboBoxProveedor.addItem(rucProveedor);
+                lmproducto.comboBoxProveedor.addItem(rucProveedor);
             }
             List<logisticaCategoriasDTO> customerList2 = null;
 
@@ -2072,6 +2196,7 @@ public class NewClass implements ActionListener {
                 //se cargan de la base de datos los ruc de los proveedores en el combox
                 rucProveedor2 = customer.getNombre();
                 lrprod.textCateogria.addItem(rucProveedor2);
+                lmproducto.textCategorias.addItem(rucProveedor2);
             }
             
     }

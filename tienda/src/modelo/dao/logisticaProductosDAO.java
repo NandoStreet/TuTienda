@@ -23,7 +23,7 @@ public class logisticaProductosDAO implements crud<logisticaProductosDTO> {//NOS
     
     private static final String SQL_Insert="INSERT into producto(codigo, fecha_venc, nombre, precio, stock, categoria, marca, estado, proveedor) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";//NOSONAR
     private static final String SQL_Delete="DELETE from producto WHERE codigo=?";//NOSONAR
-    private static final String SQL_Update="UPDATE producto SET stock=? WHERE codigo=?";//NOSONAR
+    private static final String SQL_Update="UPDATE producto SET codigo=?, fecha_venc=?,nombre=?,precio=?,stock=?,categoria=?,marca=?,estado=?,proveedor=?  WHERE codigo=?";//NOSONAR
     private static final String SQL_Read="SELECT * FROM producto WHERE codigo= ?";//NOSONAR
     private static final String SQL_ReadAll="SELECT * from usuarios";//NOSONAR
     private static final Conexion con=Conexion.saberEstado();//singleton
@@ -84,8 +84,18 @@ public class logisticaProductosDAO implements crud<logisticaProductosDTO> {//NOS
             
             try (PreparedStatement ps=con.getCon().prepareStatement(SQL_Update)){
 
-                ps.setInt(1, c.getStock());
-                ps.setObject(2,a);
+                ps.setString(1, c.getCodigo());
+                ps.setString(2, c.getFecha());
+                ps.setString(3, c.getNombre());
+                ps.setFloat(4, c.getPrecio());
+                ps.setInt(5, c.getStock());
+                ps.setString(6, c.getCategoria());
+                ps.setString(7, c.getMarca());
+                ps.setString(8, c.getDescripcion());
+                ps.setString(9, c.getProveedor());
+                
+                ps.setString(10, (String) a);
+               
                 if(ps.executeUpdate()>0){
                     return true;
                 }
