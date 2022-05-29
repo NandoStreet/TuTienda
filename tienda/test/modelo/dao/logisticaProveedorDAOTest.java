@@ -16,26 +16,12 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import vista.CajeroVistas.cajeroRegistrarCotizacion;
-import vista.CajeroVistas.cajeroRegistrarVenta;
-import vista.CajeroVistas.usuarioCajero;
-import vista.LogisticaVistas.logisticaCategoriasProd;
-import vista.LogisticaVistas.logisticaModificarProd;
-import vista.LogisticaVistas.logisticaModificarProv;
-import vista.LogisticaVistas.logisticaRegistrarProd;
 import vista.LogisticaVistas.logisticaRegistroProv;
-import vista.administradorBuscar;
-import vista.administradorModificar;
-import vista.administradorPagoModificar;
-import vista.administradorPagoRegistrar;
-import vista.administradorRegistrar;
-import vista.administradorSubPagoModificar;
-import vista.administradordetallesPagoModificar;
-import vista.logueo;
+
 
 /**
  *
- * @author David
+ * @author Moises
  */
 public class logisticaProveedorDAOTest {
     
@@ -66,57 +52,33 @@ public class logisticaProveedorDAOTest {
         //Variable global
         boolean expResult=true;
         boolean result=false;
-        
-        logueo lg=new logueo();  
-        loguinDAO lDAO= new loguinDAO();
-        administradorDAO a=new administradorDAO();
-        administradorPagoDAO a1=new administradorPagoDAO();
         logisticaProveedorDAO lp=new logisticaProveedorDAO();
-        logisticaProductosDAO lproductos=new logisticaProductosDAO();
-        logisticaCategoriasDAO lcategorias= new logisticaCategoriasDAO();
-        CajeroVentasDAO cajv= new CajeroVentasDAO();
-        administradorRegistrar adm = new administradorRegistrar();
-        administradorBuscar admB= new administradorBuscar(); 
-        administradorModificar admM=new administradorModificar();
-        administradorPagoRegistrar admPR=new administradorPagoRegistrar();
-        administradorPagoModificar admPM=new administradorPagoModificar();
-        administradordetallesPagoModificar adPM=new administradordetallesPagoModificar();
-        administradorSubPagoModificar adSPM=new administradorSubPagoModificar();
-        logisticaRegistrarProd lrprod= new logisticaRegistrarProd();
-        logisticaModificarProd lmproducto= new logisticaModificarProd();
-        
+
         //Logisitica
         logisticaRegistroProv lrp=new logisticaRegistroProv();
-        logisticaModificarProv lmp=new logisticaModificarProv();
-        logisticaCategoriasProd lcp=new logisticaCategoriasProd();
-         //Cajero
-         
-         cajeroRegistrarCotizacion cajRegC=new cajeroRegistrarCotizacion();
-         cajeroRegistrarVenta cajRegV= new cajeroRegistrarVenta();
-         usuarioCajero cajU=new usuarioCajero();
         
-        /*Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-                                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
-            Matcher mather = pattern.matcher(lrp.textEmail.getText());*/
+        /*Pattern pattern = Pattern
+            .compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+            + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+        Matcher mather = pattern.matcher(lrp.textEmail.getText());*/
              int caso = 0;
             //cargar el formulario 
-            lrp.textRazonSocial.setText("s");
-            lrp.textRepresentante.setText("sdssdsd");
-            lrp.textTelefono.setText("987330113");
-            lrp.textDistrito.setText("sdssdsdsd");
-            lrp.textRUC.setText("95486245789");
+            lrp.textRazonSocial.setText("HYDRAULIC CENTER S.A.C.");
+            lrp.textRepresentante.setText("ADRIANA CAROLINA");
+            lrp.textTelefono.setText("987654321");
+            lrp.textDistrito.setText("San Isidro");
+            lrp.textRUC.setText("20547822171");
             lrp.comboBoxEstadoCivil.setSelectedItem("Activo");
-            lrp.textEmail.setText("dadsadas@hotmail.com");
-            lrp.textDireccion.setText("sdssdsdsdsdsd");
-            lrp.textAreaDescripcion.setText("sdssdsdsdsdsdsd");
+            lrp.textEmail.setText("DanielRCarrasco@gmail.com");
+            lrp.textDireccion.setText("Calle Almirante Guisse 205");
+            lrp.textAreaDescripcion.setText("Representante legal");
             
             if (lrp.textRazonSocial.getText().isEmpty() || lrp.textRepresentante.getText().isEmpty() || lrp.textTelefono.getText().isEmpty() || lrp.textDistrito.getText().isEmpty() || lrp.textRUC.getText().isEmpty()|| lrp.comboBoxEstadoCivil.getSelectedItem()=="Ninguno" || lrp.textEmail.getText().isEmpty() || lrp.textDireccion.getText().isEmpty() || lrp.textAreaDescripcion.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Existe por lo menos algun campo vacío");
+                System.out.println("Existe por lo menos algun campo vacío");                
+                result=false;
+                assertEquals(expResult, result);
             } else {
                 
-
-               
-
                 if (lrp.textRazonSocial.getText().length() <= 3) {
                     caso = 1;
                 }
@@ -142,12 +104,9 @@ public class logisticaProveedorDAOTest {
                 if (lrp.comboBoxEstadoCivil.getSelectedItem()=="Ninguno") {
                     caso = 8;
                 }
-                if (lrp.textEmail.getText().length() <= 3 ) {
-                    
-               
+                if (lrp.textEmail.getText().length() <= 3) {
                     caso = 9;
                 }
-                //long numberOFDays = DAYS.(LocalDate.parse(myDate),  LocalDate.now());
 
                 switch (caso) {
                     case 0:
@@ -158,46 +117,53 @@ public class logisticaProveedorDAOTest {
                         if (!result){
                             fail("The test case is a prototype.");
                         }
-                        
-                        
-                        
-                        JOptionPane.showMessageDialog(null, "Proveedor Registrado Correctamente.");break;
+                        System.out.println("Proveedor Registrado Correctamente.");
+                        break;
                     case 1:
                         System.out.println("La razon social debe tener mas de 3 caracteres.");
                         result=false;
                         assertEquals(expResult, result); 
                         break;
                     case 2:
-                        JOptionPane.showMessageDialog(null, "El representante debe tener mas de 3 caracteres.");
+                        System.out.println("El representante debe tener mas de 3 caracteres.");                        result=false;
+                        assertEquals(expResult, result); 
                         break;
                     case 3:
-                        JOptionPane.showMessageDialog(null, "El teléfono debe ser de 9 dígitos.");
+                        System.out.println("El teléfono debe ser de 9 dígitos.");                        
+                        result=false;
+                        assertEquals(expResult, result); 
                         break;
                     case 4:
-                        JOptionPane.showMessageDialog(null, "El distrito debe tener mas de 2 caracteres.");
+                        System.out.println("El distrito debe tener mas de 2 caracteres.");                        
+                        result=false;
+                        assertEquals(expResult, result); 
                         break;
                     case 5:
-                        JOptionPane.showMessageDialog(null, "El RUC debe contener 11 digitos.");
+                        System.out.println("El RUC debe contener 11 digitos.");
+                        result=false;
+                        assertEquals(expResult, result); 
                         break;
                     case 6:
-                        JOptionPane.showMessageDialog(null, "La dirección debe contener mas de 3 caracteres.");
+                        System.out.println("La dirección debe contener mas de 3 caracteres.");                        
+                        result=false;
+                        assertEquals(expResult, result); 
                         break;
                     case 7:
-                        JOptionPane.showMessageDialog(null, "La descripción debe contener mas de 3 caracteres.");
+                        System.out.println("La descripción debe contener mas de 3 caracteres.");                        
+                        result=false;
+                        assertEquals(expResult, result); 
                         break;
                     case 8:
-                        JOptionPane.showMessageDialog(null, "Estado civil no seleccionado");
+                        System.out.println("Estado civil no seleccionado");                        
+                        result=false;
+                        assertEquals(expResult, result); 
                         break;
                     case 9:
-                        JOptionPane.showMessageDialog(null, "El email es invalido o debe contener mas de 3 caracteres.");
+                        System.out.println("El email es invalido o debe contener mas de 3 caracteres.");
+                        result=false;
+                        assertEquals(expResult, result); 
                     break;
                 }
-
             }   
-        
-        
-     
     }
-
-    
 }
