@@ -70,6 +70,11 @@ public class logueo extends javax.swing.JFrame {
         password.setBackground(new java.awt.Color(150, 225, 241));
 
         user.setBackground(new java.awt.Color(150, 225, 241));
+        user.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                userKeyTyped(evt);
+            }
+        });
 
         botonIniciarSesion.setBackground(new java.awt.Color(223, 89, 32));
         botonIniciarSesion.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
@@ -240,6 +245,10 @@ public class logueo extends javax.swing.JFrame {
     private void botonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIniciarSesionActionPerformed
         
     }//GEN-LAST:event_botonIniciarSesionActionPerformed
+
+    private void userKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userKeyTyped
 
     /**
      * @param args the command line arguments
