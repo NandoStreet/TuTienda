@@ -93,14 +93,14 @@ public class administradorDAOTest {
         boolean result = false;
         boolean expResult;
         //Cargar formulario
-        adm.textNombre.setText("David Pablo");
-        adm.textApellido.setText("Acevedo Cabello");
-        adm.textDNI.setText("19811114");
+        adm.textNombre.setText("Elias");
+        adm.textApellido.setText("Cubas Gonzales");
+        adm.textDNI.setText("21062494");
         adm.barraRol.setSelectedItem("Admin");
-        adm.textCorreo.setText("joseacevedo@gmail.com");
-        adm.textContraseña.setText("josedaniel221");
-        adm.textDireccion.setText("Urb. San Agustín 2da Etapa, Comas");
-        adm.textTelefono.setText("929875234");
+        adm.textCorreo.setText("");
+        adm.textContraseña.setText("qweasdzxc");
+        adm.textDireccion.setText("Urb. Santa Agustín 2da Etapa, Coma");
+        adm.textTelefono.setText("987654321");
         int flag = 0;//NOSONAR
             if (!adm.textNombre.getText().isEmpty()) {//NOSONAR
                 if (adm.textNombre.getText().length() < 3) {

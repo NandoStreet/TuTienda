@@ -112,6 +112,8 @@ public class logisticaProveedorDAOTest {
             
             if (lrp.textRazonSocial.getText().isEmpty() || lrp.textRepresentante.getText().isEmpty() || lrp.textTelefono.getText().isEmpty() || lrp.textDistrito.getText().isEmpty() || lrp.textRUC.getText().isEmpty()|| lrp.comboBoxEstadoCivil.getSelectedItem()=="Ninguno" || lrp.textEmail.getText().isEmpty() || lrp.textDireccion.getText().isEmpty() || lrp.textAreaDescripcion.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Existe por lo menos algun campo vacío");
+                
+                
             } else {
                 
 
@@ -164,8 +166,8 @@ public class logisticaProveedorDAOTest {
                         JOptionPane.showMessageDialog(null, "Proveedor Registrado Correctamente.");break;
                     case 1:
                         System.out.println("La razon social debe tener mas de 3 caracteres.");
-                        result=false;
-                        assertEquals(expResult, result); 
+                        result=false;//-->
+                        assertEquals(expResult, result); //-->
                         break;
                     case 2:
                         JOptionPane.showMessageDialog(null, "El representante debe tener mas de 3 caracteres.");
