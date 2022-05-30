@@ -74,15 +74,15 @@ public class logisticaProveedorDAOTest {
             lrp.textAreaDescripcion.setText("Representante legal");
             
             if (lrp.textRazonSocial.getText().isEmpty() || lrp.textRepresentante.getText().isEmpty() || lrp.textTelefono.getText().isEmpty() || lrp.textDistrito.getText().isEmpty() || lrp.textRUC.getText().isEmpty()|| lrp.comboBoxEstadoCivil.getSelectedItem()=="Ninguno" || lrp.textEmail.getText().isEmpty() || lrp.textDireccion.getText().isEmpty() || lrp.textAreaDescripcion.getText().isEmpty()) {
-<<<<<<< HEAD
+
                 System.out.println("Existe por lo menos algun campo vacío");                
                 result=false;
                 assertEquals(expResult, result);
-=======
+
                 JOptionPane.showMessageDialog(null, "Existe por lo menos algun campo vacío");
                 
                 
->>>>>>> 4c1e08470dae38dd44d283bf7bf719987611e5f0
+
             } else {
                 
                 if (lrp.textRazonSocial.getText().length() <= 3) {

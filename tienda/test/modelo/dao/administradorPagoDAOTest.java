@@ -178,7 +178,9 @@ public class administradorPagoDAOTest {
                         assertEquals(expResult, result);
                         break;
                     case 2:
-                        JOptionPane.showMessageDialog(null, "El monto debe ser mayor a 0.");
+                        JOptionPane.showMessageDialog(null, "El monto debe ser mayor a 0.");//cambiar
+                        result=false;//copiar en cases
+                        assertEquals(expResult, result);//copiar en cases
                         break;
                     case 3:
                         JOptionPane.showMessageDialog(null, "El campo entidad pago debe contener por los menos 3 caracteres.");
