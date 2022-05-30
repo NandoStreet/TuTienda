@@ -6,6 +6,7 @@
 package modelo.dao;
 
 import java.util.List;
+import javax.swing.JOptionPane;
 import modelo.dto.logisticaCategoriasDTO;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -13,6 +14,22 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import vista.CajeroVistas.cajeroRegistrarCotizacion;
+import vista.CajeroVistas.cajeroRegistrarVenta;
+import vista.CajeroVistas.usuarioCajero;
+import vista.LogisticaVistas.logisticaCategoriasProd;
+import vista.LogisticaVistas.logisticaModificarProd;
+import vista.LogisticaVistas.logisticaModificarProv;
+import vista.LogisticaVistas.logisticaRegistrarProd;
+import vista.LogisticaVistas.logisticaRegistroProv;
+import vista.administradorBuscar;
+import vista.administradorModificar;
+import vista.administradorPagoModificar;
+import vista.administradorPagoRegistrar;
+import vista.administradorRegistrar;
+import vista.administradorSubPagoModificar;
+import vista.administradordetallesPagoModificar;
+import vista.logueo;
 
 /**
  *
@@ -44,90 +61,46 @@ public class logisticaCategoriasDAOTest {
      */
     @Test
     public void testCreate() {
-        System.out.println("create");
-        logisticaCategoriasDTO c = null;
-        logisticaCategoriasDAO instance = new logisticaCategoriasDAO();
-        boolean expResult = false;
-        boolean result = instance.create(c);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+        boolean result=false;
+        boolean expResult=true;
+        logisticaCategoriasDAO lcategorias= new logisticaCategoriasDAO();
+        logisticaRegistrarProd lrprod= new logisticaRegistrarProd();
+        logisticaCategoriasProd lcproducto=new logisticaCategoriasProd();
+         //Setear valores
+         lcproducto.textcodigo.setText("1234");
+         lcproducto.textNombre.setText("caramelos");
+         lcproducto.textAreaDescripcion.setText("");     
+        if (lcproducto.textcodigo.getText().isEmpty() || lcproducto.textNombre.getText().isEmpty() || 
+                lcproducto.textAreaDescripcion.getText().isEmpty() ) {
+                System.out.println("Existe por lo menos algun campo vacío");
+                assertEquals(expResult, result);
+            } else {  
+                int caso = 0;
+                if (lcproducto.textcodigo.getText().length() != 4 && lrprod.textcodigo.getText().length() < 4) {
+                    caso = 1;
+                }
+                if (lcproducto.textNombre.getText().length() <= 2) {
+                    caso = 2;
+                }
+                switch (caso) {
+                    case 0:
+                        result=lcategorias.create(new logisticaCategoriasDTO(lcproducto.textcodigo.getText(), 
+                                lcproducto.textNombre.getText(), lcproducto.textAreaDescripcion.getText()));
+                        assertEquals(expResult, result);
+                        System.out.println("Categoría creada correctamente.");
 
-    /**
-     * Test of delete method, of class logisticaCategoriasDAO.
-     */
-    @Test
-    public void testDelete() {
-        System.out.println("delete");
-        Object key = null;
-        logisticaCategoriasDAO instance = new logisticaCategoriasDAO();
-        boolean expResult = false;
-        boolean result = instance.delete(key);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+                        break;
+                    case 1:
+                        System.out.println("El codigo debe ser de 4 digitos");
+                        assertEquals(expResult, result);
+                        break;
+                    case 2:
+                        System.out.println("El nombre debe tener mas de 2 caracteres.");
+                        assertEquals(expResult, result);
+                        break;
+                }
+            }
+     
     }
-
-    /**
-     * Test of update method, of class logisticaCategoriasDAO.
-     */
-    @Test
-    public void testUpdate() {
-        System.out.println("update");
-        logisticaCategoriasDTO c = null;
-        Object a = null;
-        logisticaCategoriasDAO instance = new logisticaCategoriasDAO();
-        boolean expResult = false;
-        boolean result = instance.update(c, a);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of read method, of class logisticaCategoriasDAO.
-     */
-    @Test
-    public void testRead_Object() {
-        System.out.println("read");
-        Object key = null;
-        logisticaCategoriasDAO instance = new logisticaCategoriasDAO();
-        logisticaCategoriasDTO expResult = null;
-        logisticaCategoriasDTO result = instance.read(key);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of read method, of class logisticaCategoriasDAO.
-     */
-    @Test
-    public void testRead_Object_Object() {
-        System.out.println("read");
-        Object key = null;
-        Object key2 = null;
-        logisticaCategoriasDAO instance = new logisticaCategoriasDAO();
-        logisticaCategoriasDTO expResult = null;
-        logisticaCategoriasDTO result = instance.read(key, key2);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of readAll method, of class logisticaCategoriasDAO.
-     */
-    @Test
-    public void testReadAll() {
-        System.out.println("readAll");
-        logisticaCategoriasDAO instance = new logisticaCategoriasDAO();
-        List<logisticaCategoriasDTO> expResult = null;
-        List<logisticaCategoriasDTO> result = instance.readAll();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    
+ 
 }
