@@ -50,15 +50,15 @@ public class logisticaModificarProvTest {
         logisticaModificarProv lmp = new logisticaModificarProv();
         
              int caso = 0;
-            //cargar el formulario 
-            lmp.textRazonSocial.setText("TREPKA SUMMIT");
-            lmp.textRepresentante.setText("ALFREDO NOVILLO");
+            //cargar el formulario CASOPRUEBA20
+            lmp.textRazonSocial.setText("BAJF SPORT");
+            lmp.textRepresentante.setText("JOSE VICO");
             lmp.textTelefono.setText("929875234");
-            lmp.textDistrito.setText("Punta Hermosa");
-            lmp.textRUC.setText("20603654766");
-            lmp.comboBoxEstadoCivil.setSelectedItem("Inactivo");
-            lmp.textEmail.setText("ana7107@wpdork.com");
-            lmp.textDireccion.setText("JIRON UNIDAD 7937 INTERIOR A - URB PRO ETAPA 1");
+            lmp.textDistrito.setText("me");
+            lmp.textRUC.setText("20518036123");
+            lmp.comboBoxEstadoCivil.setSelectedItem("Activo");
+            lmp.textEmail.setText("fikimichal@omdiaco.com");
+            lmp.textDireccion.setText("JR. SAN GERONIMO NRO. 284 URB. POP. SAN JUAN BAUTISTA");
             lmp.textAreaDescripcion.setText("Representante legal");
             
             if (lmp.textRazonSocial.getText().isEmpty() || lmp.textRepresentante.getText().isEmpty() || 
