@@ -51,14 +51,14 @@ public class logisticaModificarProvTest {
         
              int caso = 0;
             //cargar el formulario 
-            lmp.textRazonSocial.setText("BAILEY SPA");
-            lmp.textRepresentante.setText("");
-            lmp.textTelefono.setText("987654321");
-            lmp.textDistrito.setText("El Agustino");
-            lmp.textRUC.setText("20131200057");
-            lmp.comboBoxEstadoCivil.setSelectedItem("Activo");
-            lmp.textEmail.setText("exseroff@saxophonexltd.com");
-            lmp.textDireccion.setText("CAL. MARTIN ALONSO DE MEZA NRO. 191 URB. LA MAR ");
+            lmp.textRazonSocial.setText("TREPKA SUMMIT");
+            lmp.textRepresentante.setText("ALFREDO NOVILLO");
+            lmp.textTelefono.setText("929875234");
+            lmp.textDistrito.setText("Punta Hermosa");
+            lmp.textRUC.setText("20603654766");
+            lmp.comboBoxEstadoCivil.setSelectedItem("Inactivo");
+            lmp.textEmail.setText("ana7107@wpdork.com");
+            lmp.textDireccion.setText("JIRON UNIDAD 7937 INTERIOR A - URB PRO ETAPA 1");
             lmp.textAreaDescripcion.setText("Representante legal");
             
             if (lmp.textRazonSocial.getText().isEmpty() || lmp.textRepresentante.getText().isEmpty() || 
