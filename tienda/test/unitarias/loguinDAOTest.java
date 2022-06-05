@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modelo.dao;
+package unitarias;
 
 import controlador.NewClass;
 import java.util.List;
@@ -12,6 +12,7 @@ import static javax.swing.JOptionPane.ERROR_MESSAGE;
 import static javax.swing.JOptionPane.WARNING_MESSAGE;
 import javax.swing.UIManager;
 import javax.swing.plaf.ColorUIResource;
+import modelo.dao.loguinDAO;
 import modelo.dto.loginDTO;
 import org.junit.After;
 import org.junit.AfterClass;

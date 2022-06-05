@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modelo.dao;
+package unitarias;
 
 import java.util.List;
 import javax.swing.JOptionPane;
+import modelo.dao.logisticaCategoriasDAO;
 import modelo.dto.logisticaCategoriasDTO;
 import org.junit.After;
 import org.junit.AfterClass;

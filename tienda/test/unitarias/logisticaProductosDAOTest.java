@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modelo.dao;
+package unitarias;
 
 import controlador.NewClass;
 import java.text.ParseException;
@@ -13,6 +13,13 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import modelo.dao.CajeroVentasDAO;
+import modelo.dao.administradorDAO;
+import modelo.dao.administradorPagoDAO;
+import modelo.dao.logisticaCategoriasDAO;
+import modelo.dao.logisticaProductosDAO;
+import modelo.dao.logisticaProveedorDAO;
+import modelo.dao.loguinDAO;
 import modelo.dto.logisticaProductosDTO;
 import org.junit.After;
 import org.junit.AfterClass;

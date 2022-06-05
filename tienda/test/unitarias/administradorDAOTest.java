@@ -3,12 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modelo.dao;
+package unitarias;
 
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
+import modelo.dao.CajeroVentasDAO;
+import modelo.dao.administradorDAO;
+import modelo.dao.administradorPagoDAO;
+import modelo.dao.logisticaCategoriasDAO;
+import modelo.dao.logisticaProductosDAO;
+import modelo.dao.logisticaProveedorDAO;
+import modelo.dao.loguinDAO;
 import modelo.dto.administradorDTO;
 import org.junit.After;
 import org.junit.AfterClass;

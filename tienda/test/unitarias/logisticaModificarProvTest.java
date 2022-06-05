@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vista.LogisticaVistas;
+package unitarias;
 
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
+import modelo.dao.logisticaModificarProvDAO;
 import modelo.dao.logisticaModificarProvDAO;
 import modelo.dto.logisticaModificarProvDTO;
 import org.junit.After;
@@ -17,6 +18,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import vista.LogisticaVistas.logisticaModificarProv;
 import vista.LogisticaVistas.logisticaModificarProv;
 
 /**

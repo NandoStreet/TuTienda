@@ -1,8 +1,9 @@
-package vista.LogisticaVistas;
+package unitarias;
 
 import java.util.Date;
 import javax.swing.JOptionPane;
 import junit.framework.TestCase;
+import modelo.dao.logisticaProductosDAO;
 import modelo.dao.logisticaProductosDAO;
 import modelo.dto.logisticaProductosDTO;
 import org.junit.AfterClass;
@@ -10,6 +11,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import vista.LogisticaVistas.logisticaRegistrarProd;
 
 public class logisticaRegistrarProdTest extends TestCase{
     
