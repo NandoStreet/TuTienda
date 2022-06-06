@@ -23,7 +23,6 @@ import modelo.dao.logisticaCategoriasDAO;
 import modelo.dao.logisticaProductosDAO;
 import modelo.dao.logisticaProveedorDAO;
 import modelo.dao.loguinDAO;
-import static jdk.nashorn.tools.ShellFunctions.input;
 import modelo.dto.administradorPagoDTO;
 import org.junit.After;
 import org.junit.AfterClass;
