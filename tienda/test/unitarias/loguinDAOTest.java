@@ -73,8 +73,8 @@ public class loguinDAOTest {
         loginDTO l = null;
         loginDTO expResult = null;
         //variables a buscar
-        lg.user.setText("maisestor4587@gmail.com");
-        lg.password.setText("sd684");
+        lg.user.setText("david@gmail.com");
+        lg.password.setText("qwerty");
         //Variable a predecir
         int keyPrimaryPred=2;
         String correoPred="david@gmail.com";
